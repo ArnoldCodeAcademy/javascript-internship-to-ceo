@@ -1,0 +1,398 @@
+@import url(fontawesome-all.min.css);
+@import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
+
+body{
+    background:black;
+}
+/* Basic */
+
+@-ms-viewport {
+    width: device-width;
+}
+
+body {
+    -ms-overflow-style: scrollbar;
+}
+
+@media screen and (max-width: 480px) {
+
+    html, body {
+        min-width: 320px;
+    }
+
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: #1e252d;
+}
+
+body.is-preload *, body.is-preload *:before, body.is-preload *:after {
+    -moz-animation: none !important;
+    -webkit-animation: none !important;
+    -ms-animation: none !important;
+    animation: none !important;
+    -moz-transition: none !important;
+    -webkit-transition: none !important;
+    -ms-transition: none !important;
+    transition: none !important;
+}
+
+/* Type */
+
+html {
+    font-size: 16pt;
+}
+
+@media screen and (max-width: 1680px) {
+
+    html {
+        font-size: 12pt;
+    }
+
+}
+
+@media screen and (max-width: 1280px) {
+
+    html {
+        font-size: 11pt;
+    }
+
+}
+
+@media screen and (max-width: 360px) {
+
+    html {
+        font-size: 10pt;
+    }
+
+}
+
+body {
+    color: #212931;
+}
+
+body, input, select, textarea {
+    font-family: "Merriweather", Georgia, serif;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 2.375;
+}
+
+a {
+    -moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    -ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-bottom: dotted 1px;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom-color: transparent;
+}
+
+strong, b {
+    font-weight: 600;
+}
+
+em, i {
+    font-style: italic;
+}
+
+p {
+    text-align: justify;
+    margin: 0 0 2rem 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-weight: 900;
+    line-height: 1.5;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    border-bottom: 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin: 0 0 2rem 0;
+}
+
+h2 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+    margin: 0 0 1.5rem 0;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin: 0 0 1.5rem 0;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+h5 {
+    font-size: 0.9rem;
+}
+
+h6 {
+    font-size: 0.8rem;
+}
+
+sub {
+    font-size: 0.8rem;
+    position: relative;
+    top: 0.5rem;
+}
+
+sup {
+    font-size: 0.8rem;
+    position: relative;
+    top: -0.5rem;
+}
+
+blockquote {
+    border-left: solid 4px;
+    font-style: italic;
+    margin: 0 0 2rem 0;
+    padding: 0.5rem 0 0.5rem 2rem;
+}
+
+code {
+    border: solid 2px;
+    font-family: "Courier New", monospace;
+    font-size: 0.9rem;
+    margin: 0 0.25rem;
+    padding: 0.25rem 0.65rem;
+}
+
+pre {
+    -webkit-overflow-scrolling: touch;
+    font-family: "Courier New", monospace;
+    font-size: 0.9rem;
+    margin: 0 0 2rem 0;
+}
+
+pre code {
+    display: block;
+    line-height: 1.75;
+    padding: 1rem 1.5rem;
+    overflow-x: auto;
+}
+
+hr {
+    border: 0;
+    border-bottom: solid 2px;
+}
+
+hr.major {
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+input, select, textarea {
+    color: #212931;
+}
+
+a {
+    color: #212931;
+    border-bottom-color: rgba(33, 41, 49, 0.5);
+}
+
+a:hover {
+    border-bottom-color: transparent;
+    color: mediumvioletred !important;
+}
+
+strong, b {
+    color: #212931;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #212931;
+}
+
+blockquote {
+    border-left-color: #eeeeee;
+}
+
+code {
+    background: rgba(220, 220, 220, 0.25);
+    border-color: #eeeeee;
+}
+
+hr {
+    border-bottom-color: #eeeeee;
+}
+
+
+/* Wrapper */
+
+#wrapper {
+    -moz-transition: opacity 0.5s ease;
+    -webkit-transition: opacity 0.5s ease;
+    -ms-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+
+
+body.is-preload #wrapper.fade-in:before {
+    opacity: 1;
+}
+
+@media screen and (orientation: portrait) {
+
+    #wrapper > .bg {
+        background-size: auto,								auto,														auto 175%;
+    }
+
+}
+/* Intro */
+
+#intro {
+    color: #ffffff;
+    padding: 1rem 4rem 6rem 4rem ;
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -moz-justify-content: -moz-flex-start;
+    -webkit-justify-content: -webkit-flex-start;
+    -ms-justify-content: -ms-flex-start;
+    justify-content: flex-start;
+    -moz-transition: opacity 1s ease, -moz-transform 1s ease;
+    -webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
+    -ms-transition: opacity 1s ease, -ms-transform 1s ease;
+    transition: opacity 1s ease, transform 1s ease;
+    position: relative;
+    cursor: default;
+    text-align: center;
+    z-index: 1;
+}
+
+#intro input, #intro select, #intro textarea {
+    color: #ffffff;
+}
+
+#intro a {
+    color: #ffffff;
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+#intro a:hover {
+    border-bottom-color: transparent;
+    color: mediumvioletred !important;
+}
+
+#intro strong, #intro b {
+    color: #ffffff;
+}
+
+#intro h1, #intro h2, #intro h3, #intro h4, #intro h5, #intro h6 {
+    color: #ffffff;
+}
+
+#intro blockquote {
+    border-left-color: #ffffff;
+}
+
+#intro code {
+    background: rgba(255, 255, 255, 0.075);
+    border-color: #ffffff;
+}
+
+#intro hr {
+    border-bottom-color: #ffffff;
+}
+
+
+
+#intro h1 {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+#intro p {
+    font-size: 1.25rem;
+    font-style: italic;
+    margin-top: -0.25rem;
+    text-align: center;
+}
+
+
+
+#intro + #header .logo {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#intro.hidden {
+    pointer-events: none;
+    -moz-transform: translateY(2rem);
+    -webkit-transform: translateY(2rem);
+    -ms-transform: translateY(2rem);
+    transform: translateY(2rem);
+    -moz-transition: opacity 0.5s ease, -moz-transform 0.5s ease, visibility 0.5s;
+    -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease, visibility 0.5s;
+    -ms-transition: opacity 0.5s ease, -ms-transform 0.5s ease, visibility 0.5s;
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#intro.hidden + #header .logo {
+    -moz-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+body.is-preload #intro {
+    opacity: 0;
+}
+
+body.is-preload #intro:not(.hidden) + #header + #nav {
+    opacity: 0;
+}
+
