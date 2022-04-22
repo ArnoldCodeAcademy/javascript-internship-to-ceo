@@ -1,50 +1,34 @@
-// Solution #01
-for (let i = 1; i <= 99; i += 2) {
-    console.log(i);
+// Solution
+for(let i = 1; i <= 10; i++)
+{
+    let row = "6 * " + i + " = " + 6 * i;
+    console.log(row);
 }
 
 // Get into the Community https://www.facebook.com/groups/webdevconquerors me on Facebook and don’t miss the latest Challenge!
 
-/* EXPLANATION - Way #1
+/* EXPLANATION
 
-    To get the expected result, you start the running index i with the value of 1 and have in mind that in between every odd number comes an even number.
+The row of six goes from 6 to 60. Therefore you will need a for-loop that iterates 10 times.
 
-    Therefore, you increase your running index i by 2 every iteration with i += 2.
+You are a bit familiar with loops now (since you made challenge #01 and #02) and you know the rules of a for-loop.
 
-    You set the condition to <=99 because you only want to print out odd numbers below 99, that means the odd numbers between 1 to 97.
+The variable row is your printed statement every iteration.
 
-    Inside the loop you got your statement of console.log(i); which prints out, whatever is inside the brace, to the console window.
+To get the multiplication table of six, you just multiply the base number of 6 with the next value of the iteration process.
 
-    In your case the wanted odd number.
- */
+The row of six starts with 6*1, then 6*2, and then 6*3, and so on…
 
-// Get into the Community https://www.facebook.com/groups/webdevconquerors me on Facebook and don’t miss the latest Challenge!
+To print a decent table, you have to display the entire entry as a term. So 6 * 1 = 6 as code is "6 * " + i + " = " 6 * i .
 
-// Solution #02
-for (let i = 1; i <= 99; i += 2) {
-    console.log(i);
-}
+You need to have the quotation marks here, because you want a string as result.
 
-// Get into the Community https://www.facebook.com/groups/webdevconquerors me on Facebook and don’t miss the latest Challenge!
+If you don’t use the quotation marks the “compiler” would then complain about the equal sign. Leaving out also the equal sign and the + sign in front of
+it would result in the following line: let row = 6 *  + i + 6 * i;
 
-/* EXPLANATION - Way #2
+Running the program will print a different table, try it out.
 
-    When starting from 97, which is an odd number respectively, and iterate backwards, you almost got it.
+You would then have created a completely different term and therefore also a completely different output.
 
-    To get every odd number, remember yourself that in between every odd number comes an even number.
-
-    Jumping over them by decreasing the running index i to get every odd number.
-
-    You have to change the conditions for the for-loop.
-
-    First i starts at 97, then your condition has to be i > 0. Not i >= 0 , otherwise you would print out the even number 0 (Yes 0 is an even number).
-
-    The running index gets decreased by 2 after every iteration with i -= 2.
-
-    Inside the loop you got your statement of console.log(i); which prints out, whatever is inside the brace, to the console window.
-
-    In your case the wanted odd number.
-
- */
-
-// Get into the Community https://www.facebook.com/groups/webdevconquerors me on Facebook and don’t miss the latest Challenge!
+Be sure, that you know what you want to accomplish in order to use the right data types and statements.
+*/
