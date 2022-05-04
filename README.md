@@ -31,7 +31,7 @@ To get [help](https://www.facebook.com/groups/webdevconquerors) or see the solut
 1. [Print numbers from 1 to 10 with a for-loop.](#challenge01)
 2. [Print the odd numbers below than 99 with a for-loop.](#challenge02)
 3. [Print a multiplication table with 6 with for-loop.](#challenge03)
-4. ??? TBA
+4. [Print all the multiplication tables with numbers from 1 to 10 with a for-loop.](#challenge04)
 5. ??? TBA
 6. ??? TBA
 7. ??? TBA
