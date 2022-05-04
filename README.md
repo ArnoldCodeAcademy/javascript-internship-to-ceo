@@ -177,7 +177,7 @@ Get into the Community https://www.facebook.com/groups/webdevconquerors me on Fa
 </details>
 
 # Challenge03
-## Print a multiplication table with 6 with for-loop .
+## Print a multiplication table with 6 with for-loop.
 
 <details>
     <summary>Spoiler "Solution-Explanation For Challenge 03"</summary>
@@ -208,4 +208,68 @@ You would then have created a completely different term and therefore also a com
 
 Be sure, that you know what you want to accomplish in order to use the right data types and statements.
 
+</details>
+
+# Challenge04
+## Print all the multiplication tables with numbers from 1 to 10 with a for-loop.
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 04"</summary>
+
+  ```javascript
+for(let i = 1; i <= 10; i++)
+{
+    printTable(i);
+    console.log("");
+}
+
+function printTable(n)
+{
+    for(let i = 1; i <= 10; i++)
+    {
+        let row = n + " * " + i + " = " + n * i;
+        console.log(row);
+    }
+}
+```
+A function is the best choice to accomplish this task.
+
+If you aren’t familiar with functions. <b>No reason to worry.</b>
+
+But first, if you accomplished this task with 10 different for loops - Your solution isn’t wrong.
+
+It can be optimized to enter the next level of your skills: <b>10 for-loops aren’t a good thing.</b> 
+
+Besides avoiding for loops for this solution [here are 10 principles that will level up your expertise](https://medium.com/next-level-source-code/do-you-follow-these-10-principles-for-good-programmers-1445727af447).
+
+###Coming back to our solution - Code repetition is bad practice. 
+
+<b>A rule of thumb:</b> If two parts of source code look the same in 50% of their lines, you've got doubled code.
+
+Avoiding code repetition means having reusable tools.
+
+A function suits that perfectly. A function provides input parameters. 
+These are the settings for the function to operate with. 
+
+Inside the body of the function, you have the reusable code pieces that operate slightly differently, 
+depending on what you’ve put into the function as a parameter.
+
+###Now really back to the solution: 
+Having a `for`-loop to with a function call to `printTable()` inside will execute the function 
+10 times since we configured the head of the `for`-loop to do it 10 times.
+
+The function `printTable()` has an input parameter of `n`. The for-loop passes the variable `i` every iteration, 
+respectively, the values of `1` to `10`.
+
+You can now assume what the function must do. Right, the body is almost identical to the previous challenge, 
+where you just print out one multiplication table. You changed the hard-coded `6` to an `n` and 
+linked this variable to the input parameter of the function. That results in a function that 
+prints out the multiplication table of the number we pass as a parameter.
+
+Because the function does it for any number and once per call, we can just call it 
+ten times with corresponding parameters and we got our solution right away!
+
+![Part of the Solution’s Console Printout](res/png/img.png)
+
+The line of `console.log(""")`; just prints out an empty line as a divider for the multiplication tables.
 </details>
