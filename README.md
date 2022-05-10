@@ -32,7 +32,7 @@ To get [help](https://www.facebook.com/groups/webdevconquerors) or see the solut
 2. [Print the odd numbers below than 99 with a for-loop.](#challenge02)
 3. [Print a multiplication table with 6 with for-loop.](#challenge03)
 4. [Print all the multiplication tables with numbers from 1 to 10 with a for-loop.](#challenge04)
-5. ??? TBA
+5. [Calculate the sum of numbers from 1 to 24 with a for-loop.](#challenge05)
 6. ??? TBA
 7. ??? TBA
 8. ??? TBA
@@ -272,4 +272,40 @@ ten times with corresponding parameters and we got our solution right away!
 ![Part of the Solution’s Console Printout](res/png/img.png)
 
 The line of `console.log(""")`; just prints out an empty line as a divider for the multiplication tables.
+</details>
+
+# Challenge05
+## Calculate the sum of numbers from 1 to 24 with a for-loop .
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 05"</summary>
+
+  ```javascript
+let sum = 0;
+
+
+for(let i = 1; i <= 24; i++)
+{
+    sum += i;
+}
+
+console.log(sum);
+```
+For the diversity, another challenge, but a simpler one! 
+
+But that doesn’t mean you can switch off your brain 😉
+
+You simply can’t put the accumulated value of sum inside the loop and print it to the console.
+
+It would then end up with 24 print-out- statements.
+
+You have to declare and initialize the variable of `sum` (and please use `let` here! Why?! [In-Depth Explanation - You will remember until your retirement why & where to use VAR, LET and CONST](https://javascript.plainenglish.io/javascript-const-vs-var-vs-let-a-comprehensive-guide-for-all-time-d6d836c8bbd7))
+outside of the loop in order to print it out afterward.
+
+If you decide to declare `sum` inside the loop, it would be initialized every iteration. But it must hold the actual accumulated value.
+
+Furthermore, if you declared it inside the loop it would be out of our reach when we want to access it outside the loop. This is called a scope, declaring a variable inside a class/function/loop, makes it to a local variable which can’t be accessed from the outside (The article below addresses this in detail).
+
+And this is the console output: ![Console print-out of the Solution.](res/png/solution05.png)
+
 </details>

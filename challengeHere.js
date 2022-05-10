@@ -1,17 +1,11 @@
-// Solution #04
-for(let i = 1; i <= 10; i++)
+// Solution #05
+let sum = 0;
+
+
+for(let i = 1; i <= 24; i++)
 {
-    printTable(i);
-    console.log("");
+    sum += i;
 }
 
-function printTable(n)
-{
-    for(let i = 1; i <= 10; i++)
-    {
-        let row = n + " * " + i + " = " + n * i;
-        console.log(row);
-    }
-}
-
+console.log(sum);
 // EXPLANATION in README.MD
