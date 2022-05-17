@@ -1,11 +1,10 @@
-// Solution #05
-let sum = 0;
+// Solution #06
+let factorial = 1;
 
-
-for(let i = 1; i <= 24; i++)
+for(let i = 1; i <= 9; i++)
 {
-    sum += i;
+    factorial *= i;
 }
 
-console.log(sum);
+console.log(factorial);
 // EXPLANATION in README.MD

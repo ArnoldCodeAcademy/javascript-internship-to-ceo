@@ -33,7 +33,7 @@ To get [help](https://www.facebook.com/groups/webdevconquerors) or see the solut
 3. [Print a multiplication table with 6 with for-loop.](#challenge03)
 4. [Print all the multiplication tables with numbers from 1 to 10 with a for-loop.](#challenge04)
 5. [Calculate the sum of numbers from 1 to 24 with a for-loop.](#challenge05)
-6. ??? TBA
+6. [Calculate 9! a for-loop.](#challenge06)
 7. ??? TBA
 8. ??? TBA
 9. ??? TBA
@@ -308,4 +308,39 @@ Furthermore, if you declared it inside the loop it would be out of our reach whe
 
 And this is the console output: ![Console print-out of the Solution.](res/png/solution05.png)
 
+</details>
+
+# Challenge06
+## Calculate 9! a for-loop.
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 06"</summary>
+
+```javascript
+let factorial = 1;
+
+for(let i = 1; i <= 9; i++)
+{
+    factorial *= i;
+}
+
+console.log(factorial);
+```
+To create the factorial of 9 you do almost the same steps as in challenge #05.
+
+The difference lies in the loop body.
+
+Last time you used this statement (`sum = sum+=i`) to gather the accumulated sum.
+
+Knowing a bit about mathematics means you are aware of the fact that a factorial 
+is nothing more than a chained multiplication.
+
+So 9! is nothing more than `9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1 = 9!`. 
+
+Together with the knowledge about `for`-loops you can draw your advantage out of this by using the running index
+of `i` to create the factorial.
+
+To get your desired result, you iterate exact 9 times!
+
+![console-printout](res/png/solution06.png)
 </details>
