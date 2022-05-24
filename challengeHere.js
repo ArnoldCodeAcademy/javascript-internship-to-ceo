@@ -1,10 +1,10 @@
-// Solution #06
-let factorial = 1;
+// Solution #07
+let sum = 0;
 
-for(let i = 1; i <= 9; i++)
+for(let i = 11; i <= 30; i += 2)
 {
-    factorial *= i;
+    sum += i;
 }
 
-console.log(factorial);
+console.log(sum);
 // EXPLANATION in README.MD

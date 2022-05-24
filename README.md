@@ -34,7 +34,7 @@ To get [help](https://www.facebook.com/groups/webdevconquerors) or see the solut
 4. [Print all the multiplication tables with numbers from 1 to 10 with a for-loop.](#challenge04)
 5. [Calculate the sum of numbers from 1 to 24 with a for-loop.](#challenge05)
 6. [Calculate 9! a for-loop.](#challenge06)
-7. ??? TBA
+7. [Calculate the sum of odd numbers greater than 9 and less than 30 a for-loop.](#challenge07)
 8. ??? TBA
 9. ??? TBA
 10. ??? TBA
@@ -275,7 +275,7 @@ The line of `console.log(""")`; just prints out an empty line as a divider for t
 </details>
 
 # Challenge05
-## Calculate the sum of numbers from 1 to 24 with a for-loop .
+## Calculate the sum of numbers from 1 to 24 with a for-loop.
 
 <details>
     <summary>Spoiler "Solution-Explanation For Challenge 05"</summary>
@@ -343,4 +343,39 @@ of `i` to create the factorial.
 To get your desired result, you iterate exact 9 times!
 
 ![console-printout](res/png/solution06.png)
+</details>
+
+# Challenge07
+## Calculate the sum of odd numbers greater than 9 and less than 30 a for-loop.
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 07"</summary>
+
+```javascript
+let sum = 0;
+
+for(let i = 11; i <= 30; i += 2)
+{
+    sum += i;
+}
+
+console.log(sum);
+```
+To accomplish your task, you should remember [Challenge #02](#challenge02). 
+Because back then, the task was to print out every odd number below 99. 
+That means you created a `for` loop with an increment of `2`. 
+After each iteration to get only odd numbers when starting with an odd number. 
+In your case with `11`.
+
+Remembering [Challenge #05](#challenge05)? This one makes you also happy again. 
+There you had the task to create the `sum` of the numbers from `1` to `24`.
+The same concept applies to this task. 
+You add up every odd number (`n`) `n > 9` and `n < 30` to a `sum`.
+
+After the loop has finished, you print it to the console:
+
+![console-printout](res/png/solution07.png)
+
+Accumulated value printed out to the console (Sum of all odd numbers >9 & <30)
+
 </details>
