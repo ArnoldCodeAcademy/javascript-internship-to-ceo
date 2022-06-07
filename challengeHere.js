@@ -1,10 +1,10 @@
-// Solution #07
-let sum = 0;
-
-for(let i = 11; i <= 30; i += 2)
+// Solution #08
+function convertCelsiusToFahrenheit(number)
 {
-    sum += i;
+    return number * 1.8 + 32;
 }
 
-console.log(sum);
+let degreeFahrenheit = convertCelsiusToFahrenheit(0);
+console.log(degreeFahrenheit);
+
 // EXPLANATION in README.MD

@@ -35,7 +35,7 @@ To get [help](https://www.facebook.com/groups/webdevconquerors) or see the solut
 5. [Calculate the sum of numbers from 1 to 24 with a for-loop.](#challenge05)
 6. [Calculate 9! a for-loop.](#challenge06)
 7. [Calculate the sum of odd numbers greater than 9 and less than 30 a for-loop.](#challenge07)
-8. ??? TBA
+8. [Create a function that will convert from Celsius to Fahrenheit. Convert 0 degree Celsius.](#challenge08)
 9. ??? TBA
 10. ??? TBA
 11. ??? TBA
@@ -377,5 +377,48 @@ After the loop has finished, you print it to the console:
 ![console-printout](res/png/solution07.png)
 
 Accumulated value printed out to the console (Sum of all odd numbers >9 & <30)
+
+</details>
+
+# Challenge08
+## Create a function that will convert from Celsius to Fahrenheit. Convert 0 degree Celsius.
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 08"</summary>
+
+```javascript
+function convertCelsiusToFahrenheit(number)
+{
+    return number * 1.8 + 32;
+}
+
+let degreeFahrenheit = convertCelsiusToFahrenheit(0);
+console.log(degreeFahrenheit);
+```
+### How to convert Celsius to Fahrenheit
+
+The temperature T in degrees Fahrenheit (°F) is equal to the temperature T in degrees Celsius (°C) times 9/5 plus 32:
+
+![Conversion from °Celsius to °Fahrenheit](res/png/solution8-1.jpg)
+
+or with decimals
+
+![Conversion from °Celsius to °Fahrenheit](res/png/solution8-2.jpg)
+
+### Example Conversion of 20 degrees Celsius to ?? degrees Fahrenheit:
+
+![Conversion of 20°C to ?? °F](res/png/solution8-3.jpg)
+
+### Accomplishing The Task
+
+To accomplish your task, you need to return a number calculated with `1.8` and add `32`.
+
+This is done with the parameter inside `convertCelsiusToFahrenheit()`.
+
+The last step is to return the converted number and printing it out.
+
+The console will print out `32` when you put in the number `0`.
+
+![Solution In Console](res/png/solution8-4.png)
 
 </details>
