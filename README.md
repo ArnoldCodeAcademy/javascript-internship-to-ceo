@@ -22,7 +22,7 @@ Just download the template, write your code into the challengeHere.js open the i
 # Help & Detailed Solutions
 Each commit has the solution inside.
 
-To get [contact me](mailto:info@arnoldcode.com) via e-mail.
+To get help [contact me](mailto:info@arnoldcode.com) via e-mail.
 
 
 # Challenge Overview
