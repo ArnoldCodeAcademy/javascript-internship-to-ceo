@@ -22,8 +22,7 @@ Just download the template, write your code into the challengeHere.js open the i
 # Help & Detailed Solutions
 Each commit has the solution inside.
 
-To get [help](https://www.facebook.com/groups/webdevconquerors) or see the solution in detail and discussed [join the group](https://www.facebook.com/groups/webdevconquerors).
-![Web Dev Conquerers (3)](https://user-images.githubusercontent.com/91799402/164075311-c95d3c26-2c35-41e4-9675-6532e80b096b.png)
+To get [contact me](mailto:info@arnoldcode.com) via e-mail.
 
 
 # Challenge Overview
