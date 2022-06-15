@@ -35,52 +35,52 @@ To get help [contact me](mailto:info@arnoldcode.com) via e-mail.
 6. [Calculate 9! a for-loop.](#challenge06)
 7. [Calculate the sum of odd numbers greater than 9 and less than 30 a for-loop.](#challenge07)
 8. [Create a function that will convert from Celsius to Fahrenheit. Convert 0 degree Celsius.](#challenge08)
-9. ??? TBA
-10. ??? TBA
-11. ??? TBA
-12. ??? TBA
-13. ??? TBA
-14. ??? TBA
-15. ??? TBA
-16. ??? TBA
-17. ??? TBA
-18. ??? TBA
-19. ??? TBA
-20. ??? TBA
+9. [Create a function that will convert from Fahrenheit to Celsius. Convert -38 degree Fahrenheit.](#challenge09)
+10. ??? TBA 22.06.2022
+11. ??? TBA 29.06.2022
+12. ??? TBA 06.07.2022
+13. ??? TBA 13.07.2022
+14. ??? TBA 21.07.2022
+15. ??? TBA 27.07.2022
+16. ??? TBA 3.08.2022
+17. ??? TBA 10.08.2022
+18. ??? TBA 17.08.2022
+19. ??? TBA 24.08.2022
+20. ??? TBA 31.08.2022
 21. ??? TBA
 22. ??? TBA
 23. ??? TBA
 24. ??? TBA
-25. ??? TBA
-26. ??? TBA
-27. ??? TBA
-28. ??? TBA
-29. ??? TBA
-30. ??? TBA
-31. ??? TBA
-32. ??? TBA
-33. ??? TBA
-34. ??? TBA
-35. ??? TBA
-36. ??? TBA
-37. ??? TBA
-38. ??? TBA
-39. ??? TBA
-40. ??? TBA
-41. ??? TBA
-42. ??? TBA
-43. ??? TBA
-44. ??? TBA
-45. ??? TBA
-46. ??? TBA
-47. ??? TBA
-48. ??? TBA
-49. ??? TBA
-50. ??? TBA
-51. ??? TBA
-52. ??? TBA
-53. ??? TBA
-54. ??? TBA
+25. ??? TBA 
+26. ??? TBA 
+27. ??? TBA 
+28. ??? TBA 
+29. ??? TBA 
+30. ??? TBA 
+31. ??? TBA 
+32. ??? TBA 
+33. ??? TBA 
+34. ??? TBA 
+35. ??? TBA 
+36. ??? TBA 
+37. ??? TBA 
+38. ??? TBA 
+39. ??? TBA 
+40. ??? TBA 
+41. ??? TBA 
+42. ??? TBA 
+43. ??? TBA 
+44. ??? TBA 
+45. ??? TBA 
+46. ??? TBA 
+47. ??? TBA 
+48. ??? TBA 
+49. ??? TBA 
+50. ??? TBA 
+51. ??? TBA 
+52. ??? TBA 
+53. ??? TBA 
+54. ??? TBA 
 
 # Challenge01 
 ## Print numbers from 1 to 10 with a for-loop.
@@ -402,7 +402,7 @@ The temperature T in degrees Fahrenheit (°F) is equal to the temperature T in d
 
 or with decimals
 
-![Conversion from °Celsius to °Fahrenheit](res/png/solution8-2.jpg)
+![Conversion from °Celsius to °Fahrenheit Example](res/png/solution8-2.jpg)
 
 ### Example Conversion of 20 degrees Celsius to ?? degrees Fahrenheit:
 
@@ -419,5 +419,49 @@ The last step is to return the converted number and printing it out.
 The console will print out `32` when you put in the number `0`.
 
 ![Solution In Console](res/png/solution8-4.png)
+
+</details>
+
+# Challenge09
+## Create a function that will convert from Fahrenheit to Celsius. Convert -38 degree Fahrenheit.
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 09"</summary>
+
+```javascript
+function convertCelsiusToFahrenheit(number)
+{
+    return number * 1.8 + 32;
+}
+
+let degreeFahrenheit = convertCelsiusToFahrenheit(0);
+console.log(degreeFahrenheit);
+```
+### How to convert Celsius to Fahrenheit
+
+The temperature T in degrees Fahrenheit (°F) is equal to the temperature T in degrees Celsius (°C) times 9/5 plus 32:
+
+![Conversion from °Celsius to °Fahrenheit](res/png/solution9-1.jpg)
+
+or 
+
+![Conversion from °Celsius to °Fahrenheit Example](res/png/solution9-2.jpg)
+
+### Example Conversion of 20 degrees Celsius to ?? degrees Fahrenheit:
+
+![Conversion of 20°C to ?? °F](res/png/solution9-3.jpg)
+
+### Accomplishing The Task
+
+To accomplish your task, you need to reverse the conversion of degrees to Fahrenheit. 
+This means we first subtract 32 and then divide by 1.8.
+
+This is done in the `convertFahrenheitToCelsius`-function.
+
+Just call the function, pass the number as argument and print the returned value out. <b>And you are done!</b>
+
+The console prints out `-38.888888888888886` when we put in the number -38.
+
+Because this is the point where Celsius and Fahrenheit have the same amount.
 
 </details>
