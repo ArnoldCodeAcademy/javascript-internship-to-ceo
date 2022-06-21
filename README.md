@@ -36,7 +36,7 @@ To get help [contact me](mailto:info@arnoldcode.com) via e-mail.
 7. [Calculate the sum of odd numbers greater than 9 and less than 30 a for-loop.](#challenge07)
 8. [Create a function that will convert from Celsius to Fahrenheit. Convert 0 degree Celsius.](#challenge08)
 9. [Create a function that will convert from Fahrenheit to Celsius. Convert -38 degree Fahrenheit.](#challenge09)
-10. ??? TBA 22.06.2022
+10. [ Calculate the sum of numbers in an array of numbers. The array: [1, 9, -19, 3, 5, 3, 7, 14, 91].](#challenge10)
 11. ??? TBA 29.06.2022
 12. ??? TBA 06.07.2022
 13. ??? TBA 13.07.2022
@@ -463,5 +463,37 @@ Just call the function, pass the number as argument and print the returned value
 The console prints out `-38.888888888888886` when we put in the number -38.
 
 Because this is the point where Celsius and Fahrenheit have the same amount.
+
+</details>
+
+# Challenge10
+## Calculate the sum of numbers in an array of numbers. The array: [1, 9, -19, 3, 5, 3, 7, 14, 91].
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 10"</summary>
+
+```javascript
+function summarizeArray(array) {
+    let sum = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i];
+    }
+
+    return sum;
+}
+
+let array = [1, 9, -19, 3, 5, 3, 7, 14, 91]
+let sum = summarizeArray(array);
+console.log(sum);
+```
+
+To accomplish our task, you need to iterate over the array and build the sum out of each element.
+
+Since you aren’t so experienced right now, you should not use the `reduce()` method. 
+Instead, write basic operations like above using a `for` loop.
+
+After the loop has finished, you print the sum to the console:\
+![Console Print Out of sum](res/png/solution10.png)
 
 </details>
