@@ -36,8 +36,8 @@ To get help [contact me](mailto:info@arnoldcode.com) via e-mail.
 7. [Calculate the sum of odd numbers greater than 9 and less than 30 a for-loop.](#challenge07)
 8. [Create a function that will convert from Celsius to Fahrenheit. Convert 0 degree Celsius.](#challenge08)
 9. [Create a function that will convert from Fahrenheit to Celsius. Convert -38 degree Fahrenheit.](#challenge09)
-10. [ Calculate the sum of numbers in an array of numbers. The array: [1, 9, -19, 3, 5, 3, 7, 14, 91].](#challenge10)
-11. ??? TBA 29.06.2022
+10. [Calculate the sum of numbers in an array of numbers. The array: [1, 9, -19, 3, 5, 3, 7, 14, 91].](#challenge10)
+11. [Calculate the average of the numbers in an array of numbers. The array: [2, 5, 17, 81, 9].](#challenge11)
 12. ??? TBA 06.07.2022
 13. ??? TBA 13.07.2022
 14. ??? TBA 21.07.2022
@@ -495,5 +495,55 @@ Instead, write basic operations like above using a `for` loop.
 
 After the loop has finished, you print the sum to the console:\
 ![Console Print Out of sum](res/png/solution10.png)
+
+</details>
+
+# Challenge11
+## Calculate the average of the numbers in an array of numbers. The array: [2, 5, 17, 81, 9].
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 11"</summary>
+
+```javascript
+function averageArray(array) {
+    let length = array.length;
+    let sum = 0;
+
+    for (let i = 0; i < length; i++) {
+        sum += array[i];
+    }
+
+    return sum / length;
+}
+
+let array = [2, 5, 17, 81, 9];
+let average = averageArray(array);
+
+console.log("Average: ", average);
+```
+
+**How to calculate an average**\
+A calculated “central” value of a set of numbers.
+
+To calculate it: add up all the numbers, then divide by the total amount of numbers.
+
+Example: what is the average of 2, 7 and 9?\
+Add all numbers: 2 + 7 + 9 = 18
+Divide by numbers count (2, 7, 9 are 3 numbers) \
+18 ÷ 3 = 6 
+
+So the average is 6. (Also called the Arithmetic Mean.)
+
+**Accomplishing your Goal**
+
+To accomplish your task, you create a function called `averageArray()'\
+that accepts a parameter. This will be your array you hand to the function.
+
+You need to get the length of the array for a `for`-loop.\
+Creating a sum and then dividing by the length gets the average.
+
+Just return the number and print it to the console, and you are done!
+
+![Console Print Out of average](res/png/solution11.png)
 
 </details>

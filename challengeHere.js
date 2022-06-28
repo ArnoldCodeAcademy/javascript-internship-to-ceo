@@ -1,15 +1,17 @@
-// Solution #10
-function summarizeArray(array) {
+// Solution #11
+function averageArray(array) {
+    let length = array.length;
     let sum = 0;
 
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i < length; i++) {
         sum += array[i];
     }
 
-    return sum;
+    return sum / length;
 }
 
-let array = [1, 9, -19, 3, 5, 3, 7, 14, 91]
-let sum = summarizeArray(array);
-console.log(sum);
+let array = [2, 5, 17, 81, 9];
+let average = averageArray(array);
+
+console.log("Average: ", average);
 // EXPLANATION in README.MD
