@@ -1,17 +1,20 @@
-// Solution #11
-function averageArray(array) {
-    let length = array.length;
-    let sum = 0;
+// Solution #12
+function getPositives(array) {
+    let tempArray = [];
 
-    for (let i = 0; i < length; i++) {
-        sum += array[i];
+    for (let i = 0; i < array.length; i++) {
+        let element = array[i];
+
+        if (element >= 0) {
+            tempArray.push(element);
+        }
     }
 
-    return sum / length;
+    return tempArray;
 }
 
-let array = [2, 5, 17, 81, 9];
-let average = averageArray(array);
+let array = [-65, 11, -5, 1, -19, 45, 19, 0, 1];
+let positives = getPositives(array);
 
-console.log("Average: ", average);
+console.log(positives);
 // EXPLANATION in README.MD

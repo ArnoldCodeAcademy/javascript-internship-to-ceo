@@ -38,7 +38,7 @@ To get help [contact me](mailto:info@arnoldcode.com) via e-mail.
 9. [Create a function that will convert from Fahrenheit to Celsius. Convert -38 degree Fahrenheit.](#challenge09)
 10. [Calculate the sum of numbers in an array of numbers. The array: [1, 9, -19, 3, 5, 3, 7, 14, 91].](#challenge10)
 11. [Calculate the average of the numbers in an array of numbers. The array: [2, 5, 17, 81, 9].](#challenge11)
-12. ??? TBA 06.07.2022
+12. [Create a function that receives an array of numbers and returns an array containing only the positive numbers. The array: [-65, 11, -5, 1, -19, 45, 19, 0, 1] ](#challenge12)
 13. ??? TBA 13.07.2022
 14. ??? TBA 21.07.2022
 15. ??? TBA 27.07.2022
@@ -545,5 +545,52 @@ Creating a sum and then dividing by the length gets the average.
 Just return the number and print it to the console, and you are done!
 
 ![Console Print Out of average](res/png/solution11.png)
+
+</details>
+
+# Challenge12
+## Create a function that receives an array of numbers and returns an array containing only the positive numbers. The array: [-65, 11, -5, 1, -19, 45, 19, 0, 1].
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 12"</summary>
+
+```javascript
+function getPositives(array) {
+    let tempArray = [];
+
+    for (let i = 0; i < array.length; i++) {
+        let element = array[i];
+
+        if (element >= 0) {
+            tempArray.push(element);
+        }
+    }
+
+    return tempArray;
+}
+
+let array = [-65, 11, -5, 1, -19, 45, 19, 0, 1];
+let positives = getPositives(array);
+
+console.log(positives);
+```
+
+To accomplish your task, you need to create a function called that only returns positive numbers.\
+In this case I called it `getPositives()` and passed in the array.
+
+Inside the body, you need to create a new array (`tempArray`).\
+This one will keep only the positives numbers.
+
+The next step is to loop over the array you passed to the function `array`.
+Check for each element if it is positive by checking it against greater than equal 0 ( `>=0`).
+
+If `TRUE`, add it to the newly created `tempArray`.
+If `FALSE`, don't add it to `tempArray`. 
+
+Once, you are done iterating, checking and adding, just return the `tempArray` and print it to the console.\
+Done!
+
+
+![Console Print Out of All Positive Numbers](res/png/solution12.png)
 
 </details>
