@@ -1,20 +1,17 @@
 // Solution #12
-function getPositives(array) {
-    let tempArray = [];
+function findMax(array) {
+    let max = array[0];
 
     for (let i = 0; i < array.length; i++) {
-        let element = array[i];
-
-        if (element >= 0) {
-            tempArray.push(element);
+        if (array[i] > max) {
+            max = array[i];
         }
     }
 
-    return tempArray;
+    return max;
 }
 
-let array = [-65, 11, -5, 1, -19, 45, 19, 0, 1];
-let positives = getPositives(array);
-
-console.log(positives);
+let array = [-21, 113, -34, 1, -9, 5, 99, 1, 0];
+let max = findMax(array);
+console.log("Max: ", max);
 // EXPLANATION in README.MD

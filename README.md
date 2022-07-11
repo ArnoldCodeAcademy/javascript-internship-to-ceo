@@ -1,18 +1,22 @@
-# javascript-challenges-internship-to-ceo
+# JavaScript Challenges: Beginner to Master
 
 54 JavaScript Challenges for Beginners To Become A Master
-![#54 Kopie](https://user-images.githubusercontent.com/91799402/164074513-7fed1ca2-41b1-4143-bf8c-2ecd7818c1d0.png)
+
+<img src="https://user-images.githubusercontent.com/91799402/164074513-7fed1ca2-41b1-4143-bf8c-2ecd7818c1d0.png" alt="JavaScritp Challenge Banner" width="300px" >
+<hr>
 
 # Introduction & Tutorial
 
 If you are new to the challenge or don’t know how to start, [this](https://arnoldcode.com/wp-content/uploads/2021/04/Challenge-Template.zip) is a template you can download and take part in my coding challenge JavaScript – Internship to CEO.
+
+<hr>
 
 # Template
 (Download the Challenge-Template)(https://arnoldcode.com/wp-content/uploads/2021/04/Challenge-Template.zip)
 
 Just download the template, write your code into the challengeHere.js open the index.html in chrome or any other browser.
 
-# Open Console to Inspect Your Codde Output
+# Open Console to Inspect Your Code Output
 
 - Chrome: Hit F12-Key to open console.
 - Safari: Option + ⌘ + C.
@@ -24,6 +28,21 @@ Each commit has the solution inside.
 
 To get help [contact me](mailto:info@arnoldcode.com) via e-mail.
 
+<hr>
+
+
+# Want To Learn Web Development Fast & Easy?
+
+[HTML & CSS Starter Edition](https://arnoldcodeacademy.teachable.com/p/html-css-premium-gratis-starter-package)
+
+Beginners Welcome
+Where and How to Start
+Perfect Resources
+Save A Lot of Time
+Create Your First Websites
+Explained in Detail, But Simple
+
+<hr>
 
 # Challenge Overview
 
@@ -39,7 +58,7 @@ To get help [contact me](mailto:info@arnoldcode.com) via e-mail.
 10. [Calculate the sum of numbers in an array of numbers. The array: [1, 9, -19, 3, 5, 3, 7, 14, 91].](#challenge10)
 11. [Calculate the average of the numbers in an array of numbers. The array: [2, 5, 17, 81, 9].](#challenge11)
 12. [Create a function that receives an array of numbers and returns an array containing only the positive numbers. The array: [-65, 11, -5, 1, -19, 45, 19, 0, 1] ](#challenge12)
-13. ??? TBA 13.07.2022
+13. [Find the maximum number in an array of numbers.](#challenge13)
 14. ??? TBA 21.07.2022
 15. ??? TBA 27.07.2022
 16. ??? TBA 3.08.2022
@@ -592,5 +611,49 @@ Done!
 
 
 ![Console Print Out of All Positive Numbers](res/png/solution12.png)
+
+</details>
+
+# Challenge13
+## Create a function that receives an array of numbers and returns an array containing only the positive numbers. The array: [-65, 11, -5, 1, -19, 45, 19, 0, 1].
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 13"</summary>
+
+```javascript
+function findMax(array) {
+    let max = array[0];
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+        }
+    }
+
+    return max;
+}
+
+let array = [-21, 113, -34, 1, -9, 5, 99, 1, 0];
+let max = findMax(array);
+console.log("Max: ", max);
+```
+
+To accomplish your task, you create a function called `findMax()` and pass in your array.
+
+Inside the body, you need to create a variable referencing your found maximum value.
+
+You set the variable `max` to the first element of you array. 
+
+Since this it the first maximum existing. You didn’t check any other so far.
+
+The next step is to loop over the array and check if the element you are currently looking at is greater than your current `max` value.
+
+If so, replace it to the newly found maximum element of array.
+
+Once, you are done iterating, comparing, and adding, just return the found maximum and print it to the consol.
+
+You are done!
+
+![Console Print Out of Max Number](res/png/solution13.png)
 
 </details>
