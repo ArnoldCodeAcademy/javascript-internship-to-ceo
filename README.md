@@ -59,7 +59,7 @@ Explained in Detail, But Simple
 11. [Calculate the average of the numbers in an array of numbers. The array: [2, 5, 17, 81, 9].](#challenge11)
 12. [Create a function that receives an array of numbers and returns an array containing only the positive numbers. The array: [-65, 11, -5, 1, -19, 45, 19, 0, 1] ](#challenge12)
 13. [Find the maximum number in an array of numbers.](#challenge13)
-14. ??? TBA 21.07.2022
+14. [Print the first 10 Fibonacci numbers without recursion. Fibonacci series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, …](#challenge14)
 15. ??? TBA 27.07.2022
 16. ??? TBA 3.08.2022
 17. ??? TBA 10.08.2022
@@ -655,5 +655,54 @@ Once, you are done iterating, comparing, and adding, just return the found maxim
 You are done!
 
 ![Console Print Out of Max Number](res/png/solution13.png)
+
+</details>
+
+# Challenge14
+## Print the first 10 Fibonacci numbers without recursion. Fibonacci series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, …
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 14"</summary>
+
+```javascript
+let fibbonacci0 = 0;
+console.log(fibbonacci0);
+
+let fibonacci1 = 1;
+console.log(fibonacci1);
+
+for(let i = 2; i < 10; i++)
+{
+    let fibonacci = fibonacci1 + fibbonacci0;
+    console.log(fibonacci);
+
+    fibbonacci0 = fibonacci1;
+    fibonacci1 = fibonacci;
+}
+```
+
+You start with the creation of the `for` loop. 
+
+Make sure to define the loop runs from `2` to `10`  in order to get the first 10 numbers. 
+
+Start with the `0` followed by `1` and you only need 8 more numbers to complete.
+
+Any number `n` of the Fibonacci series is created by adding up the number `n-1` with the number `n-2`.
+
+To get the third number, we need to have number `n-1` and `n-2`. 
+
+Reaching `n = 3`, means the number will be `2` and `1` of the series.
+
+The equation is therefore: `n = n – 1 + n – 2;`
+
+Which results into: `2 = 1 + 0;`. The 3rd number of the Fibonacci series.
+
+Then you need to switch the `n – 1` and `n – 2` to the newly created ones to go further in our Fibonacci series. 
+
+E voilá, do it as long as you want to get all numbers for the Fibonacci series.
+
+The complete outcome of the console:
+
+![The complete outcome of the console](res/png/solution14.png)
 
 </details>

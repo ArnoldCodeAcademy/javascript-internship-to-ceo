@@ -1,17 +1,16 @@
-// Solution #12
-function findMax(array) {
-    let max = array[0];
+// Solution #14
+let fibbonacci0 = 0;
+console.log(fibbonacci0);
 
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] > max) {
-            max = array[i];
-        }
-    }
+let fibonacci1 = 1;
+console.log(fibonacci1);
 
-    return max;
+for(let i = 2; i < 10; i++)
+{
+    let fibonacci = fibonacci1 + fibbonacci0;
+    console.log(fibonacci);
+
+    fibbonacci0 = fibonacci1;
+    fibonacci1 = fibonacci;
 }
-
-let array = [-21, 113, -34, 1, -9, 5, 99, 1, 0];
-let max = findMax(array);
-console.log("Max: ", max);
 // EXPLANATION in README.MD
