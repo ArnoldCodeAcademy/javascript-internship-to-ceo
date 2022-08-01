@@ -60,7 +60,7 @@ Explained in Detail, But Simple
 12. [Create a function that receives an array of numbers and returns an array containing only the positive numbers. The array: [-65, 11, -5, 1, -19, 45, 19, 0, 1] ](#challenge12)
 13. [Find the maximum number in an array of numbers.](#challenge13)
 14. [Print the first 10 Fibonacci numbers without recursion. Fibonacci series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, …](#challenge14)
-15. ??? TBA 27.07.2022
+15. [Create a function that will find the nth Fibonacci number using recursion. Fibonacci series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, … . Use nth = 14](#challenge15)
 16. ??? TBA 3.08.2022
 17. ??? TBA 10.08.2022
 18. ??? TBA 17.08.2022
@@ -704,5 +704,40 @@ E voilá, do it as long as you want to get all numbers for the Fibonacci series.
 The complete outcome of the console:
 
 ![The complete outcome of the console](res/png/solution14.png)
+
+</details>
+
+# Challenge15
+## Create a function that will find the nth Fibonacci number using recursion. Fibonacci series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, … . Use nth = 14
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 15"</summary>
+
+```javascript
+function findFibonacci(number)
+{
+    if (number === 0)
+        return 0;
+
+    if (number === 1)
+        return 1;
+
+    return findFibonacci(number - 1) + findFibonacci(number - 2);
+}
+
+let fibonacciSeries = findFibonacci(14);
+
+console.log(fibonacciSeries);
+```
+
+The Fibonacci numbers are the numbers in the following integer sequence.
+
+`0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ……`
+
+In mathematical terms, the sequence Fn of Fibonacci numbers is defined by the recurrence relation:
+
+![Fibonacci Mathematical Terms](res/png/solution15-1.jpg)
+
+![Fibonacci Examples](res/png/solution15-2.jpg)
 
 </details>

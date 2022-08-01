@@ -1,16 +1,15 @@
-// Solution #14
-let fibbonacci0 = 0;
-console.log(fibbonacci0);
-
-let fibonacci1 = 1;
-console.log(fibonacci1);
-
-for(let i = 2; i < 10; i++)
+// Solution
+function findFibonacci(number)
 {
-    let fibonacci = fibonacci1 + fibbonacci0;
-    console.log(fibonacci);
+    if (number === 0)
+        return 0;
 
-    fibbonacci0 = fibonacci1;
-    fibonacci1 = fibonacci;
+    if (number === 1)
+        return 1;
+
+    return findFibonacci(number - 1) + findFibonacci(number - 2);
 }
+
+let fibonacciSeries = findFibonacci(14);
+console.log(fibonacciSeries);
 // EXPLANATION in README.MD
