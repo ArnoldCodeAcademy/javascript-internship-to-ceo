@@ -1,15 +1,22 @@
 // Solution
-function findFibonacci(number)
+function isPrime(number)
 {
-    if (number === 0)
-        return 0;
+    if (number < 2)
+        return false;
 
-    if (number === 1)
-        return 1;
+    if (number == 2)
+        return true;
 
-    return findFibonacci(number - 1) + findFibonacci(number - 2);
+    let maxDiv = Math.sqrt(number);
+
+    for(let i = 2; i <= maxDiv; i++)
+    {
+        if (number % i == 0)
+        {
+            return false;
+        }
+    }
+
+    return true;
 }
-
-let fibonacciSeries = findFibonacci(14);
-console.log(fibonacciSeries);
 // EXPLANATION in README.MD

@@ -61,12 +61,12 @@ Explained in Detail, But Simple
 13. [Find the maximum number in an array of numbers.](#challenge13)
 14. [Print the first 10 Fibonacci numbers without recursion. Fibonacci series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, …](#challenge14)
 15. [Create a function that will find the nth Fibonacci number using recursion. Fibonacci series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, … . Use nth = 14](#challenge15)
-16. ??? TBA 3.08.2022
-17. ??? TBA 10.08.2022
-18. ??? TBA 17.08.2022
-19. ??? TBA 24.08.2022
-20. ??? TBA 31.08.2022
-21. ??? TBA
+16. [Create a function that will return a Boolean specifying if a number is prime. Test with 1,5,6,7,9,11,13 & 27.](#challenge16)
+17. ??? TBA 25.08.2022
+18. ??? TBA 01.09.2022
+19. ??? TBA 08.09.2022
+20. ??? TBA 16.09.2022
+21. ??? TBA 24.09.2022
 22. ??? TBA
 23. ??? TBA
 24. ??? TBA
@@ -740,4 +740,61 @@ In mathematical terms, the sequence Fn of Fibonacci numbers is defined by the re
 
 ![Fibonacci Examples](res/png/solution15-2.jpg)
 
+</details>
+
+# Challenge16
+## Create a function that will return a Boolean specifying if a number is prime. Test with 1,5,6,7,9,11,13 & 27.
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 16"</summary>
+
+```javascript
+function isPrime(number)
+{
+    if (number < 2)
+        return false;
+
+    if (number == 2)
+        return true;
+
+    let maxDiv = Math.sqrt(number);
+
+    for(let i = 2; i <= maxDiv; i++)
+    {
+        if (number % i == 0)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+```
+## What is a prime number in maths?
+
+Prime numbers are special numbers, greater than 1, that have exactly two factors, themselves and 1. 
+
+19 is a prime number. It can only be divided by 1 and 19. 
+
+9 is not a prime number.
+
+## Solution
+
+In your solution, you first check if the passed number is below 2. 
+
+Then you already checked against any number below 2 being no prime number.
+
+If the number is equal to 2, then it is a prime number and you can return `true` already.
+
+If any number passed both checks and you are still inside your function, then you'll need find the maximum divisor by getting the square root of our passed number.
+
+With a for loop, you check if the number is remainderless dividable by the iterator of i. 
+
+If the remainder is 0, then you definitely have another valid calculation instead of only being able to divide a number with 1 and itself to be a prime number. 
+
+Therefore, you are returning `false`.
+
+Testifying the given numbers results into this printout.
+
+![Console Printout for the testing numbers](res/png/solution16.png)
 </details>
