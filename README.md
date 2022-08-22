@@ -62,7 +62,7 @@ Explained in Detail, But Simple
 14. [Print the first 10 Fibonacci numbers without recursion. Fibonacci series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, …](#challenge14)
 15. [Create a function that will find the nth Fibonacci number using recursion. Fibonacci series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, … . Use nth = 14](#challenge15)
 16. [Create a function that will return a Boolean specifying if a number is prime. Test with 1,5,6,7,9,11,13 & 27.](#challenge16)
-17. ??? TBA 25.08.2022
+17. [Calculate the sum of digits of a positive integer number.The integer 1235321](#challenge17)
 18. ??? TBA 01.09.2022
 19. ??? TBA 08.09.2022
 20. ??? TBA 16.09.2022
@@ -797,4 +797,45 @@ Therefore, you are returning `false`.
 Testifying the given numbers results into this printout.
 
 ![Console Printout for the testing numbers](res/png/solution16.png)
+</details>
+
+# Challenge17
+## Calculate the sum of digits of a positive integer number. The integer 1235321.
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 17"</summary>
+
+```javascript
+function sumDigits(number)
+{
+    let string = number.toString();
+    let sum = 0;
+
+    for(let char of string)
+    {
+        let digit = parseInt(char);
+        sum += digit;
+    }
+
+    return sum;
+}
+
+let sum = sumDigits(1235321);
+
+console.log("Sum: ", sum);
+```
+
+The solution is pretty straightforward. 
+
+You need to separate the digits to loop over them and add them to a sum.
+
+You can do it by a conversion to a string because this is nothing more than a char array under the hood.
+
+You can take advantage of this knowledge by iterating over the array with a for-of-loop.
+
+While looping you add up the sum and finally returning the sum to the caller.
+
+This is the printout after the sum was created:
+
+![Console Printout for Adding Up The Digits](res/png/solution17.png)
 </details>

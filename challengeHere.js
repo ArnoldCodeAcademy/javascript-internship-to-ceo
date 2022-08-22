@@ -1,22 +1,19 @@
 // Solution
-function isPrime(number)
+function sumDigits(number)
 {
-    if (number < 2)
-        return false;
+    let string = number.toString();
+    let sum = 0;
 
-    if (number == 2)
-        return true;
-
-    let maxDiv = Math.sqrt(number);
-
-    for(let i = 2; i <= maxDiv; i++)
+    for(let char of string)
     {
-        if (number % i == 0)
-        {
-            return false;
-        }
+        let digit = parseInt(char);
+        sum += digit;
     }
 
-    return true;
+    return sum;
 }
+
+let sum = sumDigits(1235321);
+
+console.log("Sum: ", sum);
 // EXPLANATION in README.MD
