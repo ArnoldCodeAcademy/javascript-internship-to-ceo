@@ -1,19 +1,44 @@
 // Solution
-function sumDigits(number)
+printPrimes(99);
+
+// Function prints the first nPrimes numbers
+function printPrimes(nPrimes)
 {
-    let string = number.toString();
-    let sum = 0;
+    let n = 0;
+    let i = 2;
 
-    for(let char of string)
+    while(n < nPrimes)
     {
-        let digit = parseInt(char);
-        sum += digit;
-    }
+        if (isPrime(i))
+        {
+            console.log(n, " --> ", i);
+            n++;
+        }
 
-    return sum;
+        i++;
+    }
 }
 
-let sum = sumDigits(1235321);
 
-console.log("Sum: ", sum);
+// Returns true if a number is prime
+function isPrime(number)
+{
+    if (number < 2)
+        return false;
+
+    if (number == 2)
+        return true;
+
+    let maxDiv = Math.sqrt(number);
+
+    for(let i = 2; i <= maxDiv; i++)
+    {
+        if (number % i == 0)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
 // EXPLANATION in README.MD

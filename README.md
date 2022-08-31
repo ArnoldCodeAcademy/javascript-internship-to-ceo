@@ -62,8 +62,8 @@ Explained in Detail, But Simple
 14. [Print the first 10 Fibonacci numbers without recursion. Fibonacci series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, …](#challenge14)
 15. [Create a function that will find the nth Fibonacci number using recursion. Fibonacci series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, … . Use nth = 14](#challenge15)
 16. [Create a function that will return a Boolean specifying if a number is prime. Test with 1,5,6,7,9,11,13 & 27.](#challenge16)
-17. [Calculate the sum of digits of a positive integer number.The integer 1235321](#challenge17)
-18. ??? TBA 01.09.2022
+17. [Calculate the sum of digits of a positive integer number.The integer 1235321.](#challenge17)
+18. [Print the first 99 prime numbers.](#challenge18)
 19. ??? TBA 08.09.2022
 20. ??? TBA 16.09.2022
 21. ??? TBA 24.09.2022
@@ -838,4 +838,81 @@ While looping you add up the sum and finally returning the sum to the caller.
 This is the printout after the sum was created:
 
 ![Console Printout for Adding Up The Digits](res/png/solution17.png)
+</details>
+
+# Challenge18
+## Print the first 99 prime numbers.
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 18"</summary>
+
+```javascript
+printPrimes(99);
+
+// Function prints the first nPrimes numbers
+function printPrimes(nPrimes)
+{
+    let n = 0;
+    let i = 2;
+
+    while(n < nPrimes)
+    {
+        if (isPrime(i))
+        {
+            console.log(n, " --> ", i);
+            n++;
+        }
+
+        i++;
+    }
+}
+
+
+// Returns true if a number is prime
+function isPrime(number)
+{
+    if (number < 2)
+        return false;
+
+    if (number == 2)
+        return true;
+
+    let maxDiv = Math.sqrt(number);
+
+    for(let i = 2; i <= maxDiv; i++)
+    {
+        if (number % i == 0)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+```
+
+The function `printPrimes(nPrimes)` is your looping function that will print out the number of primes you pass in.
+
+We stick to `99` for this challenge.
+
+The next step is to set `n` to `0`, because you want to start with the 0th prime number and set `i` to `2`,
+because we know the first prime number must be `2`.
+
+Then you loop over the condition of `n < nPrimes` and check if the value of `i` is a prime number by actually calling your second function: `isPrime(number)`.
+
+This function is all about checking if the number is below `2`; no prime number. Then if it is equal to `2`; a prime number. 
+
+For every other case, you apply the commonly known rules for prime numbers. Being divideable only by itself or `1`.
+
+The for loop checks if you have a `maxdivisor` that results in a valid integer division with the result of `0`.
+
+If so, it isn’t a prime number; referring back to the commonly known rules for prime numbers.
+
+If the loop does not return `false` and run through successfully, the function returns `true`, and the while loop of `printPrimes` continues.
+
+Below is the printout for the first `18` numbers. 
+
+The list goes on until `99`. The output means the 0th prime number is `2`, then the 1st prime number is `3`, and so on…
+
+![Console Printout for PrimeNumbers](res/png/solution18.png))
 </details>
