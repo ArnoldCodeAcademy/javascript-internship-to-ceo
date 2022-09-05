@@ -64,7 +64,7 @@ Explained in Detail, But Simple
 16. [Create a function that will return a Boolean specifying if a number is prime. Test with 1,5,6,7,9,11,13 & 27.](#challenge16)
 17. [Calculate the sum of digits of a positive integer number.The integer 1235321.](#challenge17)
 18. [Print the first 99 prime numbers.](#challenge18)
-19. ??? TBA 08.09.2022
+19. [Create a function that will return in an array the first “nPrimes” prime numbers greater than a particular number “startAt”](#challenge19)
 20. ??? TBA 16.09.2022
 21. ??? TBA 24.09.2022
 22. ??? TBA
@@ -915,4 +915,76 @@ Below is the printout for the first `18` numbers.
 The list goes on until `99`. The output means the 0th prime number is `2`, then the 1st prime number is `3`, and so on…
 
 ![Console Printout for PrimeNumbers](res/png/solution18.png))
+</details>
+
+# Challenge19
+## Create a function that will return in an array the first “nPrimes” prime numbers greater than a particular number “startAt”.
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 19"</summary>
+
+```javascript
+console.log(getPrimes(10, 100));
+
+
+function getPrimes(nPrimes, startAt)
+{
+    let array = [];
+
+    let i = startAt;
+
+    while(array.length < nPrimes)
+    {
+        if (isPrime(i))
+        {
+            array.push(i);
+        }
+
+        i++;
+    }
+
+    return array;
+}
+
+// Returns true if a number is prime
+function isPrime(number)
+{
+    if (number < 2)
+        return false;
+
+    if (number == 2)
+        return true;
+
+    let maxDiv = Math.sqrt(number);
+
+    for(let i = 2; i <= maxDiv; i++)
+    {
+        if (number % i == 0)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+```
+
+The function `getPrimes` has to accept two parameters. 
+1. `nPrimes` which decides the number of prime numbers you want to be printed
+2. `startAt` which decides where you start to calculate the prime numbers
+
+You create an empty array and set your runningIndex `i` equal to the `startAt` variable.
+
+A while loop makes a continuous call to the `isPrime` function and passes in the number you want to check. 
+
+This is being done as long as your array is below the `nPrimes` variable.
+
+Once you have the predestined number of primes, you will skip the while loop and return the array with prime numbers.
+
+I have already explained the `isPrime` function in [Challenge #18](#challenge18).
+
+If you call this function with `console.log(getPrimes(10, 100));` then the following will be the output.
+
+![Console Printout for PrimeNumbers](res/png/solution19.png)
+
 </details>

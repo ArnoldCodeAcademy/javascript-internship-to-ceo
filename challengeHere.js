@@ -1,24 +1,25 @@
 // Solution
-printPrimes(99);
+console.log(getPrimes(10, 100));
 
-// Function prints the first nPrimes numbers
-function printPrimes(nPrimes)
+
+function getPrimes(nPrimes, startAt)
 {
-    let n = 0;
-    let i = 2;
+    let array = [];
 
-    while(n < nPrimes)
+    let i = startAt;
+
+    while(array.length < nPrimes)
     {
         if (isPrime(i))
         {
-            console.log(n, " --> ", i);
-            n++;
+            array.push(i);
         }
 
         i++;
     }
-}
 
+    return array;
+}
 
 // Returns true if a number is prime
 function isPrime(number)
