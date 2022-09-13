@@ -1,45 +1,11 @@
 // Solution
-console.log(getPrimes(10, 100));
+let array = [1, 2, 3, 4, 5];
+rotateLeft(array);
+console.log(array);
 
-
-function getPrimes(nPrimes, startAt)
+function rotateLeft(array)
 {
-    let array = [];
-
-    let i = startAt;
-
-    while(array.length < nPrimes)
-    {
-        if (isPrime(i))
-        {
-            array.push(i);
-        }
-
-        i++;
-    }
-
-    return array;
-}
-
-// Returns true if a number is prime
-function isPrime(number)
-{
-    if (number < 2)
-        return false;
-
-    if (number == 2)
-        return true;
-
-    let maxDiv = Math.sqrt(number);
-
-    for(let i = 2; i <= maxDiv; i++)
-    {
-        if (number % i == 0)
-        {
-            return false;
-        }
-    }
-
-    return true;
+    let first = array.shift();
+    array.push(first);
 }
 // EXPLANATION in README.MD

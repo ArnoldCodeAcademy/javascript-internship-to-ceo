@@ -65,7 +65,7 @@ Explained in Detail, But Simple
 17. [Calculate the sum of digits of a positive integer number.The integer 1235321.](#challenge17)
 18. [Print the first 99 prime numbers.](#challenge18)
 19. [Create a function that will return in an array the first “nPrimes” prime numbers greater than a particular number “startAt”](#challenge19)
-20. ??? TBA 16.09.2022
+20. [Rotate an array to the left 1 position. E.g. [1, 2, 3, 4, 5] -> [ 2, 3, 4, 5, 1 ] | [1, 2, 4, 5] -> [ 2, 4, 5, 1 ].](#challenge20)
 21. ??? TBA 24.09.2022
 22. ??? TBA
 23. ??? TBA
@@ -986,5 +986,40 @@ I have already explained the `isPrime` function in [Challenge #18](#challenge18)
 If you call this function with `console.log(getPrimes(10, 100));` then the following will be the output.
 
 ![Console Printout for PrimeNumbers](res/png/solution19.png)
+
+</details>
+
+# Challenge20
+## Rotate an array to the left 1 position. E.g. [1, 2, 3, 4, 5] -> [ 2, 3, 4, 5, 1 ] | [1, 2, 4, 5] -> [ 2, 4, 5, 1 ].
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 20"</summary>
+
+```javascript
+let array = [1, 2, 3, 4, 5];
+rotateLeft(array);
+console.log(array);
+
+function rotateLeft(array)
+{
+    let first = array.shift();
+    array.push(first);
+}
+```
+
+You can achieve this challenge’s goal quite easily by using the `shift()` and the `push()` method for arrays. 
+
+The `shift()` method removes the first element of an array and returns it. 
+
+If you store it now into a temporarily variable (in this case `first`) then you can use the `push()` method to push it as the last element of an array.
+
+If you want to dig deeper into `shift()` and `push()` and JavaScript + Web Development take my [JavaScript Course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course), 
+where I introduce you also to all kinds of array methods (there are plenty of them and they are very useful to achieve massive results in a short amount of code and time).
+
+<b>[A discount awaits you! Just subscribe to my newsletter.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+The output for the code above is:
+
+![Console Printout for Rotating 1 Left](res/png/solution20.png)
 
 </details>
