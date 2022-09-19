@@ -66,7 +66,7 @@ Explained in Detail, But Simple
 18. [Print the first 99 prime numbers.](#challenge18)
 19. [Create a function that will return in an array the first “nPrimes” prime numbers greater than a particular number “startAt”](#challenge19)
 20. [Rotate an array to the left 1 position. E.g. [1, 2, 3, 4, 5] -> [ 2, 3, 4, 5, 1 ] | [1, 2, 4, 5] -> [ 2, 4, 5, 1 ].](#challenge20)
-21. ??? TBA 24.09.2022
+21. [Rotate an array to the right 1 position. E.g. [1, 2, 3] -> [ 3, 1, 2 ] | [1, 2, 4, 6, 3] -> [ 3, 1, 2, 4, 6 ].](#challenge21)
 22. ??? TBA
 23. ??? TBA
 24. ??? TBA
@@ -1021,5 +1021,46 @@ where I introduce you also to all kinds of array methods (there are plenty of th
 The output for the code above is:
 
 ![Console Printout for Rotating 1 Left](res/png/solution20.png)
+
+</details>
+
+</details>
+
+# Challenge21
+## Rotate an array to the right 1 position. E.g. [1, 2, 3] -> [ 3, 1, 2 ] | [1, 2, 4, 6, 3] -> [ 3, 1, 2, 4, 6 ].
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 21"</summary>
+
+```javascript
+let array = [1, 2, 3];
+
+rotateRight(array);
+
+console.log(array);
+
+function rotateRight(array)
+{
+    let last = array.pop();
+    array.unshift(last);
+}
+```
+
+You can achieve the challenge’s goal quite easily by using the opposites of `shift()` and the `push()` method for arrays.
+
+This time you have to use the `pop()` method which removes the last element of an array and returns it.
+
+If you store it now into a variable (in this case `last`) then you can use the `unshift()` method to push it as the 
+first element of an array.
+
+
+If you want to dig deeper into `shift()` and `push()` and JavaScript + Web Development take my [JavaScript Course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course),
+where I introduce you also to all kinds of array methods (there are plenty of them and they are very useful to achieve massive results in a short amount of code and time).
+
+<b>[A discount awaits you! Just subscribe to my newsletter.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+The output for the code above is:
+
+![Console Printout for Rotating 1 Right](res/png/solution21.png)
 
 </details>

@@ -1,11 +1,13 @@
 // Solution
-let array = [1, 2, 3, 4, 5];
-rotateLeft(array);
+let array = [1, 2, 3];
+
+rotateRight(array);
+
 console.log(array);
 
-function rotateLeft(array)
+function rotateRight(array)
 {
-    let first = array.shift();
-    array.push(first);
+    let last = array.pop();
+    array.unshift(last);
 }
 // EXPLANATION in README.MD
