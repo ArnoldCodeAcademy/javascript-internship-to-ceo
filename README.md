@@ -67,7 +67,7 @@ Explained in Detail, But Simple
 19. [Create a function that will return in an array the first “nPrimes” prime numbers greater than a particular number “startAt”](#challenge19)
 20. [Rotate an array to the left 1 position. E.g. [1, 2, 3, 4, 5] -> [ 2, 3, 4, 5, 1 ] | [1, 2, 4, 5] -> [ 2, 4, 5, 1 ].](#challenge20)
 21. [Rotate an array to the right 1 position. E.g. [1, 2, 3] -> [ 3, 1, 2 ] | [1, 2, 4, 6, 3] -> [ 3, 1, 2, 4, 6 ].](#challenge21)
-22. ??? TBA
+22. [Reverse a string. The string „JavaScript with ArnoldCode is the best!"](#challenge22)
 23. ??? TBA
 24. ??? TBA
 25. ??? TBA 
@@ -1024,7 +1024,6 @@ The output for the code above is:
 
 </details>
 
-</details>
 
 # Challenge21
 ## Rotate an array to the right 1 position. E.g. [1, 2, 3] -> [ 3, 1, 2 ] | [1, 2, 4, 6, 3] -> [ 3, 1, 2, 4, 6 ].
@@ -1062,5 +1061,75 @@ where I introduce you also to all kinds of array methods (there are plenty of th
 The output for the code above is:
 
 ![Console Printout for Rotating 1 Right](res/png/solution21.png)
+
+</details>
+
+
+# Challenge22 + Pro Solution 😉
+## Reverse a string. The string „JavaScript with ArnoldCode is the best!“
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 22"</summary>
+
+```javascript
+// Solution with for - loops
+let reversedString = reverseString('JavaScript with ArnoldCode is the best!');
+console.log(reversedString);
+
+function reverseString(string)
+{
+    let string2 = "";
+
+    for(let i = string.length - 1; i >= 0; i--)
+    {
+        string2 += string[i];
+    }
+
+    return string2;
+}
+````
+## Solution for pro developers!
+```typescript
+reversedString = reverseString('JavaScript with ArnoldCode is the best!');
+console.log(reversedString);
+
+function reverseString(string)
+{
+    return string.split('').reverse().join('')
+}
+```
+
+## Explanation For-Loops
+
+The function `reverseString` creates an empty string `string2` where the reversed string will be stored to.
+
+A simple `for` loop covers the tasks of reversing your string.
+
+It does it by decrementing the running index of `i` from the `string.length` towards `0` and pushes beginning from the last element of the passed `string` until the first into `string2`.
+
+*This is possible due to the fact that a string is in fact an arrays of characters.*
+
+After the for loop, the function just returns your newly reversed `string` of `string2`.
+![Console Printout To Solution 22](res/png/solution22.png)
+
+If you want to dig deeper into strings, arrays and  their methods check out the pro solution.
+
+## Explanation Pro Solution
+
+You can achieve the challenge’s goal quite easily by using 3 advanced methods for strings and arrays:
+- [split](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split) - Splits up a string by a given character template (in this case `''`; any char)
+- [reverse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse) - Reverses an order of elements inside an array
+- [join](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join) - Combines all elements into a single string
+
+So the order of actions for success is:
+1. Splitting the string into characters
+2. Reversing the order of characters
+3. Combining all reversed characters into a single string
+
+If you want to become a [Web Developer you want to take my examples](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course), explanations and story telling into the 3rd dimensions and save time & effort 😉
+
+[A discount and 26 Cheatsheets await you! Just subscribe to my newsletter.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img.png)
 
 </details>
