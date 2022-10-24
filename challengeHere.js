@@ -1,25 +1,33 @@
 // Solution with for - loops
-let reversedString = reverseString('JavaScript with ArnoldCode is the best!');
-console.log(reversedString);
+let array1 = [9, 8, 7, 6];
+let array2 = [1, 2, 3, 4];
 
-function reverseString(string)
+let mergedArrays = mergeArrays(array1, array2);
+console.log(mergedArrays);
+
+function mergeArrays(array1, array2)
 {
-    let string2 = "";
+    let tempArray = [];
 
-    for(let i = string.length - 1; i >= 0; i--)
+    for(let element of array1)
     {
-        string2 += string[i];
+        tempArray.push(element);
     }
 
-    return string2;
+    for(let element of array2)
+    {
+        tempArray.push(element);
+    }
+
+    return tempArray;
 }
 
 // Solution for pro developer!
-reversedString = reverseStringLikeAPro('JavaScript with ArnoldCode is the best!');
-console.log(reversedString);
+let mergedArraysPro = mergeArraysPro(array1, array2);
+console.log(mergedArraysPro);
 
-function reverseStringLikeAPro(string)
+function mergeArraysPro(array1, array2)
 {
-    return string.split('').reverse().join('')
+    return array1.concat(array2)
 }
 // EXPLANATION in README.MD

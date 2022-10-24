@@ -68,7 +68,7 @@ Explained in Detail, But Simple
 20. [Rotate an array to the left 1 position. E.g. [1, 2, 3, 4, 5] -> [ 2, 3, 4, 5, 1 ] | [1, 2, 4, 5] -> [ 2, 4, 5, 1 ].](#challenge20)
 21. [Rotate an array to the right 1 position. E.g. [1, 2, 3] -> [ 3, 1, 2 ] | [1, 2, 4, 6, 3] -> [ 3, 1, 2, 4, 6 ].](#challenge21)
 22. [Reverse a string. The string „JavaScript with ArnoldCode is the best!"](#challenge22)
-23. ??? TBA
+23. [Create a function that will merge two arrays and return the result as a new array. The two arrays: [9, 8, 7, 6],  [1, 2, 3, 4].](#challenge23)
 24. ??? TBA
 25. ??? TBA 
 26. ??? TBA 
@@ -1125,6 +1125,84 @@ So the order of actions for success is:
 1. Splitting the string into characters
 2. Reversing the order of characters
 3. Combining all reversed characters into a single string
+
+If you want to become a [Web Developer you want to take my examples](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course), explanations and story telling into the 3rd dimensions and save time & effort 😉
+
+[A discount and 26 Cheatsheets await you! Just subscribe to my newsletter.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img.png)
+
+</details>
+
+# Challenge23 + Pro Solution 😉
+## Create a function that will merge two arrays and return the result as a new array. The two arrays: [9, 8, 7, 6],  [1, 2, 3, 4].
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 23"</summary>
+
+```javascript
+// Solution with for - loops
+let array1 = [9, 8, 7, 6];
+let array2 = [1, 2, 3, 4];
+
+let mergedArrays = mergeArrays(array1, array2);
+console.log(mergedArrays);
+
+function mergeArrays(array1, array2)
+{
+    let tempArray = [];
+
+    for(let element of array1)
+    {
+        tempArray.push(element);
+    }
+
+    for(let element of array2)
+    {
+        tempArray.push(element);
+    }
+
+    return tempArray;
+}
+````
+## Solution for pro developers!
+```typescript
+let mergedArraysPro = mergeArrays(array1, array2);
+console.log(mergedArraysPro);
+
+function mergeArrays(array1, array2)
+{
+    return array1.concat(array2)
+}
+```
+
+## Explanation For-Loop Solution
+
+The function `mergeArrays` has two inputs (`array1` and `array2`). 
+
+It also does create an empty array `tempArray` where the combined and merged array will be stored to.
+
+This time you need two `for` loops to cover the merging process. 
+
+You simply push all elements of the first array to the variable `tempArray`.
+
+When this is done, you approach the second array and push also each element into `tempArray`.
+
+Once you’ve iterated over both arrays and all elements are stored into `tempArray` you just do the return and already have it.
+A merged array.
+
+![The Result in the Console](res/png/solution23.png)
+
+*This isn’t the best method you can use but a suitable one, if you are just starting out.* 
+
+It is a good way to practice loops, but in terms of functionality, clean code, and extensibility you should take my JavaScript Course, where I introduce you also to all kinds of array methods to write maintainable and scalable code – a must-have for every JavaScript Developer.
+
+If you want to dig deeper into strings, arrays and  their methods check out the pro solution.
+
+## Explanation Pro Solution
+
+You can achieve the challenge’s goal quite easily by using 1 advanced method for arrays:
+- [concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) - The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
 
 If you want to become a [Web Developer you want to take my examples](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course), explanations and story telling into the 3rd dimensions and save time & effort 😉
 
