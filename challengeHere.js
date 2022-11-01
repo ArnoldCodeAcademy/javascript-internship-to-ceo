@@ -1,33 +1,41 @@
 // Solution with for - loops
-let array1 = [9, 8, 7, 6];
-let array2 = [1, 2, 3, 4];
+let array1 = [1, 9, 17, 15, 3, 9, 15];
+let array2 = [1, 9, 3, 2, 17];
 
-let mergedArrays = mergeArrays(array1, array2);
-console.log(mergedArrays);
+let exclusivelyMergedArray = mergeExclusive(array1, array2);
+console.log(exclusivelyMergedArray);
 
-function mergeArrays(array1, array2)
+function mergeExclusive(array1, array2)
 {
     let tempArray = [];
 
     for(let element of array1)
     {
-        tempArray.push(element);
+        if (!array2.includes(element))
+        {
+            tempArray.push(element);
+        }
     }
 
     for(let element of array2)
     {
-        tempArray.push(element);
+        if (!array1.includes(element))
+        {
+            tempArray.push(element);
+        }
     }
 
     return tempArray;
 }
 
+
 // Solution for pro developer!
-let mergedArraysPro = mergeArraysPro(array1, array2);
+let mergedArraysPro = mergeArrays(array1, array2);
 console.log(mergedArraysPro);
 
-function mergeArraysPro(array1, array2)
+function mergeArrays(array1, array2)
 {
-    return array1.concat(array2)
+    return array1.filter(element => !array2.includes(element)).concat(array2.filter(element => !array1.includes(element)))
 }
+
 // EXPLANATION in README.MD
