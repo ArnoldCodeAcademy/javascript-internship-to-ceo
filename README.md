@@ -71,35 +71,35 @@ Explained in Detail, But Simple
 23. [Create a function that will merge two arrays and return the result as a new array. The two arrays: [9, 8, 7, 6],  [1, 2, 3, 4].](#challenge23--pro-solution-)
 24. [Create a function that will receive two arrays of numbers as arguments and return an array composed of all the numbers that are either in the first array or second array but not in both. The two arrays: [1, 9, 17, 15, 3, 9, 15] , [1, 9, 3, 2, 17]](#challenge24--pro-solution-)
 25. [Create a function that will receive two arrays and will return an array with elements that are in the first array but not in the second. The two arrays:  [12, 21, 34, 1, 35, 7, 19] , [-1, 7, 1, 61, 69]](#challenge25--pro-solution-)
-26. ??? TBA 
-27. ??? TBA 
-28. ??? TBA 
-29. ??? TBA 
-30. ??? TBA 
-31. ??? TBA 
-32. ??? TBA 
-33. ??? TBA 
-34. ??? TBA 
-35. ??? TBA 
-36. ??? TBA 
-37. ??? TBA 
-38. ??? TBA 
-39. ??? TBA 
-40. ??? TBA 
-41. ??? TBA 
-42. ??? TBA 
-43. ??? TBA 
-44. ??? TBA 
-45. ??? TBA 
-46. ??? TBA 
-47. ??? TBA 
-48. ??? TBA 
-49. ??? TBA 
-50. ??? TBA 
-51. ??? TBA 
-52. ??? TBA 
-53. ??? TBA 
-54. ??? TBA 
+26. 16.11.2022 
+27. 23.11.2022
+28. 30.11.2022 
+29. 07.12.2022 
+30. 14.12.2022 
+31. 21.12.2022 
+32. Early 2023
+33. Early 2023 
+34. Early 2023 
+35. Early 2023 
+36. Early 2023 
+37. Early 2023 
+38. Early 2023 
+39. Early 2023 
+40. Early 2023 
+41. Early 2023 
+42. Early 2023 
+43. Early 2023 
+44. Early 2023 
+45. Early 2023 
+46. Early 2023 
+47. Early 2023 
+48. Early 2023 
+49. Early 2023 
+50. Early 2023 
+51. Early 2023 
+52. Early 2023 
+53. Early 2023 
+54. Early 2023 
 
 # Challenge01 
 ## Print numbers from 1 to 10 with a for-loop.
