@@ -67,10 +67,10 @@ Explained in Detail, But Simple
 19. [Create a function that will return in an array the first “nPrimes” prime numbers greater than a particular number “startAt”](#challenge19)
 20. [Rotate an array to the left 1 position. E.g. [1, 2, 3, 4, 5] -> [ 2, 3, 4, 5, 1 ] | [1, 2, 4, 5] -> [ 2, 4, 5, 1 ].](#challenge20)
 21. [Rotate an array to the right 1 position. E.g. [1, 2, 3] -> [ 3, 1, 2 ] | [1, 2, 4, 6, 3] -> [ 3, 1, 2, 4, 6 ].](#challenge21)
-22. [Reverse a string. The string „JavaScript with ArnoldCode is the best!"](#challenge22)
-23. [Create a function that will merge two arrays and return the result as a new array. The two arrays: [9, 8, 7, 6],  [1, 2, 3, 4].](#challenge23)
-24. [Create a function that will receive two arrays of numbers as arguments and return an array composed of all the numbers that are either in the first array or second array but not in both. The two arrays: [1, 9, 17, 15, 3, 9, 15] , [1, 9, 3, 2, 17]](#challenge24)
-25. ??? TBA 
+22. [Reverse a string. The string „JavaScript with ArnoldCode is the best!"](#challenge22--pro-solution-)
+23. [Create a function that will merge two arrays and return the result as a new array. The two arrays: [9, 8, 7, 6],  [1, 2, 3, 4].](#challenge23--pro-solution-)
+24. [Create a function that will receive two arrays of numbers as arguments and return an array composed of all the numbers that are either in the first array or second array but not in both. The two arrays: [1, 9, 17, 15, 3, 9, 15] , [1, 9, 3, 2, 17]](#challenge24--pro-solution-)
+25. [Create a function that will receive two arrays and will return an array with elements that are in the first array but not in the second. The two arrays:  [12, 21, 34, 1, 35, 7, 19] , [-1, 7, 1, 61, 69]](#challenge25--pro-solution-)
 26. ??? TBA 
 27. ??? TBA 
 28. ??? TBA 
@@ -1126,7 +1126,7 @@ So the order of actions for success is:
 2. Reversing the order of characters
 3. Combining all reversed characters into a single string
 
-If you want to become a [Web Developer you want to take my examples](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course), explanations and story telling into the 3rd dimensions and save time & effort 😉
+If you want to become a [Web Developer you want to take my examples](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course), explanations and story telling by breaking the 4th dimensions and save you a lot of time & effort 😉
 
 [A discount and 26 Cheatsheets await you! Just subscribe to my newsletter.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
 
@@ -1204,7 +1204,7 @@ If you want to dig deeper into strings, arrays and  their methods check out the 
 You can achieve the challenge’s goal quite easily by using 1 advanced method for arrays:
 - [concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) - The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
 
-If you want to become a [Web Developer you want to take my examples](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course), explanations and story telling into the 3rd dimensions and save time & effort 😉
+If you want to become a [Web Developer you want to take my examples](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course), explanations and story telling by breaking the 4th dimensions and save you a lot of time & effort 😉
 
 [A discount and 26 Cheatsheets await you! Just subscribe to my newsletter.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
 
@@ -1265,7 +1265,7 @@ function mergeArrays(array1, array2)
 
 The function `mergeExclusive` has two inputs (`array1` and `array2`).
 
-It also does create an empty array `tempArray` where the result array wiill be stored to.
+It also does create an empty array `tempArray` where the result array will be stored to.
 
 You will need two `for` loops to cover the merging process.
 
@@ -1291,7 +1291,88 @@ You can achieve the challenge’s goal quite easily by combining several advance
 - [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) - The filter() method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.
 - [concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) - The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
 
-If you want to become a [Web Developer you want to take my examples](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course), explanations and story telling into the 3rd dimensions and save time & effort 😉
+If you want to become a [Web Developer you want to take my examples](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course), explanations and story telling by breaking the 4th dimensions and save you a lot of time & effort 😉
+
+[A discount and 26 Cheatsheets await you! Just subscribe to my newsletter.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img.png)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+# Challenge25 + Pro Solution 😉
+## Create a function that will receive two arrays and will return an array with elements that are in the first array but not in the second. The two arrays:  [12, 21, 34, 1, 35, 7, 19] , [-1, 7, 1, 61, 69].
+
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 25"</summary>
+
+```javascript
+// Solution with for - loops
+let array1= [12, 21, 34, 1, 35, 7, 19];
+let array2 = [-1, 7, 1, 61, 69];
+
+let leftMergedArray = mergeLeft(array1, array2);
+console.log(leftMergedArray);
+
+function mergeLeft(array1, array2)
+{
+    let tempArray = [];
+
+    for(let element of array1)
+    {
+        if (!array2.includes(element))
+        {
+            tempArray.push(element);
+        }
+    }
+
+    return tempArray;
+}
+````
+## Solution for pro developers!
+```typescript
+let leftMergedArrayPro = mergeLeftPro(array1, array2);
+console.log(leftMergedArrayPro);
+
+function mergeLeftPro(array1, array2)
+{
+    return array1.filter(element => !array2.includes(element))
+}
+```
+
+## Explanation For-Loop Solution
+
+This challenge feels like easy holidays, doesn#t it?
+
+It is like the one before, but only the first half if it.
+
+The function `mergeLeft` has two inputs (`array1` and `array2`).
+
+It also does create an empty array `tempArray` where the result array will be stored to.
+
+You will need one `for` loop to cover the left-merging process.
+
+You simply iterate over `array1` and push only those elements of the first array to the variable `tempArray` that are also not in `array2`.
+
+Once you’ve iterated over `array1` and all elements are stored into `tempArray` you just do the return and already have it.
+
+An exclusively merged array.
+
+![The Result in the Console](res/png/solution25.jpg)
+
+*This isn’t the best method you can use but a suitable one, if you are just starting out.*
+
+It is a good way to practice loops, but in terms of functionality, clean code, and extensibility you should take my JavaScript Course, where I introduce you also to all kinds of array methods to write maintainable and scalable code – a must-have for every JavaScript Developer.
+
+If you want to dig deeper into strings, arrays and  their methods check out the pro solution.
+
+## Explanation Pro Solution
+
+You can achieve this challenge’s goal also quite easily by combining several advanced method for arrays:
+- [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) - The filter() method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.
+- [concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) - The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
+
+If you want to become a [Web Developer you want to take my examples](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course), explanations and story telling by breaking the 4th dimensions and save you a lot of time & effort 😉
 
 [A discount and 26 Cheatsheets await you! Just subscribe to my newsletter.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
 

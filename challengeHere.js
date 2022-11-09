@@ -1,11 +1,11 @@
 // Solution with for - loops
-let array1 = [1, 9, 17, 15, 3, 9, 15];
-let array2 = [1, 9, 3, 2, 17];
+let array1= [12, 21, 34, 1, 35, 7, 19];
+let array2 = [-1, 7, 1, 61, 69];
 
-let exclusivelyMergedArray = mergeExclusive(array1, array2);
-console.log(exclusivelyMergedArray);
+let leftMergedArray = mergeLeft(array1, array2);
+console.log(leftMergedArray);
 
-function mergeExclusive(array1, array2)
+function mergeLeft(array1, array2)
 {
     let tempArray = [];
 
@@ -17,25 +17,19 @@ function mergeExclusive(array1, array2)
         }
     }
 
-    for(let element of array2)
-    {
-        if (!array1.includes(element))
-        {
-            tempArray.push(element);
-        }
-    }
-
     return tempArray;
 }
 
 
 // Solution for pro developer!
-let mergedArraysPro = mergeArrays(array1, array2);
-console.log(mergedArraysPro);
+let leftMergedArrayPro = mergeLeftPro(array1, array2);
+console.log(leftMergedArrayPro);
 
-function mergeArrays(array1, array2)
+function mergeLeftPro(array1, array2)
 {
-    return array1.filter(element => !array2.includes(element)).concat(array2.filter(element => !array1.includes(element)))
+    return array1.filter(element => !array2.includes(element))
 }
+
+
 
 // EXPLANATION in README.MD
