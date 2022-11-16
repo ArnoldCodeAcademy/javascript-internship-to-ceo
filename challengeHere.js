@@ -1,35 +1,40 @@
 // Solution with for - loops
-let array1= [12, 21, 34, 1, 35, 7, 19];
-let array2 = [-1, 7, 1, 61, 69];
+let distinctElements = getDistinctElements([12, 12, 3, 6, -1, 21, 9, 7, 10, 12,6 ,- 69, -1, 100]);
+console.log(distinctElements);
 
-let leftMergedArray = mergeLeft(array1, array2);
-console.log(leftMergedArray);
-
-function mergeLeft(array1, array2)
+function getDistinctElements(array)
 {
     let tempArray = [];
 
-    for(let element of array1)
+    for(let i = 0; i < array.length; i++)
     {
-        if (!array2.includes(element))
+        if (!isInArray(array[i], tempArray))
         {
-            tempArray.push(element);
+            tempArray.push(array[i]);
         }
     }
 
     return tempArray;
 }
 
-
-// Solution for pro developer!
-let leftMergedArrayPro = mergeLeftPro(array1, array2);
-console.log(leftMergedArrayPro);
-
-function mergeLeftPro(array1, array2)
+function isInArray(number, array)
 {
-    return array1.filter(element => !array2.includes(element))
+    for(let i = 0; i < array.length; i++)
+    {
+        if (array[i] === number)
+            return true;
+    }
+
+    return false;
 }
 
 
+// Solution for pro developer!
+
+console.log(getDistinctElementsPro([12, 12, 3, 6, -1, 21, 9, 7, 10, 12,6 ,- 69, -1, 100]))
+
+function getDistinctElementsPro(array){
+    return array.filter((v, i, a) => a.indexOf(v) === i);
+}
 
 // EXPLANATION in README.MD

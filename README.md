@@ -71,7 +71,7 @@ Explained in Detail, But Simple
 23. [Create a function that will merge two arrays and return the result as a new array. The two arrays: [9, 8, 7, 6],  [1, 2, 3, 4].](#challenge23--pro-solution-)
 24. [Create a function that will receive two arrays of numbers as arguments and return an array composed of all the numbers that are either in the first array or second array but not in both. The two arrays: [1, 9, 17, 15, 3, 9, 15] , [1, 9, 3, 2, 17]](#challenge24--pro-solution-)
 25. [Create a function that will receive two arrays and will return an array with elements that are in the first array but not in the second. The two arrays:  [12, 21, 34, 1, 35, 7, 19] , [-1, 7, 1, 61, 69]](#challenge25--pro-solution-)
-26. 16.11.2022 
+26. [Create a function that will receive an array of numbers as argument and will return a new array with distinct elements. The Array: 12, 12, 3, 6, -1, 21, 9, 7, 10, 12,6 ,- 69, -1, 100](##challenge26--pro-solution-) 
 27. 23.11.2022
 28. 30.11.2022 
 29. 07.12.2022 
@@ -1375,6 +1375,90 @@ You can achieve this challenge’s goal also quite easily by combining several a
 If you want to become a [Web Developer you want to take my examples](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course), explanations and story telling by breaking the 4th dimensions and save you a lot of time & effort 😉
 
 [A discount and 26 Cheatsheets await you! Just subscribe to my newsletter.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img.png)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+# Challenge26 + Pro Solution 😉
+## Create a function that will receive an array of numbers as argument and will return a new array with distinct elements. The Array: 12, 12, 3, 6, -1, 21, 9, 7, 10, 12,6 ,- 69, -1, 100.
+
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 26"</summary>
+
+```javascript
+let distinctElements = getDistinctElements([12, 12, 3, 6, -1, 21, 9, 7, 10, 12,6 ,- 69, -1, 100]);
+console.log(distinctElements);
+
+function getDistinctElements(array)
+{
+    let tempArray = [];
+
+    for(let i = 0; i < array.length; i++)
+    {
+        if (!isInArray(array[i], tempArray))
+        {
+            tempArray.push(array[i]);
+        }
+    }
+
+    return tempArray;
+}
+
+function isInArray(number, array)
+{
+    for(let i = 0; i < array.length; i++)
+    {
+        if (array[i] === number)
+            return true;
+    }
+
+    return false;
+}
+````
+## Solution for pro developers!
+```typescript
+console.log(getDistinctElementsPro([12, 12, 3, 6, -1, 21, 9, 7, 10, 12,6 ,- 69, -1, 100]))
+
+function getDistinctElementsPro(array){
+    return array.filter((v, i, a) => a.indexOf(v) === i);
+}
+```
+
+## Explanation For-Loop Solution
+
+You will need 2 functions here, otherwise it could fastly become a mess to comprehend afterward.
+
+The overall solution is to iterate over the array you are passing into `getDistinctElements` and iterate over it with a `for`-loop.
+
+The next step is to check for each element if it already exist in our newly created `tempArray`.
+
+- If not: Add it
+- If yes: skip it
+
+You do this until you have checked each element and then return the `tempArray`.
+
+E voilá.
+
+
+![The Result in the Console](res/png/solution26.jpg)
+
+*This isn’t the best method you can use but a suitable one, if you are just starting out.*
+
+It is a good way to practice loops, but in terms of functionality, clean code, and extensibility you should take my JavaScript Course, where I introduce you to all kinds of array methods to write maintainable and scalable code – a must-have for every JavaScript Developer.
+
+If you want to dig deeper into strings, arrays and  their methods check out the pro solution.
+
+## Explanation Pro Solution
+
+You can achieve this challenge’s goal also quite easily by combining several advanced method for arrays:
+- [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) - The filter() method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.
+- [indexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) - The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+
+If you want to become a [Web Developer and want to profit from a huge time bonus to become a developer, take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course). Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[A discount and 26 Cheatsheets awaits you! Just subscribe to my newsletter.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
 
 [![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img.png)](https://www.udemy.com/user/arnold-abraham-3/)
 
