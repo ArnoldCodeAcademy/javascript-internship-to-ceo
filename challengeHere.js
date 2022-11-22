@@ -1,40 +1,69 @@
 // Solution with for - loops
-let distinctElements = getDistinctElements([12, 12, 3, 6, -1, 21, 9, 7, 10, 12,6 ,- 69, -1, 100]);
-console.log(distinctElements);
+console.log("Sum of first ", 99, " primes is ", sumPrimes(99));
 
-function getDistinctElements(array)
+function sumPrimes(number)
 {
-    let tempArray = [];
+    let foundPrimes = 0;
+    let i = 2;
+    let sum = 0;
 
-    for(let i = 0; i < array.length; i++)
+    while(foundPrimes < number)
     {
-        if (!isInArray(array[i], tempArray))
+        if (isPrime(i))
         {
-            tempArray.push(array[i]);
+            foundPrimes++;
+            sum += i;
+        }
+
+        i++;
+    }
+
+    return sum;
+}
+
+// Returns true if number n is prime
+function isPrime(number)
+{
+    if (number < 2)
+        return false;
+
+    if (number == 2)
+        return true;
+
+    let maxDiv = Math.sqrt(number);
+
+    for(let i = 2; i <= maxDiv; i++)
+    {
+        if (number % i === 0)
+        {
+            return false;
         }
     }
 
-    return tempArray;
-}
-
-function isInArray(number, array)
-{
-    for(let i = 0; i < array.length; i++)
-    {
-        if (array[i] === number)
-            return true;
-    }
-
-    return false;
+    return true;
 }
 
 
 // Solution for pro developer!
 
-console.log(getDistinctElementsPro([12, 12, 3, 6, -1, 21, 9, 7, 10, 12,6 ,- 69, -1, 100]))
+console.log("Sum of first " + 99 + "primes is" + sumOfNPrimes(99) + ". Calculated with Pro-Solution.");
 
-function getDistinctElementsPro(array){
-    return array.filter((v, i, a) => a.indexOf(v) === i);
+function sumOfNPrimes(num) {
+    return getNprimes(num).reduce((a, b) => a + b)
 }
+
+function getNprimes(n) {
+    const primes = [];
+    let i = 2
+
+    while (primes.length < n) {
+        if (isPrime(i)) {
+            primes.push(i)
+        }
+        i++
+    }
+    return primes;
+}
+
 
 // EXPLANATION in README.MD

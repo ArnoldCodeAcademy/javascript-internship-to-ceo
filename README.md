@@ -33,7 +33,7 @@ To get help [contact me](mailto:info@arnoldcode.com) via e-mail.
 
 # Want To Learn Web Development Fast & Easy?
 
-[HTML & CSS Starter Edition](https://arnoldcodeacademy.teachable.com/p/html-css-premium-gratis-starter-package)
+[Build A Game UI and an Online Resume with HTML & CSS](https://www.udemy.com/course/build-a-game-ui-and-an-online-resume-with-html-css/)
 
 Beginners Welcome
 Where and How to Start
@@ -71,8 +71,8 @@ Explained in Detail, But Simple
 23. [Create a function that will merge two arrays and return the result as a new array. The two arrays: [9, 8, 7, 6],  [1, 2, 3, 4].](#challenge23--pro-solution-)
 24. [Create a function that will receive two arrays of numbers as arguments and return an array composed of all the numbers that are either in the first array or second array but not in both. The two arrays: [1, 9, 17, 15, 3, 9, 15] , [1, 9, 3, 2, 17]](#challenge24--pro-solution-)
 25. [Create a function that will receive two arrays and will return an array with elements that are in the first array but not in the second. The two arrays:  [12, 21, 34, 1, 35, 7, 19] , [-1, 7, 1, 61, 69]](#challenge25--pro-solution-)
-26. [Create a function that will receive an array of numbers as argument and will return a new array with distinct elements. The Array: 12, 12, 3, 6, -1, 21, 9, 7, 10, 12,6 ,- 69, -1, 100](##challenge26--pro-solution-) 
-27. 23.11.2022
+26. [Create a function that will receive an array of numbers as argument and will return a new array with distinct elements. The Array: 12, 12, 3, 6, -1, 21, 9, 7, 10, 12,6 ,- 69, -1, 100](#challenge26--pro-solution-) 
+27. [Calculate the sum of first 99 prime numbers](#challenge27--pro-solution-)
 28. 30.11.2022 
 29. 07.12.2022 
 30. 14.12.2022 
@@ -1455,6 +1455,162 @@ If you want to dig deeper into strings, arrays and  their methods check out the 
 You can achieve this challenge’s goal also quite easily by combining several advanced method for arrays:
 - [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) - The filter() method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.
 - [indexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) - The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+
+If you want to become a [Web Developer and want to profit from a huge time bonus to become a developer, take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course). Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[A discount and 26 Cheatsheets awaits you! Just subscribe to my newsletter.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img.png)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+
+# Challenge27 + Pro Solution 😉
+## Calculate the sum of first 99 prime numbers.
+
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 27"</summary>
+
+```javascript
+console.log("Sum of first ", 99, " primes is ", sumPrimes(99));
+
+function sumPrimes(number)
+{
+    let foundPrimes = 0;
+    let i = 2;
+    let sum = 0;
+
+    while(foundPrimes < number)
+    {
+        if (isPrime(i))
+        {
+            foundPrimes++;
+            sum += i;
+        }
+
+        i++;
+    }
+
+    return sum;
+}
+
+// Returns true if number n is prime
+function isPrime(number)
+{
+    if (number < 2)
+        return false;
+
+    if (number == 2)
+        return true;
+
+    let maxDiv = Math.sqrt(number);
+
+    for(let i = 2; i <= maxDiv; i++)
+    {
+        if (number % i === 0)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+````
+## Solution for pro developers!
+```typescript
+console.log("Sum of first " + 99 + "primes is" + sumOfNPrimes(99) + ". Calculated with Pro-Solution.");
+
+function sumOfNPrimes(num) {
+    return getNprimes(num).reduce((a, b) => a + b)
+}
+
+function getNprimes(n) {
+    const primes = [];
+    let i = 2
+
+    while (primes.length < n) {
+        if (isPrime(i)) {
+            primes.push(i)
+        }
+        i++
+    }
+    return primes;
+}
+```
+
+## Quick Knowledge Consolidation
+
+"A prime number is a number which has just two factors: itself and 1. Or in other words it can be divided evenly only by itself and 1. For instance, 3 is a prime number because it can be divided evenly only by itself and one. On the other hand, 6 can be divided evenly by 1, 2, 3 and 6. Hence, the number 6 is not a prime number."
+by [Math Basics: Prime Numbers](https://www.qsleap.com/gmat/resources/math-basics-prime-numbers#:~:text=A%20prime%20number%20is%20a,%2C%202%2C%203%20and%206.)
+
+### Here are some divisibility rules for prime numbers:
+
+- If the number is even, it will always be divisible by 2
+- If the sum of the digits is divisible by 3, the number will be divisible by 3
+- If the number ends with 5 or 0, it will be divisible by 5
+- Double the last digit and subtract it from the rest of the number. If the answer is divisible by 7, the original number will be divisible by 7
+- Add alternate digits and subtract it from the difference of the next sum of alternate digits, For instance, if the number is 574652, add 5+4+5=14 and 7+6+2=15. If the difference i.e. 1 is divisible by 11, then the number will be divisible by 11. In this case, clearly the number is not divisible by 11.
+
+## Explanation For-Loop Solution
+
+Also here, you will need 2 functions. Otherwise it could become hard to comprehend afterward.
+
+The first function is `sumPrimes` to actually add each n prime number n. 
+
+The second function `isPrime` that checks if the number in the argument is actually a prime and returns `true` or `false`.
+
+### isPrime() in Detail
+
+Accepts an argument called `number`. This function is not fail-safe. If you pass in a string, JavaScript will automatically try
+to convert it to a number. With a boolean, you screw the entire program.
+
+Anyways, the function makes an early exit if the number is below 2 (no prime) and also if the number is 2 (prime). 
+
+If the argument passes both tests, you need to get the maximum divisor by getting the square-root.
+
+`let maxDiv = Math.sqrt(number);`
+
+Last check to determine if you passed a prime number or not is to iterate (beginning with 2) until you reach the max divisor.
+
+If now the numbers is divided by any of the divisors without a fraction, it disqualifies itself and the function returns `false`.
+
+Otherwise you got yourself a `true` prime number.
+
+*Remember: If any other number except itself or 1 returns a division without any fraction, it isn't classified as prime number.*
+
+### sumPrimes() in Detail
+
+It accepts a limit of prime numbers you want to calculate the sum of.
+
+It will always start at 2, because the first ever possible prime is 2.
+
+This function needs 3 local variables:
+
+- `foundPrimes`: holds a temporarily state about how many prime numbers we already got
+- `i`: the current number to investigate for prime-qualities
+- `sum`: result of the calculation (will be returned in the end)
+
+The `while`-loop iterates until the passed argument of `number` matches the `foundPrimes` variable.
+
+First it checks if the current starting number (held in `i`) is a a prime (done by calling the `isPrime()`-function).
+
+If a prime number has been found, it increased the `foundPrimes` counter and adds the found number to the `sum`.
+
+When the exit condition of the while loop returns false, it returns `sum` to the caller.
+
+![The Result in the Console](res/png/solution27.jpg)
+
+*This isn’t the best method you can use but a suitable one, if you are just starting out.*
+
+It is a good way to practice loops, but in terms of functionality, clean code, and extensibility you should take my JavaScript Course, where I introduce you to all kinds of array methods to write maintainable and scalable code – a must-have for every JavaScript Developer.
+
+If you want to dig deeper into strings, arrays and  their methods check out the pro solution.
+
+## Explanation Pro Solution
+
+You can achieve this challenge’s goal also quite easily by combining several advanced method for arrays:
+- [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) - The reduce() method executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
 
 If you want to become a [Web Developer and want to profit from a huge time bonus to become a developer, take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course). Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
 
