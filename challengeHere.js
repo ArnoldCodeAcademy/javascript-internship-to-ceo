@@ -1,40 +1,41 @@
 // Solution with for - loops
-console.log("Sum of first ", 99, " primes is ", sumPrimes(99));
+printDistances(99)
 
-function sumPrimes(number)
+
+function printDistances(n)
 {
-    let foundPrimes = 0;
-    let i = 2;
-    let sum = 0;
+    var lastPrime = 2;
+    var i = lastPrime + 1;
+    var foundPrimes = 1;
 
-    while(foundPrimes < number)
+    while(foundPrimes < n)
     {
         if (isPrime(i))
         {
+            console.log(i - lastPrime, "\t", i, " - ", lastPrime);
+
             foundPrimes++;
-            sum += i;
+            lastPrime = i;
         }
 
         i++;
     }
-
-    return sum;
 }
 
 // Returns true if number n is prime
-function isPrime(number)
+function isPrime(n)
 {
-    if (number < 2)
+    if (n < 2)
         return false;
 
-    if (number == 2)
+    if (n == 2)
         return true;
 
-    let maxDiv = Math.sqrt(number);
+    var maxDiv = Math.sqrt(n);
 
-    for(let i = 2; i <= maxDiv; i++)
+    for(var i = 2; i <= maxDiv; i++)
     {
-        if (number % i === 0)
+        if (n % i === 0)
         {
             return false;
         }
@@ -44,26 +45,7 @@ function isPrime(number)
 }
 
 
+
 // Solution for pro developer!
-
-console.log("Sum of first " + 99 + "primes is" + sumOfNPrimes(99) + ". Calculated with Pro-Solution.");
-
-function sumOfNPrimes(num) {
-    return getNprimes(num).reduce((a, b) => a + b)
-}
-
-function getNprimes(n) {
-    const primes = [];
-    let i = 2
-
-    while (primes.length < n) {
-        if (isPrime(i)) {
-            primes.push(i)
-        }
-        i++
-    }
-    return primes;
-}
-
 
 // EXPLANATION in README.MD

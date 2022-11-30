@@ -73,7 +73,7 @@ Explained in Detail, But Simple
 25. [Create a function that will receive two arrays and will return an array with elements that are in the first array but not in the second. The two arrays:  [12, 21, 34, 1, 35, 7, 19] , [-1, 7, 1, 61, 69]](#challenge25--pro-solution-)
 26. [Create a function that will receive an array of numbers as argument and will return a new array with distinct elements. The Array: 12, 12, 3, 6, -1, 21, 9, 7, 10, 12,6 ,- 69, -1, 100](#challenge26--pro-solution-) 
 27. [Calculate the sum of first 99 prime numbers](#challenge27--pro-solution-)
-28. 30.11.2022 
+28. [ Print the distance between the first 99 prime numbers](#challenge28--pro-solution-) 
 29. 07.12.2022 
 30. 14.12.2022 
 31. 21.12.2022 
@@ -1251,7 +1251,7 @@ function mergeExclusive(array1, array2)
 }
 ````
 ## Solution for pro developers!
-```typescript
+```javascript
 let mergedArraysPro = mergeArrays(array1, array2);
 console.log(mergedArraysPro);
 
@@ -1330,7 +1330,7 @@ function mergeLeft(array1, array2)
 }
 ````
 ## Solution for pro developers!
-```typescript
+```javascript
 let leftMergedArrayPro = mergeLeftPro(array1, array2);
 console.log(leftMergedArrayPro);
 
@@ -1418,7 +1418,7 @@ function isInArray(number, array)
 }
 ````
 ## Solution for pro developers!
-```typescript
+```javascript
 console.log(getDistinctElementsPro([12, 12, 3, 6, -1, 21, 9, 7, 10, 12,6 ,- 69, -1, 100]))
 
 function getDistinctElementsPro(array){
@@ -1463,7 +1463,6 @@ If you want to become a [Web Developer and want to profit from a huge time bonus
 [![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img.png)](https://www.udemy.com/user/arnold-abraham-3/)
 
 </details>
-
 
 # Challenge27 + Pro Solution 😉
 ## Calculate the sum of first 99 prime numbers.
@@ -1518,7 +1517,7 @@ function isPrime(number)
 }
 ````
 ## Solution for pro developers!
-```typescript
+```javascript
 console.log("Sum of first " + 99 + "primes is" + sumOfNPrimes(99) + ". Calculated with Pro-Solution.");
 
 function sumOfNPrimes(num) {
@@ -1617,5 +1616,123 @@ If you want to become a [Web Developer and want to profit from a huge time bonus
 [A discount and 26 Cheatsheets awaits you! Just subscribe to my newsletter.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
 
 [![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img.png)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+# Challenge28 
+##  Print the distance between the first 99 prime numbers
+
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 27"</summary>
+
+```javascript
+printDistances(99);
+
+// Print distances between the first n prime numbers
+function printDistances(n)
+{
+    let lastPrime = 2;
+    let i = lastPrime + 1;
+    let foundPrimes = 1;
+
+    while(foundPrimes < n)
+    {
+        if (isPrime(i))
+        {
+            console.log(i - lastPrime, "\t", i, " - ", lastPrime);
+
+            foundPrimes++;
+            lastPrime = i;
+        }
+
+        i++;
+    }
+}
+
+// Returns true if number n is prime
+function isPrime(n)
+{
+    if (n < 2)
+        return false;
+
+    if (n == 2)
+        return true;
+
+    let maxDiv = Math.sqrt(n);
+
+    for(let i = 2; i <= maxDiv; i++)
+    {
+        if (n % i === 0)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+````
+## Solution for pro developers!
+```javascript
+// TODO
+```
+
+## Quick Knowledge Consolidation
+
+In case you don't know anything about Prime Numbers, check the [previous challenge with a detailed explanation](#challenge27--pro-solution-).
+
+## Explanation For-Loop Solution
+
+Also here, you will need 2 functions. Otherwise it could become hard to comprehend afterward.
+
+The first function is `printDistances` to actually print the distances to the console.
+
+The second function `isPrime` that checks if the number in the argument is actually a prime and returns `true` or `false`.
+
+### isPrime() in Detail (same as in previous challenge)
+
+Accepts an argument called `number`. This function is not fail-safe. If you pass in a string, JavaScript will automatically try
+to convert it to a number. With a boolean, you screw the entire program.
+
+Anyways, the function makes an early exit if the number is below 2 (no prime) and also if the number is 2 (prime).
+
+If the argument passes both tests, you need to get the maximum divisor by getting the square-root.
+
+`let maxDiv = Math.sqrt(number);`
+
+Last check to determine if you passed a prime number or not is to iterate (beginning with 2) until you reach the max divisor.
+
+If now the numbers is divided by any of the divisors without a fraction, it disqualifies itself and the function returns `false`.
+
+Otherwise you got yourself a `true` prime number.
+
+*Remember: If any other number except itself or 1 returns a division without any fraction, it isn't classified as prime number.*
+
+### printPrimes() in Detail
+
+This function accepts one parameter `n`. This is the upper bound where the function stops printing out distances.
+
+It needs 3 local variables: 
+- `lastPrime`: the last Prime number the function found
+- `i`: the current number to investigate for prime-qualities
+- `foundPrimes`: holds a temporarily state about how many Prime numbers we already got
+
+The `while`-loop checks if `foundPrimes` is below the input parameter of `n`. The loop will continue as long as we haven't found 99 primes to fulfill this challenge.
+
+Since the function gets the command to print the distances for 99 Prime numbers, the function needs to start at the lowest Prime (2) and check every number from there.
+
+It does so by passing each number into the `isPrime()` function. 
+
+If no Prime --> jump to next iteration
+If Prime --> print out a statement that displays the following order `distance     current Prime "-" last Prime `. Increasing the 
+counter of found Primes and setting the `lastPrime` to the currently found (`i`).
+
+(compare solution picture)
+
+(`\t` is an escape sequence for a tabulator-stop).
+
+
+![The Result in the Console](res/png/solution28.jpg)
 
 </details>
