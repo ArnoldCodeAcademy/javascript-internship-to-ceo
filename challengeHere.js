@@ -1,51 +1,45 @@
 // Solution with for - loops
-printDistances(99)
 
+const text = "Very good Sir! Just make sure you finish on the Bach, never finish on Debussy!"
 
-function printDistances(n)
-{
-    var lastPrime = 2;
-    var i = lastPrime + 1;
-    var foundPrimes = 1;
+const wordsCount = countWords(text);
 
-    while(foundPrimes < n)
-    {
-        if (isPrime(i))
-        {
-            console.log(i - lastPrime, "\t", i, " - ", lastPrime);
+console.log(wordsCount);
 
-            foundPrimes++;
-            lastPrime = i;
+function countWords(text) {
+    let wasSeparator = true;
+    let words = 0;
+
+    for (let character of text) {
+        if (isSeparator(character)) {
+            wasSeparator = true;
+            continue;
         }
 
-        i++;
-    }
-}
-
-// Returns true if number n is prime
-function isPrime(n)
-{
-    if (n < 2)
-        return false;
-
-    if (n == 2)
-        return true;
-
-    var maxDiv = Math.sqrt(n);
-
-    for(var i = 2; i <= maxDiv; i++)
-    {
-        if (n % i === 0)
-        {
-            return false;
+        if (wasSeparator) {
+            words++;
+            wasSeparator = false;
         }
     }
 
-    return true;
+    return words;
 }
 
-
+function isSeparator(character) {
+    const separators = [" ", "\t", "\n", "\r", ",", ";", ".", "!", "?"];
+    return separators.includes(character);
+}
 
 // Solution for pro developer!
+
+console.log(countWordsPro(text));
+
+function countWordsPro(text){
+
+    text = text.replace(/(^\s*)|(\s*$)/gi,"");
+    text = text.replace(/[ ]{2,}/gi," ");
+
+    return text.split(' ').length;
+}
 
 // EXPLANATION in README.MD

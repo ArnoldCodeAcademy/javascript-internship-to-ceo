@@ -73,8 +73,8 @@ Explained in Detail, But Simple
 25. [Create a function that will receive two arrays and will return an array with elements that are in the first array but not in the second. The two arrays:  [12, 21, 34, 1, 35, 7, 19] , [-1, 7, 1, 61, 69]](#challenge25--pro-solution-)
 26. [Create a function that will receive an array of numbers as argument and will return a new array with distinct elements. The Array: 12, 12, 3, 6, -1, 21, 9, 7, 10, 12,6 ,- 69, -1, 100](#challenge26--pro-solution-) 
 27. [Calculate the sum of first 99 prime numbers](#challenge27--pro-solution-)
-28. [ Print the distance between the first 99 prime numbers](#challenge28--pro-solution-) 
-29. 07.12.2022 
+28. [Print the distance between the first 99 prime numbers](#challenge28) 
+29. [Create a function that will return the number of words in a text.](#challenge29--pro-solution-)
 30. 14.12.2022 
 31. 21.12.2022 
 32. Early 2023
@@ -1624,7 +1624,7 @@ If you want to become a [Web Developer and want to profit from a huge time bonus
 
 
 <details>
-    <summary>Spoiler "Solution-Explanation For Challenge 27"</summary>
+    <summary>Spoiler "Solution-Explanation For Challenge 28"</summary>
 
 ```javascript
 printDistances(99);
@@ -1734,5 +1734,103 @@ counter of found Primes and setting the `lastPrime` to the currently found (`i`)
 
 
 ![The Result in the Console](res/png/solution28.jpg)
+
+</details>
+
+# Challenge29 + Pro Solution 😉
+## Create a function that will return the number of words in a text. Use this text "Very good Sir! Just make sure you finish on the Bach, never finish on Debussy!"
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 29"</summary>
+
+```javascript
+const text = "Very good Sir! Just make sure you finish on the Bach, never finish on Debussy!"
+
+const wordsCount = countWords(text);
+
+console.log(wordsCount);
+
+function countWords(text) {
+    let wasSeparator = true;
+    let words = 0;
+
+    for (let character of text) {
+        if (isSeparator(character)) {
+            wasSeparator = true;
+            continue;
+        }
+
+        if (wasSeparator) {
+            words++;
+            wasSeparator = false;
+        }
+    }
+
+    return words;
+}
+
+function isSeparator(character) {
+    const separators = [" ", "\t", "\n", "\r", ",", ";", ".", "!", "?"];
+    return separators.includes(character);
+}
+````
+## Solution for pro developers!
+```javascript
+console.log(countWordsPro(text));
+
+function countWordsPro(text){
+
+    text = text.replace(/(^\s*)|(\s*$)/gi,"");
+    text = text.replace(/[ ]{2,}/gi," ");
+
+    return text.split(' ').length;
+}
+```
+
+## Explanation For-Loop Solution
+
+Again 2 functions are better:  & `.
+
+- `countWords(text)` counts every word inside the text by iterating over each character
+- `isSeparator(character)` checks for separator characters to know when when a word ends. 
+
+The overall solution is to iterate over the text you pass into `countWords` and iterate over each character with a `for`-loop.
+
+The next step is to check for each character if it is a separator character your `text`.
+
+- If seperator: set boolean of `wasSeparator` to `true` and increase word count with `words++`and set it back to false for the next iteration
+- If no seperator: skip rest of the loop by using `continue`
+
+You do this until you have checked each character for the given text the `words`.
+
+*Done!*
+
+The `isSeparator` function has the separator characters stored in an array called `separators`. 
+- [includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) - The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+
+Each passed character will be checked if it matches any of the given elements of `separators`.
+
+![The Result in the Console](res/png/solution29.jpg)
+
+*This isn’t the best method you can use but a suitable one, if you are just starting out.*
+
+If you want to dig deeper into professional coding in JavaScript check out the pro solution.
+
+## Explanation Pro Solution
+
+The Pro Solution uses [Regular Expressions](https://levelup.gitconnected.com/indiana-jones-and-the-universal-way-to-search-for-text-1901990f53ae). 
+
+[Read this 5 min Article from me to learn the fundamentals and some professional tips & tricks.](https://levelup.gitconnected.com/indiana-jones-and-the-universal-way-to-search-for-text-1901990f53ae)
+
+[Regular Expressions in JavaScript With Indiana Jones - 5 minutes to get down with regular expressions](https://levelup.gitconnected.com/indiana-jones-and-the-universal-way-to-search-for-text-1901990f53ae).
+
+[![img.png](img.png)](https://levelup.gitconnected.com/indiana-jones-and-the-universal-way-to-search-for-text-1901990f53ae)
+
+
+If you want to become a [Web Developer and want to profit from a huge time bonus to become a developer, take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course). Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[A discount and 26 Cheatsheets awaits you! Just subscribe to my newsletter.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img.png)](https://www.udemy.com/user/arnold-abraham-3/)
 
 </details>
