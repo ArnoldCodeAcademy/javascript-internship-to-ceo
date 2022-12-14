@@ -1,45 +1,36 @@
 // Solution with for - loops
 
-const text = "Very good Sir! Just make sure you finish on the Bach, never finish on Debussy!"
+console.log(capitalizeFirstLetter("javascript and arnold code academy are the best to me!"));
 
-const wordsCount = countWords(text);
+function capitalizeFirstLetter(text) {
+    let tempText = "";
 
-console.log(wordsCount);
+    for (let i = 0; i < text.length; i++) {
+        let currentCharacter = text[i];
+        let previousCharacter = i > 0 ? text[i - 1] : " ";
 
-function countWords(text) {
-    let wasSeparator = true;
-    let words = 0;
-
-    for (let character of text) {
-        if (isSeparator(character)) {
-            wasSeparator = true;
-            continue;
+        if (!isSeparator(currentCharacter) && isSeparator(previousCharacter)) {
+            currentCharacter = currentCharacter.toUpperCase();
         }
 
-        if (wasSeparator) {
-            words++;
-            wasSeparator = false;
-        }
+        tempText += currentCharacter;
     }
 
-    return words;
+    return tempText;
 }
 
 function isSeparator(character) {
-    const separators = [" ", "\t", "\n", "\r", ",", ";", ".", "!", "?"];
+    let separators = [" ", "\t", "\n", "\r", ",", ";", ".", "!", "?"];
     return separators.includes(character);
 }
 
+
 // Solution for pro developer!
 
-console.log(countWordsPro(text));
+console.log(capitalizeFirstLetterPro("javascript and arnold code academy are the best to me!"))
 
-function countWordsPro(text){
-
-    text = text.replace(/(^\s*)|(\s*$)/gi,"");
-    text = text.replace(/[ ]{2,}/gi," ");
-
-    return text.split(' ').length;
+function capitalizeFirstLetterPro(text) {
+    return text.split(" ").map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(" ")
 }
 
 // EXPLANATION in README.MD

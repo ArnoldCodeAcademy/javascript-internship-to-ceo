@@ -52,30 +52,30 @@ Explained in Detail, But Simple
 4. [Print all the multiplication tables with numbers from 1 to 10 with a for-loop.](#challenge04)
 5. [Calculate the sum of numbers from 1 to 24 with a for-loop.](#challenge05)
 6. [Calculate 9! a for-loop.](#challenge06)
-7. [Calculate the sum of odd numbers greater than 9 and less than 30 a for-loop.](#challenge07)
-8. [Create a function that will convert from Celsius to Fahrenheit. Convert 0 degree Celsius.](#challenge08)
-9. [Create a function that will convert from Fahrenheit to Celsius. Convert -38 degree Fahrenheit.](#challenge09)
-10. [Calculate the sum of numbers in an array of numbers. The array: [1, 9, -19, 3, 5, 3, 7, 14, 91].](#challenge10)
-11. [Calculate the average of the numbers in an array of numbers. The array: [2, 5, 17, 81, 9].](#challenge11)
-12. [Create a function that receives an array of numbers and returns an array containing only the positive numbers. The array: [-65, 11, -5, 1, -19, 45, 19, 0, 1] ](#challenge12)
+7. [Calculate the sum of odd numbers greater than 9 and less than 30 a for-loop](#challenge07)
+8. [Create a function that will convert from Celsius to Fahrenheit. Convert 0 degree Celsius](#challenge08)
+9. [Create a function that will convert from Fahrenheit to Celsius. Convert -38 degree Fahrenheit](#challenge09)
+10. [Calculate the sum of numbers in an array of numbers](#challenge10)
+11. [Calculate the average of the numbers in an array of numbers](#challenge11)
+12. [Create a function that receives an array of numbers and returns an array containing only the positive numbers](#challenge12)
 13. [Find the maximum number in an array of numbers.](#challenge13)
-14. [Print the first 10 Fibonacci numbers without recursion. Fibonacci series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, …](#challenge14)
-15. [Create a function that will find the nth Fibonacci number using recursion. Fibonacci series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, … . Use nth = 14](#challenge15)
-16. [Create a function that will return a Boolean specifying if a number is prime. Test with 1,5,6,7,9,11,13 & 27.](#challenge16)
-17. [Calculate the sum of digits of a positive integer number.The integer 1235321.](#challenge17)
+14. [Print the first 10 Fibonacci numbers without recursion](#challenge14)
+15. [Create a function that will find the nth Fibonacci number using recursion](#challenge15)
+16. [Create a function that will return a Boolean specifying if a number is prime](#challenge16)
+17. [Calculate the sum of digits of a positive integer number](#challenge17)
 18. [Print the first 99 prime numbers.](#challenge18)
 19. [Create a function that will return in an array the first “nPrimes” prime numbers greater than a particular number “startAt”](#challenge19)
-20. [Rotate an array to the left 1 position. E.g. [1, 2, 3, 4, 5] -> [ 2, 3, 4, 5, 1 ] | [1, 2, 4, 5] -> [ 2, 4, 5, 1 ].](#challenge20)
-21. [Rotate an array to the right 1 position. E.g. [1, 2, 3] -> [ 3, 1, 2 ] | [1, 2, 4, 6, 3] -> [ 3, 1, 2, 4, 6 ].](#challenge21)
+20. [Rotate an array to the left 1 position.](#challenge20)
+21. [Rotate an array to the right 1 position](#challenge21)
 22. [Reverse a string. The string „JavaScript with ArnoldCode is the best!"](#challenge22--pro-solution-)
-23. [Create a function that will merge two arrays and return the result as a new array. The two arrays: [9, 8, 7, 6],  [1, 2, 3, 4].](#challenge23--pro-solution-)
-24. [Create a function that will receive two arrays of numbers as arguments and return an array composed of all the numbers that are either in the first array or second array but not in both. The two arrays: [1, 9, 17, 15, 3, 9, 15] , [1, 9, 3, 2, 17]](#challenge24--pro-solution-)
-25. [Create a function that will receive two arrays and will return an array with elements that are in the first array but not in the second. The two arrays:  [12, 21, 34, 1, 35, 7, 19] , [-1, 7, 1, 61, 69]](#challenge25--pro-solution-)
-26. [Create a function that will receive an array of numbers as argument and will return a new array with distinct elements. The Array: 12, 12, 3, 6, -1, 21, 9, 7, 10, 12,6 ,- 69, -1, 100](#challenge26--pro-solution-) 
+23. [Create a function that will merge two arrays and return the result as a new array.](#challenge23--pro-solution-)
+24. [Create a function that will receive two arrays of numbers as arguments and return an array composed of all the numbers that are either in the first array or second array but not in both](#challenge24--pro-solution-)
+25. [Create a function that will receive two arrays and will return an array with elements that are in the first array but not in the second](#challenge25--pro-solution-)
+26. [Create a function that will receive an array of numbers as argument and will return a new array with distinct elements](#challenge26--pro-solution-) 
 27. [Calculate the sum of first 99 prime numbers](#challenge27--pro-solution-)
 28. [Print the distance between the first 99 prime numbers](#challenge28) 
-29. [Create a function that will return the number of words in a text.](#challenge29--pro-solution-)
-30. 14.12.2022 
+29. [Create a function that will return the number of words in a text](#challenge29--pro-solution-)
+30. [Create a function that will capitalize the first letter of each word in a text](#challenge30--pro-solution-)
 31. 21.12.2022 
 32. Early 2023
 33. Early 2023 
@@ -1826,6 +1826,117 @@ The Pro Solution uses [Regular Expressions](https://levelup.gitconnected.com/ind
 
 [![img.png](img.png)](https://levelup.gitconnected.com/indiana-jones-and-the-universal-way-to-search-for-text-1901990f53ae)
 
+
+If you want to become a [Web Developer and want to profit from a huge time bonus to become a developer, take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course). Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[A discount and 26 Cheatsheets awaits you! Just subscribe to my newsletter.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img.png)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+# Challenge30 + Pro Solution 😉
+## Create a function that will capitalize the first letter of each word in a text. The text: „javascript and arnold code academy are the best to me!"
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 30"</summary>
+
+```javascript
+console.log(capitalizeFirstLetter("javascript and arnold code academy are the best to me!"));
+
+function capitalizeFirstLetter(text)
+{
+    let tempText = "";
+
+    for(let i = 0; i < text.length; i++)
+    {
+        let currentCharacter = text[i];
+        let previousCharacter = i > 0 ? text[i - 1] : " ";
+
+        if (!isSeparator(currentCharacter) && isSeparator(previousCharacter))
+        {
+            currentCharacter = currentCharacter.toUpperCase();
+        }
+
+        tempText += currentCharacter;
+    }
+
+    return tempText;
+}
+
+function isSeparator(character)
+{
+    let separators = [" ", "\t", "\n", "\r", ",", ";", ".", "!", "?"];
+    return separators.includes(character);
+}
+````
+## Solution for pro developers!
+```javascript
+console.log(capitalizeFirstLetterPro("javascript and arnold code academy are the best to me!"))
+
+function capitalizeFirstLetterPro(text) {
+    return text.split(" ").map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(" ")
+}
+```
+
+## Explanation For-Loop Solution
+
+The rule to know how many functions you should create:
+
+`One function has one purpose. And this purpose should be small.` This is part of the [SOLID-Principles every good developer must know](https://medium.com/arnoldcode-academy/unity-solid-s-single-responsibility-6707d9569e73).
+
+Anyways, the solution involves the following 2 functions:
+
+- `capitalizeFirstLetter(text)` checks every character to be the first of a word and capitalize if it is
+- `isSeparator(character)` checks for separator characters to know when when a word ends
+
+The overall solution is to iterate over the text you pass into `capitalizeFirstLetter` and iterate over each character with a `for`-loop.
+
+The next step is to check a set of two characters:
+- `previousCharacter`
+- `currentCharacter` 
+
+``` javascript
+let currentCharacter = text[i];
+
+let previousCharacter = i > 0 ? text[i - 1] : " ";
+```
+The first line is easy, but the second one that defines `previousCharacter` is a [Ternary-Operator](https://javascript.plainenglish.io/javascript-ecmascript-history-the-hidden-features-acb38af57be8)
+and does the following: 
+- If the expression before the `?` (`i > 0`) evaluates to `true` take `text[i-1]`
+- If the expression before the `?` (`i > 0`) evaluates to `false` take `" "`
+
+*Why?* Because `" "' is a separator and will capitalize the first word of the entire text :)
+
+ 
+Only if this set has the following combination
+- `previousCharacter` -> Is a separator
+- `currentCharacter` -> is no separator
+then it means we have the beginning of a word.
+
+You do these double checks until you have checked each characters for the given text.
+
+*Done!*
+
+The `isSeparator` function has the separator characters stored in an array called `separators`.
+- [includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) - The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+
+Each passed character will be checked if it matches any of the given elements of `separators`.
+
+![The Result in the Console](res/png/solution30.jpg)
+
+*This isn’t the best method you can use but a suitable one, if you are just starting out.*
+
+If you want to dig deeper into professional coding in JavaScript check out the pro solution.
+
+## Explanation Pro Solution
+
+To achieve the same result with prior JavaScript knowledge, I used some built-in functionality:
+
+- [split](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split) - The split() method takes a pattern and divides a String into an ordered list of substrings by searching for the pattern, puts these substrings into an array, and returns the array.
+- [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) - The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+- [slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) - The slice() method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.
+- [join](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join) - The join() method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator.
 
 If you want to become a [Web Developer and want to profit from a huge time bonus to become a developer, take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course). Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
 
