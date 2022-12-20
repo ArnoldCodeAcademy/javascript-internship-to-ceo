@@ -1,36 +1,28 @@
 // Solution with for - loops
 
-console.log(capitalizeFirstLetter("javascript and arnold code academy are the best to me!"));
+console.log(sumCSV("1.5, 2.3, 3.1, 4, 5.5, 6, 7, 8, 9, 10.9"));
 
-function capitalizeFirstLetter(text) {
-    let tempText = "";
 
-    for (let i = 0; i < text.length; i++) {
-        let currentCharacter = text[i];
-        let previousCharacter = i > 0 ? text[i - 1] : " ";
+function sumCSV(string)
+{
+    let array = string.split(",");
 
-        if (!isSeparator(currentCharacter) && isSeparator(previousCharacter)) {
-            currentCharacter = currentCharacter.toUpperCase();
-        }
+    let sum = 0;
 
-        tempText += currentCharacter;
+    for(let number of array)
+    {
+        sum += parseFloat(number);
     }
 
-    return tempText;
+    return sum;
 }
-
-function isSeparator(character) {
-    let separators = [" ", "\t", "\n", "\r", ",", ";", ".", "!", "?"];
-    return separators.includes(character);
-}
-
 
 // Solution for pro developer!
 
-console.log(capitalizeFirstLetterPro("javascript and arnold code academy are the best to me!"))
+console.log(sumCSVLikeAPro("1.5, 2.3, 3.1, 4, 5.5, 6, 7, 8, 9, 10.9"))
 
-function capitalizeFirstLetterPro(text) {
-    return text.split(" ").map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(" ")
+function sumCSVLikeAPro(string){
+    return string.split(",").reduce((a, v) => parseFloat(a) + parseFloat(v));
 }
 
 // EXPLANATION in README.MD

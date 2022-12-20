@@ -76,7 +76,7 @@ Explained in Detail, But Simple
 28. [Print the distance between the first 99 prime numbers](#challenge28) 
 29. [Create a function that will return the number of words in a text](#challenge29--pro-solution-)
 30. [Create a function that will capitalize the first letter of each word in a text](#challenge30--pro-solution-)
-31. 21.12.2022 
+31. [Calculate the sum of numbers received in a comma delimited string.](#challenge31--pro-solution-) 
 32. Early 2023
 33. Early 2023 
 34. Early 2023 
@@ -1943,5 +1943,76 @@ If you want to become a [Web Developer and want to profit from a huge time bonus
 [A discount and 26 Cheatsheets awaits you! Just subscribe to my newsletter.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
 
 [![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img.png)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+# Challenge31 + Pro Solution 😉
+## Calculate the sum of numbers received in a comma delimited string. The CSV string „1.5, 2.3, 3.1, 4, 5.5, 6, 7, 8, 9, 10.9“
+
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 31"</summary>
+
+```javascript
+console.log(sumCSV("1.5, 2.3, 3.1, 4, 5.5, 6, 7, 8, 9, 10.9"));
+
+
+function sumCSV(string)
+{
+    let array = string.split(",");
+
+    let sum = 0;
+
+    for(let number of array)
+    {
+        sum += parseFloat(number);
+    }
+
+    return sum;
+}
+````
+## Solution for pro developers!
+```javascript
+function sumCSVLikeAPro(string){
+    return string.split(",").reduce((a, v) => parseFloat(a) + parseFloat(v));
+}
+
+```
+
+## Explanation For-Loop Solution
+
+With this challenge you can relax a bit and just need to write one function ;) 
+
+`sumCSV` takes a `string` and converts it into an `array` by already using an advanced method of arrays (`split()`).
+
+Yep, the time has come for you to learn them:
+- [split](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split) - The split() method takes a pattern and divides a String into an ordered list of substrings by searching for the pattern, puts these substrings into an array, and returns the array.
+
+After that the function proceeds simply with the creation of the needed `sum` temporarily variable and processes it inside a  `for`-loop.
+
+With the call of `parseFloat` the code transforms each string into a number and adds it to  `sum` until each element of the array has been processed by the for loop.
+
+Lastly, return the `sum` variable to the caller and you are done.
+
+![The Result in the Console](res/png/solution31.jpg)
+
+*This isn’t the best method you can use but a suitable one, if you are just starting out.*
+
+If you want to dig deeper into professional coding in JavaScript check out the pro solution.
+
+## Explanation Pro Solution
+
+To achieve the same result with prior JavaScript knowledge, I used some built-in functionality:
+
+- [split](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split) - The split() method takes a pattern and divides a String into an ordered list of substrings by searching for the pattern, puts these substrings into an array, and returns the array.
+- [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) - The reduce() method executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
+
+Become a [Web Developer with a huge time saving journey and take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[A discount 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
 
 </details>
