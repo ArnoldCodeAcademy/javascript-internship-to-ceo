@@ -1,28 +1,53 @@
 // Solution with for - loops
 
-console.log(sumCSV("1.5, 2.3, 3.1, 4, 5.5, 6, 7, 8, 9, 10.9"));
+let text = "Learning to Code with Arnold Code Academy brings me joy.";
 
+console.log(getWords(text));
 
-function sumCSV(string)
+function getWords(text)
 {
-    let array = string.split(",");
+    let startWord = -1;
+    let array = [];
 
-    let sum = 0;
-
-    for(let number of array)
+    for(let i = 0; i <= text.length; i++)
     {
-        sum += parseFloat(number);
+        let character = i < text.length ? text[i] : " ";
+
+        if (!isSeparator(character) && startWord < 0)
+        {
+            startWord = i;
+        }
+
+        if (isSeparator(character) && startWord >= 0)
+        {
+            let word = text.substring(startWord, i);
+            array.push(word);
+
+            startWord = -1;
+        }
     }
 
-    return sum;
+    return array;
 }
+
+function isSeparator(character)
+{
+    let separators = [" ", "\t", "\n", "\r", ",", ";", ".", "!", "?", "(", ")"];
+    return separators.includes(character);
+}
+
 
 // Solution for pro developer!
 
-console.log(sumCSVLikeAPro("1.5, 2.3, 3.1, 4, 5.5, 6, 7, 8, 9, 10.9"))
+console.log(getWordsPro(text));
 
-function sumCSVLikeAPro(string){
-    return string.split(",").reduce((a, v) => parseFloat(a) + parseFloat(v));
+function getWordsPro(text){
+
+    text = text.replace(/(^\s*)|(\s*$)/gi,"");
+    text = text.replace(/[ ]{2,}/gi," ");
+
+    return text.split(' ').map(x => x);
 }
+
 
 // EXPLANATION in README.MD

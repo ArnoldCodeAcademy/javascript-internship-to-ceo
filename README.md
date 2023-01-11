@@ -77,29 +77,29 @@ Explained in Detail, But Simple
 29. [Create a function that will return the number of words in a text](#challenge29--pro-solution-)
 30. [Create a function that will capitalize the first letter of each word in a text](#challenge30--pro-solution-)
 31. [Calculate the sum of numbers received in a comma delimited string.](#challenge31--pro-solution-) 
-32. Early 2023
-33. Early 2023 
-34. Early 2023 
-35. Early 2023 
-36. Early 2023 
-37. Early 2023 
-38. Early 2023 
-39. Early 2023 
-40. Early 2023 
-41. Early 2023 
-42. Early 2023 
-43. Early 2023 
-44. Early 2023 
-45. Early 2023 
-46. Early 2023 
-47. Early 2023 
-48. Early 2023 
-49. Early 2023 
-50. Early 2023 
-51. Early 2023 
-52. Early 2023 
-53. Early 2023 
-54. Early 2023 
+32. [Create a function that will return an array with every word of a text.](#challenge32--pro-solution-)
+33. 18.01.2023 
+34. 25.01.2023 
+35. 01.02.2023 
+36. 08.02.2023 
+37. 15.02.2023 
+38. 22.02.2023 
+39. 01.03.2023
+40. 08.03.2023 
+41. 15.03.2023 
+42. 22.03.2023 
+43. 29.03.2023 
+44. 05.04.2023 
+45. Mid 2023 
+46. Mid 2023
+47. Mid 2023 
+48. Mid 2023 
+49. Mid 2023 
+50. Mid 2023 
+51. Mid 2023 
+52. Mid 2023 
+53. Mid 2023 
+54. Mid 2023 
 
 # Challenge01 
 ## Print numbers from 1 to 10 with a for-loop.
@@ -2006,6 +2006,62 @@ To achieve the same result with prior JavaScript knowledge, I used some built-in
 
 - [split](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split) - The split() method takes a pattern and divides a String into an ordered list of substrings by searching for the pattern, puts these substrings into an array, and returns the array.
 - [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) - The reduce() method executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
+
+Become a [Web Developer with a huge time saving journey and take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[A discount 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+
+# Challenge32 + Pro Solution 😉
+## Create a function that will return an array with every word of a text. Use the text "Learning to Code with Arnold Code Academy brings me joy."
+
+
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 31"</summary>
+
+```javascript
+
+````
+## Solution for pro developers!
+```javascript
+
+
+```
+
+## Explanation For-Loop Solution
+
+The solution to this challenge is pretty similar to a previous challenge.
+
+You will have 2 functions:
+1. `getWords(text)` - returns the words in an array by calling the 2nd function
+2. `isSeparator(character)` - returns `true` or `false` if the passed character is a seperator
+
+Having these 2 functions is already the solution by iterating over each character of the string and check if it is a separator.
+
+Once a character is identified as separator, the previous section must be a word and will be stored into the `array`.
+
+When you iterated all characters, the `array` is returned.
+
+The following picture shows the result.
+
+![The Result in the Console](res/png/solution32.jpg)
+
+*This isn’t the best method you can use but a suitable one, if you are just starting out.*
+
+If you want to dig deeper into professional coding in JavaScript check out the pro solution.
+
+## Explanation Pro Solution
+
+To achieve the same result with prior JavaScript knowledge, I used some built-in functionality:
+
+- [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) - The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
 
 Become a [Web Developer with a huge time saving journey and take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
 
