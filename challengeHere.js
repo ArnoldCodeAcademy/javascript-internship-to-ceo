@@ -1,53 +1,31 @@
 // Solution with for - loops
 
-let text = "Learning to Code with Arnold Code Academy brings me joy.";
+let data = "Arnold;Abraham;On;Medium\nRead;Amazing;Programming;Content";
 
-console.log(getWords(text));
+let array = csvToArray(data);
 
-function getWords(text)
+console.log(JSON.stringify(array));
+
+function csvToArray(data)
 {
-    let startWord = -1;
-    let array = [];
+    let arrays = data.split("\n");
 
-    for(let i = 0; i <= text.length; i++)
+    for(let i = 0; i < arrays.length; i++)
     {
-        let character = i < text.length ? text[i] : " ";
-
-        if (!isSeparator(character) && startWord < 0)
-        {
-            startWord = i;
-        }
-
-        if (isSeparator(character) && startWord >= 0)
-        {
-            let word = text.substring(startWord, i);
-            array.push(word);
-
-            startWord = -1;
-        }
+        let lineOfWords = arrays[i].split(";");
+        arrays[i] = lineOfWords;
     }
 
-    return array;
+    return arrays;
 }
-
-function isSeparator(character)
-{
-    let separators = [" ", "\t", "\n", "\r", ",", ";", ".", "!", "?", "(", ")"];
-    return separators.includes(character);
-}
-
 
 // Solution for pro developer!
 
-console.log(getWordsPro(text));
+console.log(csvToArrayPro(data))
 
-function getWordsPro(text){
-
-    text = text.replace(/(^\s*)|(\s*$)/gi,"");
-    text = text.replace(/[ ]{2,}/gi," ");
-
-    return text.split(' ').map(x => x);
+function csvToArrayPro(data)
+{
+   return data.split("\n").map(x => x.split(';').map(x => x));
 }
-
 
 // EXPLANATION in README.MD

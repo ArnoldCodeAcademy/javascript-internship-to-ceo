@@ -78,7 +78,7 @@ Explained in Detail, But Simple
 30. [Create a function that will capitalize the first letter of each word in a text](#challenge30--pro-solution-)
 31. [Calculate the sum of numbers received in a comma delimited string.](#challenge31--pro-solution-) 
 32. [Create a function that will return an array with every word of a text.](#challenge32--pro-solution-)
-33. 18.01.2023 
+33. [Create a function to convert a CSV text to a “bi-dimensional” array.](#challenge33--pro-solution-)
 34. 25.01.2023 
 35. 01.02.2023 
 36. 08.02.2023 
@@ -2024,15 +2024,57 @@ Explanations and story telling break the 4th dimensions to save you a lot of tim
 
 
 <details>
-    <summary>Spoiler "Solution-Explanation For Challenge 31"</summary>
+    <summary>Spoiler "Solution-Explanation For Challenge 32"</summary>
 
 ```javascript
+let text = "Learning to Code with Arnold Code Academy brings me joy.";
+
+console.log(getWords(text));
+
+function getWords(text)
+{
+    let startWord = -1;
+    let array = [];
+
+    for(let i = 0; i <= text.length; i++)
+    {
+        let character = i < text.length ? text[i] : " ";
+
+        if (!isSeparator(character) && startWord < 0)
+        {
+            startWord = i;
+        }
+
+        if (isSeparator(character) && startWord >= 0)
+        {
+            let word = text.substring(startWord, i);
+            array.push(word);
+
+            startWord = -1;
+        }
+    }
+
+    return array;
+}
+
+function isSeparator(character)
+{
+    let separators = [" ", "\t", "\n", "\r", ",", ";", ".", "!", "?", "(", ")"];
+    return separators.includes(character);
+}
 
 ````
 ## Solution for pro developers!
 ```javascript
+console.log(getWordsPro(text));
 
+function getWordsPro(text){
 
+    text = text.replace(/(^\s*)|(\s*$)/gi,"");
+    text = text.replace(/[ ]{2,}/gi," ");
+
+    return text.split(' ').map(x => x);
+}
 ```
 
 ## Explanation For-Loop Solution
@@ -2072,3 +2114,81 @@ Explanations and story telling break the 4th dimensions to save you a lot of tim
 [![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
 
 </details>
+
+
+# Challenge33 + Pro Solution 😉
+## Create a function to convert a CSV text to a “bi-dimensional” array. Use the string "Arnold;Abraham;On;Medium\nRead;Amazing;Programming;Content"
+
+
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 33"</summary>
+
+```javascript
+
+let data = "Arnold;Abraham;On;Medium;\nRead;Amazing;Programming;Content";
+
+let array = csvToArray(data);
+
+console.log(JSON.stringify(array));
+
+function csvToArray(data)
+{
+    let arrays = data.split("\n");
+
+    for(let i = 0; i < arrays.length; i++)
+    {
+        let lineOfWords = arrays[i].split(";");
+        arrays[i] = lineOfWords;
+    }
+
+    return arrays;
+}
+
+````
+## Solution for pro developers!
+```javascript
+console.log(csvToArrayPro(data))
+
+function csvToArrayPro(data)
+{
+   return data.split("\n").map(x => x.split(';').map(x => x));
+}
+
+```
+
+## Explanation For-Loop Solution
+
+To generate a bidimensional array, you simply need two steps. 
+
+First you split the given string by the escape sequence of `\n` and then you already have an array of two seperate lines.
+
+What you do next is to split every word by the csv-delimiter (in this case the `;`) to assign them into a new array. 
+
+That's it! :)
+
+The following picture shows the result.
+
+![The Result in the Console](res/png/solution33.jpg)
+
+*This isn’t the best method you can use but a suitable one, if you are just starting out.*
+
+If you want to dig deeper into professional coding in JavaScript check out the pro solution.
+
+## Explanation Pro Solution
+
+To achieve the same result with prior JavaScript knowledge, I used some built-in functionality:
+
+- [split](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split) - The split() method takes a pattern and divides a String into an ordered list of substrings by searching for the pattern, puts these substrings into an array, and returns the array.
+- [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) - The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+
+Become a [Web Developer with a huge time saving journey and take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[A discount 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
