@@ -79,17 +79,17 @@ Explained in Detail, But Simple
 31. [Calculate the sum of numbers received in a comma delimited string.](#challenge31--pro-solution-) 
 32. [Create a function that will return an array with every word of a text.](#challenge32--pro-solution-)
 33. [Create a function to convert a CSV text to a “bi-dimensional” array.](#challenge33--pro-solution-)
-34. 25.01.2023 
-35. 01.02.2023 
-36. 08.02.2023 
-37. 15.02.2023 
-38. 22.02.2023 
-39. 01.03.2023
-40. 08.03.2023 
-41. 15.03.2023 
-42. 22.03.2023 
-43. 29.03.2023 
-44. 05.04.2023 
+34. [Create a function that will convert a string in an array containing the ASCII codes of each character.](#challenge34--pro-solution-)  
+35. 15.02.2023 
+36. 22.02.2023 
+37. 01.03.2023
+38. 08.03.2023 
+39. 15.03.2023 
+40. 22.03.2023 
+41. 29.03.2023 
+42. 05.04.2023 
+43. Mid 2023 
+44. Mid 2023 
 45. Mid 2023 
 46. Mid 2023
 47. Mid 2023 
@@ -2192,3 +2192,82 @@ Explanations and story telling break the 4th dimensions to save you a lot of tim
 
 </details>
 
+# Challenge34 + Pro Solution 😉
+## Create a function that will convert a string in an array containing the ASCII codes of each character. Use the string of "I like JavaScript and the Arnold Code Academy".
+
+
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 33"</summary>
+
+```javascript
+
+console.log(getCharCodes("I like JavaScript and the Arnold Code Academy"));
+
+function getCharCodes(string)
+{
+    let array = [];
+
+    for(let i = 0; i < string.length; i++)
+    {
+        let code = string.charCodeAt(i);
+        array.push(code);
+    }
+
+    return array;
+}
+
+````
+## Solution for pro developers!
+```javascript
+
+console.log(getCharCodesPro("I like JavaScript and the Arnold Code Academy"));
+
+function getCharCodesPro(string) {
+    return [...string].map(char => char.charCodeAt(0))
+}
+
+```
+
+## Explanation For-Loop Solution
+
+The first line is logging the outcome of calling a function called `getCharCodes`.
+
+You need to pass the string 'I like JavaScript and the Arnold Code Academy'. 
+
+This `getCharCodes` function accepts a `string` as input and gives you back an array of character codes for every character in the string.
+
+Inside the function, you first create an empty array called `array`.
+
+Then, you want to use a for loop to go through each character in the input string. 
+
+With each iteration, you call the `charCodeAt` method to get the character code for the current character and store it in a variable called code.
+
+After that, you add the value of `code` to the array using the `push()` method. 
+
+Finally, the function returns the full array as its result.
+
+![The Result in the Console](res/png/solution34.jpg)
+
+*This isn’t the best method you can use but a suitable one, if you are just starting out.*
+
+If you want to dig deeper into professional coding in JavaScript check out the pro solution.
+
+## Explanation Pro Solution
+
+To achieve the same result with prior JavaScript knowledge, I used some built-in functionality:
+
+- [Spread Syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) - The spread (...) syntax allows an iterable, such as an array or string, to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected. In an object literal, the spread syntax enumerates the properties of an object and adds the key-value pairs to the object being created.
+- [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) - The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+- [charCodeAt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt) - The charCodeAt() method returns an integer between 0 and 65535 representing the UTF-16 code unit at the given index.
+
+
+Become a [Web Developer with a huge time saving journey and take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[A discount 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>

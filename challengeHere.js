@@ -1,31 +1,28 @@
 // Solution with for - loops
 
-let data = "Arnold;Abraham;On;Medium\nRead;Amazing;Programming;Content";
+console.log(getCharCodes("I like JavaScript and the Arnold Code Academy"));
 
-let array = csvToArray(data);
-
-console.log(JSON.stringify(array));
-
-function csvToArray(data)
+function getCharCodes(string)
 {
-    let arrays = data.split("\n");
+    let array = [];
 
-    for(let i = 0; i < arrays.length; i++)
+    for(let i = 0; i < string.length; i++)
     {
-        let lineOfWords = arrays[i].split(";");
-        arrays[i] = lineOfWords;
+        let code = string.charCodeAt(i);
+        array.push(code);
     }
 
-    return arrays;
+    return array;
 }
+
 
 // Solution for pro developer!
 
-console.log(csvToArrayPro(data))
+console.log(getCharCodesPro("I like JavaScript and the Arnold Code Academy"));
 
-function csvToArrayPro(data)
-{
-   return data.split("\n").map(x => x.split(';').map(x => x));
+function getCharCodesPro(string) {
+    return [...string].map(char => char.charCodeAt(0))
 }
+
 
 // EXPLANATION in README.MD
