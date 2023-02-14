@@ -80,7 +80,7 @@ Explained in Detail, But Simple
 32. [Create a function that will return an array with every word of a text.](#challenge32--pro-solution-)
 33. [Create a function to convert a CSV text to a “bi-dimensional” array.](#challenge33--pro-solution-)
 34. [Create a function that will convert a string in an array containing the ASCII codes of each character.](#challenge34--pro-solution-)  
-35. 15.02.2023 
+35. [Create a function that will convert an array containing ASCII codes in a string.](#challenge35--pro-solution-)
 36. 22.02.2023 
 37. 01.03.2023
 38. 08.03.2023 
@@ -2198,7 +2198,7 @@ Explanations and story telling break the 4th dimensions to save you a lot of tim
 
 
 <details>
-    <summary>Spoiler "Solution-Explanation For Challenge 33"</summary>
+    <summary>Spoiler "Solution-Explanation For Challenge 34"</summary>
 
 ```javascript
 
@@ -2263,6 +2263,67 @@ To achieve the same result with prior JavaScript knowledge, I used some built-in
 
 
 Become a [Web Developer with a huge time saving journey and take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[A discount 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+
+# Challenge35 + Pro Solution 😉
+## Create a function that will convert an array containing ASCII codes in a string. The array [73,  32, 108, 105, 107, 101,  32,  74, 97, 118,  97,  83,  99, 114, 105, 112, 116,  32,  97, 110, 100,  32,  65, 114, 110, 111, 108, 100,  67, 111, 100, 101].
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 35"</summary>
+
+```javascript
+
+console.log(codesToString([73, 32, 108, 105, 107, 101, 32, 74, 97, 118, 97, 83, 99, 114, 105, 112, 116, 32, 97, 110, 100, 32, 65, 114, 110, 111, 108, 100, 67, 111, 100, 101]));
+
+function codesToString(array) {
+    return String.fromCharCode(...array);
+}
+
+
+````
+## Solution for pro developers!
+```javascript
+
+// It is already a pro solution ;)
+
+```
+
+## Explanation Solution
+
+To achieve the result define a function named `codesToString` that takes an array of numbers as a parameter and returns a string that is composed of the characters corresponding to those numbers in the ASCII table.
+
+For example, the number 65 corresponds to the character ‘A’, the number 32 corresponds to the space character, and so on.
+
+Call then the function `codesToString` with an array of numbers as an argument to print the result to the console. 
+
+You do this by using the `console.log` method.
+
+The result is the string `I like JavaScript and ArnoldCode`.
+
+The code uses the spread operator (`…`) to pass the elements of the array as individual arguments to the `String.fromCharCode` method.
+
+Thus it converts each number to a character and concatenates them into a string.
+
+This is a shorthand way of writing
+
+`String.fromCharCode(array[0], array[1], array[2], …, array[n])` 
+
+or 
+
+`for(let i; i < array.length; i++){ ....}`.
+
+![The Result in the Console](res/png/solution35.jpg)
+
+If you want to learn coding shown in this challenge,
+become a [Web Developer with a huge time saving journey and take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
 
 Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
 

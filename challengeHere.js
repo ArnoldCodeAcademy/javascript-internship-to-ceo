@@ -1,28 +1,14 @@
 // Solution with for - loops
 
-console.log(getCharCodes("I like JavaScript and the Arnold Code Academy"));
+console.log(codesToString([73, 32, 108, 105, 107, 101, 32, 74, 97, 118, 97, 83, 99, 114, 105, 112, 116, 32, 97, 110, 100, 32, 65, 114, 110, 111, 108, 100, 67, 111, 100, 101]));
 
-function getCharCodes(string)
-{
-    let array = [];
-
-    for(let i = 0; i < string.length; i++)
-    {
-        let code = string.charCodeAt(i);
-        array.push(code);
-    }
-
-    return array;
+function codesToString(array) {
+    return String.fromCharCode(...array);
 }
 
 
 // Solution for pro developer!
 
-console.log(getCharCodesPro("I like JavaScript and the Arnold Code Academy"));
-
-function getCharCodesPro(string) {
-    return [...string].map(char => char.charCodeAt(0))
-}
-
+// It is already a pro solution ;)
 
 // EXPLANATION in README.MD
