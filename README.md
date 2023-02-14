@@ -44,6 +44,12 @@ Explained in Detail, But Simple
 
 <hr>
 
+# Stay Informed: Latest Changes and News in Web Development
+
+[Check out My Online Articles About the Latest News and Changes in Web Development](https://medium.com/@arnoldcode)
+
+[![img_2.png](img_2.png)](https://medium.com/@arnoldcode)
+
 # Challenge Overview
 
 1. [Print numbers from 1 to 10 with a for-loop.](#challenge01)
@@ -81,7 +87,7 @@ Explained in Detail, But Simple
 33. [Create a function to convert a CSV text to a “bi-dimensional” array.](#challenge33--pro-solution-)
 34. [Create a function that will convert a string in an array containing the ASCII codes of each character.](#challenge34--pro-solution-)  
 35. [Create a function that will convert an array containing ASCII codes in a string.](#challenge35--pro-solution-)
-36. 22.02.2023 
+36. [Implement the Caesar cypher.](#challenge36--pro-solution-)
 37. 01.03.2023
 38. 08.03.2023 
 39. 15.03.2023 
@@ -2119,8 +2125,6 @@ Explanations and story telling break the 4th dimensions to save you a lot of tim
 # Challenge33 + Pro Solution 😉
 ## Create a function to convert a CSV text to a “bi-dimensional” array. Use the string "Arnold;Abraham;On;Medium\nRead;Amazing;Programming;Content"
 
-
-
 <details>
     <summary>Spoiler "Solution-Explanation For Challenge 33"</summary>
 
@@ -2324,6 +2328,199 @@ or
 
 If you want to learn coding shown in this challenge,
 become a [Web Developer with a huge time saving journey and take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[A discount 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+
+# Challenge36 + Pro Solution 😉
+## Implement the Caesar cypher. Use the string of "I LIKE ARNOLDCODE AND JAVASCRIPT"
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 36"</summary>
+
+```javascript
+
+let text = "I LIKE ARNOLDCODE AND JAVASCRIPT";
+let textEnc = encrypt(text, 13);
+let textDec = decrypt(textEnc, 13);
+
+console.log(text);
+console.log(textEnc);
+console.log(textDec);
+
+// Decrypt a message by using the same encrypt function
+// ... but using the inverse of the key (e.g. rotate in the other direction)
+
+function decrypt(msg, key)
+{
+    return encrypt(msg, key * -1);
+}
+
+// Function will implement Caesar Cipher to
+// encrypt / decrypt the msg by shifting the letters
+// of the message acording to the key
+
+function encrypt(message, key)
+{
+    let encryptedMessage = "";
+
+    for(let i = 0; i < message.length; i++)
+    {
+        let code = message.charCodeAt(i);
+
+        // Encrypt only letters in 'A' ... 'Z' interval
+        if (code >= 65 && code <= 65 + 26 - 1)
+        {
+            code -= 65;
+            code = mod(code + key, 26);
+            code += 65;
+        }
+
+        encryptedMessage += String.fromCharCode(code);
+    }
+
+    return encryptedMessage;
+}
+
+
+// Modulo function: n mod p
+function mod(number, moduloDivisor)
+{
+    if ( number < 0 )
+        number = moduloDivisor - Math.abs(number) % moduloDivisor;
+
+    return number % moduloDivisor;
+}
+
+````
+## Solution for pro developers!
+```javascript
+
+let textEncPro = encryptPro(text, 13);
+let textDecPro = encryptPro(textEnc, -13);
+
+console.log(textEncPro);
+console.log(textDecPro);
+
+function encryptPro(message, key) {
+    return message.split('')
+        .map(char =>
+            String.fromCharCode(
+                char.charCodeAt(0) >= 65
+                && char.charCodeAt(0) <= 90 ? 65
+                    + mod(char.charCodeAt(0) - 65 + key, 26)
+                    : char.charCodeAt(0)))
+        .join('');
+}
+
+```
+
+## Explanation For-Loop Solution
+
+This is a bigger challenge, but here we go, we are strong and will stand tall!
+
+### Ceaser Cypher
+
+This code defines two functions: `encrypt` and `decrypt`, that implement the Caesar cipher.
+
+A simple encryption technique that shifts each letter of a message by a fixed number of positions in the alphabet.
+
+The number of positions is called the key, and it can be any integer. 
+
+For example, if the key is 3, then A becomes D, B becomes E, C becomes F, and so on. 
+
+To decrypt a message, the same function can be used, but with the inverse of the key, which means shifting the letters in the opposite direction.
+
+For example, if the key is 3, then D becomes A, E becomes B, F becomes C, and so on.
+
+### The Overall Procedure
+
+The code then declares a variable `text` that holds the string `I LIKE ARNOLDCODE AND JAVASCRIPT`.
+
+It then calls the encrypt function with the text and the key 13 as arguments, and assigns the result to a variable `textEnc`.
+
+This means that each letter of the text is shifted by 13 positions in the alphabet, which is also known as the ROT13 cipher. 
+
+For example, I becomes V, L becomes Y, K becomes X, and so on. 
+
+The encrypted text is `V YVXR NEABYQPBQR NAQ WNINFPVCGR`.
+
+The code then calls the decrypt function with the textEnc and the key 13 as arguments, and assigns the result to a variable `textDec`.
+
+This means that each letter of the textEnc is shifted by -13 positions in the alphabet, which is the inverse of the key 13. 
+
+This reverses the encryption and returns the original text. The decrypted text is `I LIKE ARNOLDCODE AND JAVASCRIPT`.
+
+The code then prints the `text`, the `textEnc`, and the `textDec` to the console using the console.log method. 
+
+The output is:
+
+![The Result in the Console](res/png/solution36.jpg)
+
+### The Encrypt Function
+
+The `encrpyt` function works by looping through each character of the message and getting its ASCII code using the `charCodeAt` method.
+
+The function works by creating an empty string named `encryptedMessage`, and then looping through each character of the message using a `for` loop.
+
+For each character, the function gets its ASCII code using the `charCodeAt` method. 
+
+The ASCII code is a number that represents a character in a standard encoding system. 
+
+For example, the ASCII code of A is 65, the ASCII code of B is 66, and so on.
+
+The function then checks if the code is between 65 and 90, which are the codes of the uppercase letters A to Z. 
+
+If it is, the function subtracts 65 from the code, which makes it a number between 0 and 25, corresponding to the position of the letter
+in the alphabet. 
+
+For example, the code of A becomes 0, the code of B becomes 1, and so on. 
+
+The function then adds the `key` to the code, which shifts it by the `key` positions in the alphabet.
+For example, if the `key` is 3, the code of A becomes 3, the code of B becomes 4, and so on. 
+
+The function then uses the mod function to make sure that the code stays within the range of 0 to 25, 
+which means that if the code goes beyond 25, it wraps around to the beginning of the alphabet. 
+For example, if the key is 3, the code of Z becomes 2, the code of Y becomes 1, and so on. 
+
+The function repeats this process for every character of the message, and then returns the encryptedMessage string as the output.
+For example, if the message is “HELLO” and the key is 3, the function returns `KHOOR` as the encrypted message.
+
+### The Mod Function
+The `mod` function works by using the modulo operator (`%`) to get the remainder of the division of the number by the modulo divisor.
+For example, mod(28, 26) is 2, mod(-1, 26) is 25, and so on. 
+
+The function then adds 65 to the code, which makes it a number between 65 and 90, corresponding to the ASCII code of the shifted letter. 
+For example, the code of A becomes 68, the code of B becomes 69, and so on. 
+
+The function then converts the code to a character using the fromCharCode method, and appends it to the encryptedMessage string.
+For example, the code of A becomes D, the code of B becomes E, and so on.
+
+### The Decrypt Function
+
+Just calls the `encrypt` function with a negative key to inverse the shifting operation.
+
+For the result: Since you encrypted with `13` you just call `encrypt` with `-13`:)
+
+*This isn’t the best method you can use but a suitable one, if you are just starting out.*
+
+If you want to dig deeper into professional coding in JavaScript check out the pro solution.
+
+## Explanation Pro Solution
+
+To achieve the same result with prior JavaScript knowledge, I used some built-in functionality:
+
+- [split](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split) - The split() method takes a pattern and divides a String into an ordered list of substrings by searching for the pattern, puts these substrings into an array, and returns the array.
+- [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) - The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+- [join](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join) -  This method takes a separator and returns a new string by concatenating all the elements of the array, separated by the separator. If the separator is omitted, the method uses a comma as the default separator.
+
+Become a [Web Developer with a huge time saving journey and take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
 
 Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
 
