@@ -1,69 +1,47 @@
 // Solution with for - loops
 
-let text = "I LIKE ARNOLDCODE AND JAVASCRIPT";
-let textEnc = encrypt(text, 13);
-let textDec = decrypt(textEnc, 13);
+let array = [23, 999, 777,512, 1000, 1, -1, 8, 3];
 
-console.log(text);
-console.log(textEnc);
-console.log(textDec);
+console.log(array);
 
-// Decrypt a message by using the same encrypt function
-// ... but using the inverse of the key (e.g. rotate in the other direction)
+bubbleSort(array);
 
-function decrypt(msg, key) {
-    return encrypt(msg, key * -1);
-}
+console.log(array);
 
-// Function will implement Caesar Cipher to
-// encrypt / decrypt the msg by shifting the letters
-// of the message acording to the key
+function bubbleSort(array)
+{
+    let shouldSort = true;
+    let length = array.length;
 
-function encrypt(message, key) {
-    let encryptedMessage = "";
+    while(shouldSort)
+    {
+        shouldSort = false;
+        length--;
 
-    for (let i = 0; i < message.length; i++) {
-        let code = message.charCodeAt(i);
-
-        // Encrypt only letters in 'A' ... 'Z' interval
-        if (code >= 65 && code <= 65 + 26 - 1) {
-            code -= 65;
-            code = mod(code + key, 26);
-            code += 65;
+        for(let i = 0; i < length; i++)
+        {
+            let a = array[i];
+            if ( a > array[i+1] )
+            {
+                array[i] = array[i+1];
+                array[i+1] = a;
+                shouldSort = true;
+            }
         }
-
-        encryptedMessage += String.fromCharCode(code);
     }
-
-    return encryptedMessage;
 }
 
-
-// Modulo function: n mod p
-function mod(number, moduloDivisor) {
-    if (number < 0)
-        number = moduloDivisor - Math.abs(number) % moduloDivisor;
-
-    return number % moduloDivisor;
-}
 
 // Solution for pro developer!
 
-let textEncPro = encryptPro(text, 13);
-let textDecPro = encryptPro(textEnc, -13);
+console.log(bubbleSortPro(array));
 
-console.log(textEncPro);
-console.log(textDecPro);
-
-function encryptPro(message, key) {
-    return message.split('')
-        .map(char =>
-            String.fromCharCode(
-                char.charCodeAt(0) >= 65
-                && char.charCodeAt(0) <= 90 ? 65
-                    + mod(char.charCodeAt(0) - 65 + key, 26)
-                    : char.charCodeAt(0)))
-        .join('');
+function bubbleSortPro(array) {
+    for(let i = 0; i < array.length; i++) {
+        array.sort((a, b) => a - b);
+    }
+    return array;
 }
+
 
 // EXPLANATION in README.MD

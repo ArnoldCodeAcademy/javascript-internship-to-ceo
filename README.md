@@ -88,7 +88,7 @@ Explained in Detail, But Simple
 34. [Create a function that will convert a string in an array containing the ASCII codes of each character.](#challenge34--pro-solution-)  
 35. [Create a function that will convert an array containing ASCII codes in a string.](#challenge35--pro-solution-)
 36. [Implement the Caesar cypher.](#challenge36--pro-solution-)
-37. 01.03.2023
+37. [Implement the bubble sort algorithm for an array of numbers.](#challenge37--pro-solution-)
 38. 08.03.2023 
 39. 15.03.2023 
 40. 22.03.2023 
@@ -2519,6 +2519,116 @@ To achieve the same result with prior JavaScript knowledge, I used some built-in
 - [split](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split) - The split() method takes a pattern and divides a String into an ordered list of substrings by searching for the pattern, puts these substrings into an array, and returns the array.
 - [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) - The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
 - [join](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join) -  This method takes a separator and returns a new string by concatenating all the elements of the array, separated by the separator. If the separator is omitted, the method uses a comma as the default separator.
+
+Become a [Web Developer with a huge time saving journey and take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[A discount 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+# Challenge37 + Pro Solution 😉
+## Implement the bubble sort algorithm for an array of numbers. The array [23, 999, 777,512, 1000, 1, -1, 8, 3].
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 37"</summary>
+
+```javascript
+let array = [23, 999, 777,512, 1000, 1, -1, 8, 3];
+
+console.log(array);
+
+bubbleSort(array);
+
+console.log(array);
+
+function bubbleSort(array)
+{
+    let shouldSort = true;
+    let length = array.length;
+
+    while(shouldSort)
+    {
+        shouldSort = false;
+        length--;
+
+        for(let i = 0; i < length; i++)
+        {
+            let a = array[i];
+            if ( a > array[i+1] )
+            {
+                array[i] = array[i+1];
+                array[i+1] = a;
+                shouldSort = true;
+            }
+        }
+    }
+}
+
+````
+## Solution for pro developers!
+```javascript
+
+console.log(bubbleSortPro(array));
+
+function bubbleSortPro(array) {
+    for(let i = 0; i < array.length; i++) {
+        array.sort((a, b) => a - b);
+    }
+    return array;
+}
+
+```
+
+### Bubble Sort in A Nutshell
+
+The bubble sort algorithm is a simple sorting algorithm that works by repeatedly swapping adjacent elements in an array that are out of order until the array is sorted.
+
+It is called bubble sort because the smaller elements “bubble” up to the beginning of the array while the larger elements “sink” to the end.
+
+The algorithm has a time complexity of O(n^2), which means it is inefficient for large arrays.
+
+## Explanation For-Loop Solution
+
+The solution is a simple implementation of the bubble sort algorithm.
+
+Get there by defining a function called `bubbleSort` that takes an `array` of numbers as an argument.
+
+The local variables `shouldSort` determines if the sorting continues.
+
+What's up with `length` is covered in a second.
+
+The `while` loop will sort the `array` in ascending order. As long as `shouldSort` is true, the `while` loop will continue.
+
+Inside the while loop, the `shouldSort` flag is set to false, indicating that the array is already sorted. 
+
+The `length` of the argument is decremented at the start of each iteration because the largest elements "bubble" to the top of the array, so the last element doesn't need to be compared in subsequent iterations.
+
+The `while` loop then enters a `for` loop that iterates through the `array` and compares adjacent elements. 
+
+The algorithm compares two adjacent elements and swaps them if they are in the wrong order. 
+
+If a swap occurs, the `shouldSort` flag is set to `true`, indicating that the `array` is not yet sorted.
+
+The `while` loop continues until no swaps are made in a full iteration, which indicates that the array is sorted.
+
+After the sorting is complete, the function returns the sorted `array`.
+
+![The Result in the Console](res/png/solution37.jpg)
+
+
+*This isn’t the best method you can use but a suitable one, if you are just starting out.*
+
+If you want to dig deeper into professional coding in JavaScript check out the pro solution.
+
+## Explanation Pro Solution
+
+To achieve the same result with prior JavaScript knowledge, I used some built-in functionality:
+
+- [sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) - The sort() method sorts the elements of an array in place and returns the sorted array.
 
 Become a [Web Developer with a huge time saving journey and take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
 
