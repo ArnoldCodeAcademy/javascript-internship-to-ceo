@@ -89,7 +89,7 @@ Explained in Detail, But Simple
 35. [Create a function that will convert an array containing ASCII codes in a string.](#challenge35--pro-solution-)
 36. [Implement the Caesar cypher.](#challenge36--pro-solution-)
 37. [Implement the bubble sort algorithm for an array of numbers.](#challenge37--pro-solution-)
-38. 08.03.2023 
+38. [Create a function to calculate the distance between two points defined by their x, y coordinates.](#challenge38--pro-solution-)
 39. 15.03.2023 
 40. 22.03.2023 
 41. 29.03.2023 
@@ -2629,6 +2629,83 @@ If you want to dig deeper into professional coding in JavaScript check out the p
 To achieve the same result with prior JavaScript knowledge, I used some built-in functionality:
 
 - [sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) - The sort() method sorts the elements of an array in place and returns the sorted array.
+
+Become a [Web Developer with a huge time saving journey and take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[A discount 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+# Challenge38 + Pro Solution 😉
+## Create a function to calculate the distance between two points defined by their x, y coordinates. Use the two points of (101/102) and (69/311).
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 37"</summary>
+
+```javascript
+console.log(getDistance(101, 102, 69, 311));
+
+function getDistance(x1, y1, x2, y2)
+{
+    let distanceX = x2 - x1;
+    let distanceY = y2 - y1;
+
+    return Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+}
+
+````
+## Solution for pro developers!
+```javascript
+
+console.log(getDistancePro(101, 102, 69, 311));
+
+function getDistancePro(x1, y1, x2, y2)
+{
+    return Math.hypot(x2 - x1, y2 - y1);
+}
+
+```
+
+### Explanation
+
+For the solution to this problem you actually don't need many steps.
+
+First define a function named `getDistance`, which takes four parameters: `x1`, `y1`, `x2`, and `y2`.
+
+At next calculate the horizontal and vertical distances between two points with coordinates (`x1`, `y1`) and (`x2`, `y2`).
+
+The return the square root of the sum of the squares of the distances, which is also called the Pythagorean theorem.
+
+![The Result in the Console](res/png/solution38.jpg)
+
+###  Pythagorean Theorem
+
+The Pythagorean theorem is a famous mathematical formula that relates the lengths of the sides of a right triangle. A right triangle is a triangle that has one angle of 90 degrees. The longest side of the right triangle is called the hypotenuse, and the other two sides are called the legs. The Pythagorean theorem states that the square of the hypotenuse is equal to the sum of the squares of the legs². In other words, if a and b are the lengths of the legs and c is the length of the hypotenuse, then:
+
+a^2 + b^2 = c^2
+
+This theorem can be used to find missing side lengths or to check if a triangle is right-angled. It can also be generalized to higher dimensions and other types of spaces¹.
+
+If you want to learn more about the Pythagorean theorem, its history, proofs, applications and extensions, you can check out these links:
+
+- https://en.wikipedia.org/wiki/Pythagorean_theorem
+- https://www.mathsisfun.com/pythagoras.html
+- https://www.britannica.com/science/Pythagorean-theorem
+
+
+*This isn’t the best method you can use but a suitable one, if you are just starting out.*
+
+If you want to dig deeper into professional coding in JavaScript check out the pro solution.
+
+## Explanation Pro Solution
+
+To achieve the same result with prior JavaScript knowledge, I used some built-in functionality:
+
+- [hypot](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/hypot) - The Math.hypot() function returns the square root of the sum of squares of its arguments.
 
 Become a [Web Developer with a huge time saving journey and take my course](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
 

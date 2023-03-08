@@ -1,47 +1,23 @@
 // Solution with for - loops
 
-let array = [23, 999, 777,512, 1000, 1, -1, 8, 3];
+console.log(getDistance(101, 102, 69, 311));
 
-console.log(array);
-
-bubbleSort(array);
-
-console.log(array);
-
-function bubbleSort(array)
+function getDistance(x1, y1, x2, y2)
 {
-    let shouldSort = true;
-    let length = array.length;
+    let distanceX = x2 - x1;
+    let distanceY = y2 - y1;
 
-    while(shouldSort)
-    {
-        shouldSort = false;
-        length--;
-
-        for(let i = 0; i < length; i++)
-        {
-            let a = array[i];
-            if ( a > array[i+1] )
-            {
-                array[i] = array[i+1];
-                array[i+1] = a;
-                shouldSort = true;
-            }
-        }
-    }
+    return Math.sqrt(distanceX * distanceX + distanceY * distanceY);
 }
-
 
 // Solution for pro developer!
 
-console.log(bubbleSortPro(array));
 
-function bubbleSortPro(array) {
-    for(let i = 0; i < array.length; i++) {
-        array.sort((a, b) => a - b);
-    }
-    return array;
+console.log(getDistancePro(101, 102, 69, 311));
+
+function getDistancePro(x1, y1, x2, y2)
+{
+    return Math.hypot(x2 - x1, y2 - y1);
 }
-
 
 // EXPLANATION in README.MD
