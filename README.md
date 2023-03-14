@@ -90,7 +90,7 @@ Explained in Detail, But Simple
 36. [Implement the Caesar cypher.](#challenge36--pro-solution-)
 37. [Implement the bubble sort algorithm for an array of numbers.](#challenge37--pro-solution-)
 38. [Create a function to calculate the distance between two points defined by their x, y coordinates.](#challenge38--pro-solution-)
-39. 15.03.2023 
+39. [Create a function that will return a Boolean value indicating if two circles defined by center coordinates and radius are intersecting](#challenge39--pro-solution-)
 40. 22.03.2023 
 41. 29.03.2023 
 42. 05.04.2023 
@@ -2644,7 +2644,7 @@ Explanations and story telling break the 4th dimensions to save you a lot of tim
 ## Create a function to calculate the distance between two points defined by their x, y coordinates. Use the two points of (101/102) and (69/311).
 
 <details>
-    <summary>Spoiler "Solution-Explanation For Challenge 37"</summary>
+    <summary>Spoiler "Solution-Explanation For Challenge 38"</summary>
 
 ```javascript
 console.log(getDistance(101, 102, 69, 311));
@@ -2712,6 +2712,120 @@ Become a [Web Developer with a huge time saving journey and take my course](http
 Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
 
 [A discount 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+
+# Challenge39 + Pro Solution 😉
+## Create a function that will return a Boolean value indicating if two circles defined by center coordinates and radius are intersecting e.g. Circle1X 400, Circle1Y 400, Circle1R 200 Circle2X 600 Circle2Y 600, Circle2R 300. Results in true.
+
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 39"</summary>
+
+```javascript
+
+console.log(collisionCircleCircle(400, 400, 200, 600, 600, 300));
+
+function collisionCircleCircle(circle1X, circle1Y, circle1R, circle2X, circle2Y, circle2R)
+{
+    return getDistance(circle1X, circle1Y, circle2X, circle2Y) <= circle1R + circle2R;
+}
+
+// Calculate the distance between the two specified points
+function getDistance(x1, y1, x2, y2)
+{
+    let distanceX = x2 - x1;
+    let distanceY = y2 - y1;
+
+    return Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+}
+
+````
+## Solution for pro developers!
+```javascript
+
+class Circle {
+    constructor(x, y, radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+}
+const SQRT_2 = Math.sqrt(2);
+
+let circle1 = new Circle(400, 400, 200);
+let circle2 = new Circle(600, 600, 300);
+
+let result = areCirclesColliding(circle1, circle2);
+
+console.log(result);
+
+
+function areCirclesColliding(circle1, circle2) {
+    let distanceBetweenCenters = getDistanceBetweenPoints(circle1.x, circle1.y, circle2.x, circle2.y);
+    let sumOfRadii = circle1.radius + circle2.radius;
+    return distanceBetweenCenters <= sumOfRadii;
+}
+
+function getDistanceBetweenPoints(point1X, point1Y, point2X, point2Y) {
+    let horizontalDifference = point2X - point1X;
+    let verticalDifference = point2Y - point1Y;
+    return SQRT_2 * Math.sqrt((horizontalDifference ** 2 + verticalDifference ** 2) / 2);
+}
+
+```
+
+### Explanation
+
+To succeed in this challenge you should create two functions that you will use to determine if two circles are touching or overlapping by comparing their distance with their radii.
+
+
+### 1. `collisionCircleCircle`
+It takes six parameters: the x and y coordinates and the radius of each circle. 
+
+It returns a boolean value (true or false) that indicates whether the circles are colliding or not. 
+
+To do this, it calls the second function:
+
+### 2. 'getDistance'
+
+This function calculates the distance between the centers of the two circles.
+
+To achieve this, it needs four parameters: the x and y coordinates of two points. 
+
+It returns a number that represents the distance between them. 
+
+To do this, it uses a formula called the Pythagorean theorem (take a look in the challenge before if it is unknown to you).
+
+In this case, the hypotenuse is the distance between the points, and the other two sides are their horizontal and vertical differences.
+
+*This isn’t the best method you can use but a suitable one, if you are just starting out.*
+
+If you want to dig deeper into professional coding in JavaScript check out the pro solution.
+
+## Explanation Pro Solution
+
+This solution isn't shorter but it has many advantages, because writing code does not mean to implement a feature somehow that it works.
+
+The pro solution follows *clean code* principles which are *better* because:
+
+1. The code is easier to read, understand, maintain and debug. 
+2. Meaningful and consistent names for the variables and functions make the code more expressive and self-documenting. They also avoid confusion and ambiguity for the readers and developers. 
+3. Constants for magic numbers make the code more readable and maintainable. 
+4. They also avoid hard-coding values that may change or need to be reused in different places. 
+5. Objects instead of primitive types make the code more modular and reusable. 
+6. They also encapsulate data and behavior in a single entity that can be easily manipulated and passed around.
+
+If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[Get the Cheatsheet to detect Code Smells that appear if you don't know about Clean Code. Get it here.](https://arnoldcodeacademy.ck.page/code-smells-cheat-sheet)
+
+[Get 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
 
 [![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
 
