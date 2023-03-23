@@ -90,8 +90,8 @@ Explained in Detail, But Simple
 36. [Implement the Caesar cypher.](#challenge36--pro-solution-)
 37. [Implement the bubble sort algorithm for an array of numbers.](#challenge37--pro-solution-)
 38. [Create a function to calculate the distance between two points defined by their x, y coordinates.](#challenge38--pro-solution-)
-39. [Create a function that will return a Boolean value indicating if two circles defined by center coordinates and radius are intersecting](#challenge39--pro-solution-)
-40. 22.03.2023 
+39. [Create a function that will return a Boolean value indicating if two circles defined by center coordinates and radius are intersecting.](#challenge39--pro-solution-)
+40. [Create a function that will receive a bi-dimensional array as argument and a number and will extract as a unidimensional array the column specified by the number.](#challenge40--pro-solution-) 
 41. 29.03.2023 
 42. 05.04.2023 
 43. Mid 2023 
@@ -2790,7 +2790,7 @@ It returns a boolean value (true or false) that indicates whether the circles ar
 
 To do this, it calls the second function:
 
-### 2. 'getDistance'
+### 2. `getDistance`
 
 This function calculates the distance between the centers of the two circles.
 
@@ -2801,6 +2801,8 @@ It returns a number that represents the distance between them.
 To do this, it uses a formula called the Pythagorean theorem (take a look in the challenge before if it is unknown to you).
 
 In this case, the hypotenuse is the distance between the points, and the other two sides are their horizontal and vertical differences.
+
+![The Result in the Console](res/png/solution39.jpg)
 
 *This isn’t the best method you can use but a suitable one, if you are just starting out.*
 
@@ -2818,6 +2820,97 @@ The pro solution follows *clean code* principles which are *better* because:
 4. They also avoid hard-coding values that may change or need to be reused in different places. 
 5. Objects instead of primitive types make the code more modular and reusable. 
 6. They also encapsulate data and behavior in a single entity that can be easily manipulated and passed around.
+
+If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[Get the Cheatsheet to detect Code Smells that appear if you don't know about Clean Code. Get it here.](https://arnoldcodeacademy.ck.page/code-smells-cheat-sheet)
+
+[Get 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+# Challenge40 + Pro Solution 😉
+## Create a function that will receive a bi-dimensional array as argument and a number and will extract as a unidimensional array the column specified by the number. The array [ ["John", 169], ["Jane", 112], ["Thomas", 145], ["Mel", 189], ["Charley", 158]];
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 40"</summary>
+
+```javascript
+
+let biDirectionalArray = [ ["John", 169], ["Jane", 112], ["Thomas", 145], ["Mel", 189], ["Charley", 158]];
+
+let numbers = extractColumn(biDirectionalArray, 1);
+console.log(numbers);
+
+function extractColumn(array, columnNumber)
+{
+    let arrayColumn = [];
+
+    for(let i = 0; i < array.length; i++)
+    {
+        arrayColumn.push(array[i][columnNumber]);
+    }
+
+    return arrayColumn;
+}
+
+````
+## Solution for pro developers!
+```javascript
+
+let numbersPro = extractColumnPro(
+    {
+        matrix: biDirectionalArray,
+        columnIndex: 1
+    });
+console.log(numbersPro);
+
+function extractColumnPro({matrix = [], columnIndex = 0} = {}) {
+    return matrix.map(row => {
+        return row[columnIndex];
+    });
+}
+
+```
+
+### Explanation
+
+Reach your solution by creating a function called `extractColumn`.
+
+Let it take two inputs: an `array` and a `columnNumber`.
+
+The `array` lists items that can be stored in a variable.
+
+The `column` number is an index that tells you which position of the array you want to access.
+
+The output of `arrayColumn` is another array that contains only the items from the original array that match the column number.
+
+
+To reach your goal you need to make the `extractColumn` function following steps:
+1. create a new empty array called `arrayColumn`. This will store the output of the function. 
+2. Loop through each item of the original `array` using a variable called `i`. The loop starts from `0` and ends when `i` reaches the length of the original `array`. 
+3. For each item of the original `array`, use another variable called `columnNumber` to access a specific position of that item. For example, if `columnNumber` is `1`, it will access the second position of that item.
+4. Add that specific position of that item to the new array called `arrayColumn` using a method called `push()`.
+5. After looping through all the items of the original `array`, return the new array called `arrayColumn` as the output of the function.
+
+And here you see the result: 
+
+![The Result in the Console](res/png/solution40.jpg)
+
+## Explanation Pro Solution
+
+Improve the default solution by using more advanced coding techniques.
+
+Here are some suggestions based on familiar pro-concepts and pro-techniques
+
+- [Use object literals to pass optional arguments](https://javascript.info/object#objects-as-parameters)
+- [Use ES6 features like destructuring assignment](https://javascript.info/destructuring-assignment#object-destructuring) and [default parameters](https://javascript.info/function-basics#default-values)
+- [Use array methods like map or filter instead of for loops](https://javascript.info/array-methods#map-and-filter)
+- [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) - The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
 
 If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
 
