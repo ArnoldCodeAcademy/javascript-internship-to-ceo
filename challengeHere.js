@@ -1,34 +1,30 @@
 // Solution with for - loops
 
-let biDirectionalArray = [["John", 169], ["Jane", 112], ["Thomas", 145], ["Mel", 189], ["Charley", 158]];
+let array = [3, 9, [17, [22], [19, 14]], [99]];
 
-let numbers = extractColumn(biDirectionalArray, 1);
-console.log(numbers);
+console.log(sumArray(array));
 
-function extractColumn(array, columnNumber) {
-    let arrayColumn = [];
+function sumArray(array) {
+    let sum = 0;
 
-    for (let i = 0; i < array.length; i++) {
-        arrayColumn.push(array[i][columnNumber]);
+    for (let element of array) {
+        if (Array.isArray(element)) {
+            element = sumArray(element);
+        }
+
+        sum += element;
     }
 
-    return arrayColumn;
+    return sum;
 }
+
 
 // Solution for pro developer!
 
-let numbersPro = extractColumnPro(
-    {
-        matrix: biDirectionalArray,
-        columnIndex: 1
-    });
-console.log(numbersPro);
+console.log(sumArrayPro(array))
 
-function extractColumnPro({matrix = [], columnIndex = 0} = {}) {
-    return matrix.map(row => {
-        return row[columnIndex];
-    });
+function sumArrayPro(array) {
+    return array.reduce((sum, element) => sum + (Array.isArray(element) ? sumArray(element) : element), 0);
 }
-
 
 // EXPLANATION in README.MD

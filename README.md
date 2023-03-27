@@ -92,7 +92,7 @@ Explained in Detail, But Simple
 38. [Create a function to calculate the distance between two points defined by their x, y coordinates.](#challenge38--pro-solution-)
 39. [Create a function that will return a Boolean value indicating if two circles defined by center coordinates and radius are intersecting.](#challenge39--pro-solution-)
 40. [Create a function that will receive a bi-dimensional array as argument and a number and will extract as a unidimensional array the column specified by the number.](#challenge40--pro-solution-) 
-41. 29.03.2023 
+41. [Create a function to calculate the sum of all the numbers in a jagged array](#challenge41--pro-solution-)
 42. 05.04.2023 
 43. Mid 2023 
 44. Mid 2023 
@@ -2912,6 +2912,90 @@ Here are some suggestions based on familiar pro-concepts and pro-techniques
 - [Use array methods like map or filter instead of for loops](https://javascript.info/array-methods#map-and-filter)
 - [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) - The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
 
+If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[Get the Cheatsheet to detect Code Smells that appear if you don't know about Clean Code. Get it here.](https://arnoldcodeacademy.ck.page/code-smells-cheat-sheet)
+
+[Get 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+# Challenge41 + Pro Solution 😉
+## Create a function to calculate the sum of all the numbers in a jagged array (array contains numbers or other arrays of numbers on an unlimited number of levels). The jagged array: [3, 9, [17, [22], [19, 14]], [99]].
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 41"</summary>
+
+```javascript
+let array = [3, 9, [17, [22], [19, 14]], [99]];
+
+console.log(sumArray(array));
+
+function sumArray(array)
+{
+    let sum = 0;
+
+    for(let element of array)
+    {
+        if (Array.isArray(element))
+        {
+            element = sumArray(element);
+        }
+
+        sum += element;
+    }
+
+    return sum;
+}
+````
+## Solution for pro developers!
+```javascript
+console.log(sumArrayPro(array))
+
+function sumArrayPro(array) {
+    return array.reduce((sum, element) => sum + (Array.isArray(element) ? sumArray(element) : element), 0);
+}
+```
+
+### Explanation
+
+You reach your goal of this challenge by creating a function that takes an `array` as an input and returns the `sum` of all the elements in the array. 
+
+The first thing `sumArray()` should do is to create a variable named `sum` and set it to `0`.
+
+This variable will store the total sum of the elements in the array.
+
+Then you loop through each element in the `array` using a `for` loop. 
+
+Inside the loop, check if the `element` is an array using the `Array.isArray()` method. 
+This method returns true if the input is an array and false otherwise.
+For example, `Array.isArray([1, 2, 3])` returns `true` and Array.isArray(4) returns `false`.
+
+If the element is an array, the function calls itself with that element as an input.
+This is called recursion, which means a function calling itself with a smaller or simpler problem.
+For example, if the element is `[1, 2]`, the function calls itself with `[1, 2]` as an input and returns the
+sum of `1` and `2`, which is `3`.
+
+Then yiou need to add the element (or the result of the recursive call) to the `sum` variable using the `+=`-operator.
+This operator means add the right value to the left value and store it in the left value. 
+For example, `sum += 3` means add `3` to `sum` and store it in `sum`.
+
+After the loop ends, you can finally return the `sum` variable as the final output.
+This is the total sum of all the elements in the array.
+
+![The Result in the Console](res/png/solution41.jpg)
+
+## Explanation Pro Solution
+
+Improve the default solution by using more advanced coding techniques.
+
+- [isArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray ): “The Array.isArray() static method determines whether the passed value is an Array.”
+- [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce): “The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.”
+- [ternary](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator): “The conditional (ternary) operator is the only JavaScript operator that takes three operands: a condition followed by a question mark (? ), then an expression to execute if the condition is truthy followed by a colon (: ), and finally the expression to execute if the condition is falsy .” 
 If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
 
 Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
