@@ -31,7 +31,8 @@ To get help [contact me](mailto:info@arnoldcode.com) via e-mail.
 <hr>
 
 
-# Want To Learn Web Development Fast & Easy?
+# Gain Time and Money Advantages
+## And Learn Web Development
 
 [Build A Game UI and an Online Resume with HTML & CSS](https://www.udemy.com/course/build-a-game-ui-and-an-online-resume-with-html-css/)
 
@@ -44,13 +45,14 @@ Explained in Detail, But Simple
 
 <hr>
 
-# Stay Informed: Latest Changes and News in Web Development
+# Stay Up To Date
+## Latest Changes and News in Web Development
 
 [Check out My Online Articles About the Latest News and Changes in Web Development](https://medium.com/@arnoldcode)
 
 [![img_2.png](img_2.png)](https://medium.com/@arnoldcode)
 
-# Challenge Overview
+# Overview Of Challenges
 
 1. [Print numbers from 1 to 10 with a for-loop.](#challenge01)
 2. [Print the odd numbers below than 99 with a for-loop.](#challenge02)
@@ -93,19 +95,19 @@ Explained in Detail, But Simple
 39. [Create a function that will return a Boolean value indicating if two circles defined by center coordinates and radius are intersecting.](#challenge39--pro-solution-)
 40. [Create a function that will receive a bi-dimensional array as argument and a number and will extract as a unidimensional array the column specified by the number.](#challenge40--pro-solution-) 
 41. [Create a function to calculate the sum of all the numbers in a jagged array](#challenge41--pro-solution-)
-42. 05.04.2023 
-43. Mid 2023 
-44. Mid 2023 
-45. Mid 2023 
-46. Mid 2023
-47. Mid 2023 
-48. Mid 2023 
-49. Mid 2023 
-50. Mid 2023 
-51. Mid 2023 
-52. Mid 2023 
-53. Mid 2023 
-54. Mid 2023 
+42. [Find the maximum number in a jagged array of numbers or array of numbers](#challenge42--pro-solution-)
+43. [12.04.23 - Deep copy a jagged array with numbers or other arrays in a new array](#challenge43--pro-solution-)
+44. [19.04.23 - Create a function to return the longest word(s) in a string](#challenge44--pro-solution-)
+45. [26.04.23 - Shuffle an array of strings](#challenge45--pro-solution-)
+46. [03.05.23 - Create a function that will receive n as argument and return an array of n unique random numbers from 1 to n.](#challenge46--pro-solution-)
+47. [09.05.23 - Find the frequency of characters inside a string. Return the result as an array of objects](#challenge47--pro-solution-)
+48. [16.05.23 - Calculate Fibonacci(500) with high precision (all decimals).](#challenge48--pro-solution-)
+49. [24.05.23 - Calculate 70! with high precision (all digits)](#challenge49--pro-solution-)
+50. [31.05.23 - Secret](#challenge50--pro-solution-)
+51. [07.06.23 - Secret](#challenge51--pro-solution-)
+52. [14.06.23 - Secret](#challenge52--pro-solution-)
+53. [21.06.23 - Secret](#challenge53--pro-solution-)
+54. [28.06.23 - Surprise](#challenge54--pro-solution-)
 
 # Challenge01 
 ## Print numbers from 1 to 10 with a for-loop.
@@ -2997,6 +2999,73 @@ Improve the default solution by using more advanced coding techniques.
 - [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce): “The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.”
 - [ternary](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator): “The conditional (ternary) operator is the only JavaScript operator that takes three operands: a condition followed by a question mark (? ), then an expression to execute if the condition is truthy followed by a colon (: ), and finally the expression to execute if the condition is falsy .” 
 If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[Get the Cheatsheet to detect Code Smells that appear if you don't know about Clean Code. Get it here.](https://arnoldcodeacademy.ck.page/code-smells-cheat-sheet)
+
+[Get 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+# Challenge42 + Pro Solution 😉
+##  Find the maximum number in a jagged array of numbers or array of numbers. The jagged array: [7, 1, -1, [10, 5, [78, , 89, 99], 5], [1, 19, 99], 0].
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 42"</summary>
+
+```javascript
+let jaggedArray = [7, 1, -1, [10, 5, [78, , 89, 99], 5], [1, 19, 99], 0];
+
+let max = findMax(jaggedArray);
+console.log("Max  = ", max);
+
+function findMax(array) {
+    let max = -Infinity;
+    for (let i = 0; i < array.length; i++) {
+        let element = array[i];
+        if (Array.isArray(element)) {
+            element = findMax(element);
+        }
+        if (element > max) {
+            max = element;
+        }
+    }
+
+    return max;
+}
+````
+## Solution for pro developers!
+```javascript
+console.log('Pro Max', findMax(jaggedArray))
+
+function findMaxPro(array) {
+    return Math.max(...array.flat(Infinity));
+}
+```
+
+### Explanation
+
+To accomplish this challenge createa function that takes an array of numbers and returns the largest number in the array.
+
+If an element in the array is itself an array, it will recursively call itself to get the largest number of that nested array and compare it to the largest number of the parent array.
+
+For example, if you pass this function an array like this: [1, 2, [3, 4], 5], it will return 5 because 5 is the largest number in the array.
+
+![The Result in the Console](res/png/solution42.jpg)
+
+
+## Explanation Pro Solution
+
+Improve the default solution by using more advanced coding techniques.
+
+- [Math.max](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max): "The Math.max() static method returns the largest of the numbers given as input parameters, or -Infinity if there are no parameters."
+- [flat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat): "The flat() method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth." 
+- [Infinity](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity): The global property Infinity is a numeric value representing infinity.
+
+  If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
 
 Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
 

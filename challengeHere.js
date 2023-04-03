@@ -1,30 +1,33 @@
 // Solution with for - loops
 
-let array = [3, 9, [17, [22], [19, 14]], [99]];
+let jaggedArray = [7, 1, -1, [10, 5, [78, , 89, 99], 5], [1, 19, 99], 0];
 
-console.log(sumArray(array));
+let max = findMax(jaggedArray);
+console.log("Max  = ", max);
 
-function sumArray(array) {
-    let sum = 0;
-
-    for (let element of array) {
+function findMax(array) {
+    let max = -Infinity;
+    for (let i = 0; i < array.length; i++) {
+        let element = array[i];
         if (Array.isArray(element)) {
-            element = sumArray(element);
+            element = findMax(element);
         }
-
-        sum += element;
+        if (element > max) {
+            max = element;
+        }
     }
 
-    return sum;
+    return max;
 }
 
 
 // Solution for pro developer!
 
-console.log(sumArrayPro(array))
+console.log('Pro Max', findMaxPro(jaggedArray))
 
-function sumArrayPro(array) {
-    return array.reduce((sum, element) => sum + (Array.isArray(element) ? sumArray(element) : element), 0);
+function findMaxPro(array) {
+    return Math.max(...array.flat(Infinity));
 }
+
 
 // EXPLANATION in README.MD
