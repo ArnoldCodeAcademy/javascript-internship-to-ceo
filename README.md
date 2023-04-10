@@ -96,7 +96,7 @@ Explained in Detail, But Simple
 40. [Create a function that will receive a bi-dimensional array as argument and a number and will extract as a unidimensional array the column specified by the number.](#challenge40--pro-solution-) 
 41. [Create a function to calculate the sum of all the numbers in a jagged array](#challenge41--pro-solution-)
 42. [Find the maximum number in a jagged array of numbers or array of numbers](#challenge42--pro-solution-)
-43. [12.04.23 - Deep copy a jagged array with numbers or other arrays in a new array](#challenge43--pro-solution-)
+43. [Deep copy a jagged array with numbers or other arrays in a new array](#challenge43--pro-solution-)
 44. [19.04.23 - Create a function to return the longest word(s) in a string](#challenge44--pro-solution-)
 45. [26.04.23 - Shuffle an array of strings](#challenge45--pro-solution-)
 46. [03.05.23 - Create a function that will receive n as argument and return an array of n unique random numbers from 1 to n.](#challenge46--pro-solution-)
@@ -3064,6 +3064,87 @@ Improve the default solution by using more advanced coding techniques.
 - [Math.max](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max): "The Math.max() static method returns the largest of the numbers given as input parameters, or -Infinity if there are no parameters."
 - [flat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat): "The flat() method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth." 
 - [Infinity](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity): The global property Infinity is a numeric value representing infinity.
+
+  If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[Get the Cheatsheet to detect Code Smells that appear if you don't know about Clean Code. Get it here.](https://arnoldcodeacademy.ck.page/code-smells-cheat-sheet)
+
+[Get 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+# Challenge43 + Pro Solution 😉
+##  Deep copy a jagged array with numbers or other arrays in a new array. The jagged array: [2, 3, 4, 5, 10, [17, 4, [88, 89, 99], 4], [33, 12, 99], 0].
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 42"</summary>
+
+```javascript
+let jaggedArray = [2, 3, 4, 5, 10, [17, 4, [88, 89, 99], 4], [33, 12, 99], 0];
+let deepCopy = copyArray(jaggedArray);
+
+console.log(deepCopy);
+
+function copyArray(array)
+{
+    let tempArray = [];
+
+    for(let element of array)
+    {
+        if (Array.isArray(element))
+        {
+            element = copyArray(element);
+        }
+
+        tempArray.push(element);
+    }
+
+    return tempArray;
+}
+````
+## Solution for pro developers!
+```javascript
+function copyArrayPro(array) {
+    return array.map(element => Array.isArray(element) ? copyArray(element) : element);
+}
+```
+
+### Deep Copy
+
+A deep copy is a copy of an object or data structure that includes not only the object itself but also all the objects it references. 
+
+This means that if the original object contains other objects or arrays, those will also be copied. 
+
+This is different from a shallow copy, which only copies the top-level elements of an object and doesn’t copy any nested objects.
+
+In the context of this challenge the funciton you are going to define, has to create a deep copy of the input array
+
+### Explanation
+
+You can easily finish this challenge by creating a function called `copyArray` that takes an array as an argument and returns a new array that is a deep copy of the input array.
+
+As always use a `for` loop to iterate over each element in the input `array`.
+
+If the element is an array itself, the function calls itself recursively to copy the nested array.
+
+Otherwise, the element is pushed to a temporary array `tempArray`. 
+
+Finally, `tempArray` is returned as the copied array.
+
+![The Result in the Console](res/png/solution43.jpg)
+
+
+## Explanation Pro Solution
+
+Improve the default solution by using more advanced coding techniques.
+
+- [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map): "The map method creates a new array with the results of calling a provided function on every element in the calling array."
+- [Array.isArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray): "The Array.isArray method determines whether the passed value is an Array."
+- [Ternary operator](https://developer.mozilla.org/en-US/docs/web/javascript/reference/operators/conditional_operator): "The ternary operator is a shorthand way of writing an if-else statement. It takes three operands: a condition, a value to return if the condition is true, and a value to return if the condition is false."
 
   If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
 
