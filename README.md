@@ -97,7 +97,7 @@ Explained in Detail, But Simple
 41. [Create a function to calculate the sum of all the numbers in a jagged array](#challenge41--pro-solution-)
 42. [Find the maximum number in a jagged array of numbers or array of numbers](#challenge42--pro-solution-)
 43. [Deep copy a jagged array with numbers or other arrays in a new array](#challenge43--pro-solution-)
-44. [19.04.23 - Create a function to return the longest word(s) in a string](#challenge44--pro-solution-)
+44. [Create a function to return the longest word(s) in a string](#challenge44--pro-solution-)
 45. [26.04.23 - Shuffle an array of strings](#challenge45--pro-solution-)
 46. [03.05.23 - Create a function that will receive n as argument and return an array of n unique random numbers from 1 to n.](#challenge46--pro-solution-)
 47. [09.05.23 - Find the frequency of characters inside a string. Return the result as an array of objects](#challenge47--pro-solution-)
@@ -3081,7 +3081,7 @@ Explanations and story telling break the 4th dimensions to save you a lot of tim
 ##  Deep copy a jagged array with numbers or other arrays in a new array. The jagged array: [2, 3, 4, 5, 10, [17, 4, [88, 89, 99], 4], [33, 12, 99], 0].
 
 <details>
-    <summary>Spoiler "Solution-Explanation For Challenge 42"</summary>
+    <summary>Spoiler "Solution-Explanation For Challenge 43"</summary>
 
 ```javascript
 let jaggedArray = [2, 3, 4, 5, 10, [17, 4, [88, 89, 99], 4], [33, 12, 99], 0];
@@ -3147,6 +3147,156 @@ Improve the default solution by using more advanced coding techniques.
 - [Ternary operator](https://developer.mozilla.org/en-US/docs/web/javascript/reference/operators/conditional_operator): "The ternary operator is a shorthand way of writing an if-else statement. It takes three operands: a condition, a value to return if the condition is true, and a value to return if the condition is false."
 
   If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[Get the Cheatsheet to detect Code Smells that appear if you don't know about Clean Code. Get it here.](https://arnoldcodeacademy.ck.page/code-smells-cheat-sheet)
+
+[Get 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+# Challenge44 + Pro Solution 😉
+##  Create a function to return the longest word(s) in a string. Use the phrase "This function needs to return the longest word in this phrase. Will it be ArnoldCodeAcademy?!"
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 44"</summary>
+
+```javascript
+let text = "This function needs to return the longest word in this phrase. Will it be ArnoldCodeAcademy?!";
+
+console.log(getLongestWords(text));
+
+function getLongestWords(text)
+{
+    let words = getWords(text);
+
+    let maxWordSize = 0;
+    let maxPositions = [];
+
+    for(let i = 0; i < words.length; i++)
+    {
+        let currentWordSize = words[i].length;
+
+        if (currentWordSize > maxWordSize)
+        {
+            maxWordSize = currentWordSize;
+            maxPositions = [ i ];
+        }
+        else if (currentWordSize === maxWordSize)
+        {
+            maxPositions.push(i);
+        }
+    }
+
+    return getElements(words, maxPositions);
+}
+
+// Get only the elements from specified positions from the array
+function getElements(array, arrayPosition)
+{
+    let tempArray = [];
+
+    for(let position of arrayPosition)
+    {
+        tempArray.push(array[position]);
+    }
+
+    return tempArray;
+}
+
+// Returns an array with the words from specified text
+function getWords(text)
+{
+    let startWord = -1;
+    let tempArray = [];
+
+    for(let i = 0; i <= text.length; i++)
+    {
+        let character = i < text.length ? text[i] : " ";
+
+        if (!isSeparator(character) && startWord < 0)
+        {
+            startWord = i;
+        }
+
+        if (isSeparator(character) && startWord >= 0)
+        {
+            let word = text.substring(startWord, i);
+            tempArray.push(word);
+
+            startWord = -1;
+        }
+    }
+
+    return tempArray;
+}
+
+function isSeparator(character)
+{
+    let separators = [" ", "\t", "\n", "\r", ",", ";", ".", "!", "?", "(", ")"];
+    return separators.includes(character);
+}
+````
+## Solution for pro developers!
+```javascript
+
+const getLongestWordsPro = (text) =>
+    text
+        .match(/[^\s.,;!?()]+/g)
+        .reduce(
+            (longestWords, word) =>
+                word.length > longestWords[0].length
+                    ? [word]
+                    : word.length === longestWords[0].length
+                        ? [...longestWords, word]
+                        : longestWords,
+            [""]
+        )
+        .filter((word) => word !== "");
+
+const textPro = "This function needs to return the longest word in this phrase. Will it be ArnoldCodeAcademy?!";
+console.log(getLongestWordsPro(textPro));
+
+```
+
+### Explanation
+
+This challenge is a little bit longer, but many parts are already known to you, so stand tall with me :)
+
+First, define a variable called `text`, which is the sentence we want to find the longest word(s) in.
+
+Then, create a function to pass a text as an argument, `getLongesWords`.
+
+`getLongestWords` is the main function that does the work. 
+
+It uses another function called `getWords` to split the sentence into an `array` of words.
+
+Afterwards, go through each word in the `array` and check if the length of the word is longer than the longest word(s) it has found so far. 
+
+If it is, update the length of the longest word(s) and records the position(s) of the new longest word(s) in the array.
+
+Finally, call another function called `getElements` to extract the longest word(s) from the original array 
+at the recorded position(s) and returns it as a new `array`.
+
+Use the `console.log` statement at the end to simply output the longest word(s) in the original sentence.
+
+Overall, this program is a great example of how functions can be used in JavaScript to split a problem into smaller, more manageable pieces. It also demonstrates how to use arrays to store and manipulate data in JavaScript.
+
+
+![The Result in the Console](res/png/solution44.jpg)
+
+## Explanation Pro Solution
+
+Improve the default solution by using more advanced coding techniques.
+
+- [match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match): "The match() method retrieves the result of matching a string against a regular expression."
+- [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce): "he reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value."
+- [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter): "The filter() method creates a new array with all elements that pass the test implemented by the provided function."
+
+If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
 
 Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
 
