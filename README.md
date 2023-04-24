@@ -98,7 +98,7 @@ Explained in Detail, But Simple
 42. [Find the maximum number in a jagged array of numbers or array of numbers](#challenge42--pro-solution-)
 43. [Deep copy a jagged array with numbers or other arrays in a new array](#challenge43--pro-solution-)
 44. [Create a function to return the longest word(s) in a string](#challenge44--pro-solution-)
-45. [26.04.23 - Shuffle an array of strings](#challenge45--pro-solution-)
+45. [Shuffle an array of strings](#challenge45--pro-solution-)
 46. [03.05.23 - Create a function that will receive n as argument and return an array of n unique random numbers from 1 to n.](#challenge46--pro-solution-)
 47. [09.05.23 - Find the frequency of characters inside a string. Return the result as an array of objects](#challenge47--pro-solution-)
 48. [16.05.23 - Calculate Fibonacci(500) with high precision (all decimals).](#challenge48--pro-solution-)
@@ -3295,6 +3295,111 @@ Improve the default solution by using more advanced coding techniques.
 - [match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match): "The match() method retrieves the result of matching a string against a regular expression."
 - [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce): "he reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value."
 - [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter): "The filter() method creates a new array with all elements that pass the test implemented by the provided function."
+
+If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[Get the Cheatsheet to detect Code Smells that appear if you don't know about Clean Code. Get it here.](https://arnoldcodeacademy.ck.page/code-smells-cheat-sheet)
+
+[Get 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+# Challenge45 + Pro Solution 😉
+## Shuffle an array of strings. The array ["Shuffle", "this", "array", "of", "ArnoldCode", "magic!"].
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 45"</summary>
+
+```javascript
+let array = ["Shuffle", "this", "array", "of", "ArnoldCode", "magic!"];
+
+console.log(shuffleArray(array));
+
+// Shuffle array implemented using Fisher–Yates shuffle algorithm
+function shuffleArray(array)
+{
+    for(let i = array.length - 1; i > 0; i--)
+    {
+        let j = getRandomInteger(0, i - 1);
+
+        let t = array[i];
+        array[i] = array[j];
+        array[j] = t;
+    }
+
+    return array;
+}
+
+// Get a random int between min and max (both included)
+function getRandomInteger(min, max)
+{
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+````
+## Solution for pro developers!
+```javascript
+console.log(shuffleArrayPro(array));
+
+function shuffleArrayPro(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+```
+
+### Fisher Yates Shuffle Algorithm
+The Fisher-Yates shuffle is an algorithm for generating a random permutation of a finite sequence.
+
+In plain terms, the algorithm shuffles the sequence.
+
+The algorithm effectively puts all the elements into a hat; it continually determines the next element by randomly drawing an element from the hat until no elements remain. 
+
+The algorithm produces an unbiased permutation: every permutation is equally likely.
+
+### Explanation
+
+You simply need array named `array` with six string elements: `Shuffle`, `this`, `array`, `of`, `ArnoldCode`, and `magic!`.
+
+Print the shuffled version by using `console.log(shuffleArray(array))`.
+
+Implement a function called `shuffleArray()` that takes an `array` as an input.
+
+Realise the way of shuffling by using the Fisher-Yates algorithm.
+
+You do so by iterating through the array from the last element to the first. Then swapping each element with a randomly chosen earlier element (or itself).
+
+It is simply this spot in code:
+```javascript
+    let j = getRandomInteger(0, i - 1);
+    
+    let t = array[i];
+    array[i] = array[j];
+    array[j] = t;
+```
+
+Inside the `shuffleArray()` function, call `getRandomInteger()` to get you a random integer between 0 and the current index of the element being swapped.
+
+You need to define `getRandomInteger()` in a way that it takes two parameters: `min` and `max`, and it must return a random integer between these two values.
+
+Inside the `getRandomInteger()` function use the `Math.random()` function to generate a random number between `0` and `1`. 
+
+Multiply the result by the range (`max - min + 1`), and then add the minimum value. 
+
+Finally round down the result to the nearest integer with `Math.floor()`.
+
+![The Result in the Console](res/png/solution45.jpg)
+
+## Explanation Pro Solution
+
+Improve the default solution by using more advanced coding techniques.
+- [Math.random()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random): “The Math.random() static method returns a floating-point, pseudo-random number that’s greater than or equal to 0 and less than 1, with approximately uniform distribution over that range — which you can then scale to your desired range. The implementation selects the initial seed to the random number generation algorithm; it cannot be chosen or reset by the user.” 1
+- [Math.floor()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor): “The Math.floor() function returns the largest integer less than or equal to a given number.” 2
 
 If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
 

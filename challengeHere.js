@@ -1,97 +1,40 @@
 // Solution with for - loops
 
-let text = "This function needs to return the longest word in this phrase. Will it be ArnoldCodeAcademy?!";
+let array = ["Shuffle", "this", "array", "of", "ArnoldCode", "magic!"];
 
-console.log(getLongestWords(text));
+console.log(shuffleArray(array));
 
-function getLongestWords(text)
+// Shuffle array implemented using Fisher–Yates shuffle algorithm
+function shuffleArray(array)
 {
-    let words = getWords(text);
-
-    let maxWordSize = 0;
-    let maxPositions = [];
-
-    for(let i = 0; i < words.length; i++)
+    for(let i = array.length - 1; i > 0; i--)
     {
-        let currentWordSize = words[i].length;
+        let j = getRandomInteger(0, i - 1);
 
-        if (currentWordSize > maxWordSize)
-        {
-            maxWordSize = currentWordSize;
-            maxPositions = [ i ];
-        }
-        else if (currentWordSize === maxWordSize)
-        {
-            maxPositions.push(i);
-        }
+        let t = array[i];
+        array[i] = array[j];
+        array[j] = t;
     }
 
-    return getElements(words, maxPositions);
+    return array;
 }
 
-// Get only the elements from specified positions from the array
-function getElements(array, arrayPosition)
+// Get a random int between min and max (both included)
+function getRandomInteger(min, max)
 {
-    let tempArray = [];
-
-    for(let position of arrayPosition)
-    {
-        tempArray.push(array[position]);
-    }
-
-    return tempArray;
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
-// Returns an array with the words from specified text
-function getWords(text)
-{
-    let startWord = -1;
-    let tempArray = [];
-
-    for(let i = 0; i <= text.length; i++)
-    {
-        let character = i < text.length ? text[i] : " ";
-
-        if (!isSeparator(character) && startWord < 0)
-        {
-            startWord = i;
-        }
-
-        if (isSeparator(character) && startWord >= 0)
-        {
-            let word = text.substring(startWord, i);
-            tempArray.push(word);
-
-            startWord = -1;
-        }
-    }
-
-    return tempArray;
-}
-
-function isSeparator(character)
-{
-    let separators = [" ", "\t", "\n", "\r", ",", ";", ".", "!", "?", "(", ")"];
-    return separators.includes(character);
-}
 
 // Solution for pro developer!
+console.log(shuffleArrayPro(array));
 
-const getLongestWordsPro = (text) =>
-    text
-        .match(/[^\s.,;!?()]+/g)
-        .reduce(
-            (longestWords, word) =>
-                word.length > longestWords[0].length
-                    ? [word]
-                    : word.length === longestWords[0].length
-                        ? [...longestWords, word]
-                        : longestWords,
-            [""]
-        )
-        .filter((word) => word !== "");
-
-const textPro = "This function needs to return the longest word in this phrase. Will it be ArnoldCodeAcademy?!";
-console.log(getLongestWordsPro(textPro));
+function shuffleArrayPro(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
 
 // EXPLANATION in README.MD
