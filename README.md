@@ -99,7 +99,7 @@ Explained in Detail, But Simple
 43. [Deep copy a jagged array with numbers or other arrays in a new array](#challenge43--pro-solution-)
 44. [Create a function to return the longest word(s) in a string](#challenge44--pro-solution-)
 45. [Shuffle an array of strings](#challenge45--pro-solution-)
-46. [03.05.23 - Create a function that will receive n as argument and return an array of n unique random numbers from 1 to n.](#challenge46--pro-solution-)
+46. [Create a function that will receive n as argument and return an array of n unique random numbers from 1 to n.](#challenge46--pro-solution-)
 47. [09.05.23 - Find the frequency of characters inside a string. Return the result as an array of objects](#challenge47--pro-solution-)
 48. [16.05.23 - Calculate Fibonacci(500) with high precision (all decimals).](#challenge48--pro-solution-)
 49. [24.05.23 - Calculate 70! with high precision (all digits)](#challenge49--pro-solution-)
@@ -3400,6 +3400,111 @@ Finally round down the result to the nearest integer with `Math.floor()`.
 Improve the default solution by using more advanced coding techniques.
 - [Math.random()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random): “The Math.random() static method returns a floating-point, pseudo-random number that’s greater than or equal to 0 and less than 1, with approximately uniform distribution over that range — which you can then scale to your desired range. The implementation selects the initial seed to the random number generation algorithm; it cannot be chosen or reset by the user.” 1
 - [Math.floor()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor): “The Math.floor() function returns the largest integer less than or equal to a given number.” 2
+
+If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[Get the Cheatsheet to detect Code Smells that appear if you don't know about Clean Code. Get it here.](https://arnoldcodeacademy.ck.page/code-smells-cheat-sheet)
+
+[Get 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+# Challenge46 + Pro Solution 😉
+## Create a function that will receive n as argument and return an array of n unique random numbers from 1 to n. Take 10 for n.
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 45"</summary>
+
+```javascript
+console.log(getRandomNumbers(10));
+
+function getRandomNumbers(n)
+{
+    let array = [];
+
+    for(let i = 1; i <= n; i++)
+    {
+        array.push(i);
+    }
+
+    shuffleArray(array);
+
+    return array;
+}
+
+// Shuffle array implemented using Fisher–Yates shuffle algorithm
+function shuffleArray(array)
+{
+    for(let i = array.length - 1; i > 0; i--)
+    {
+        let j = getRandomInteger(0, i - 1);
+
+        let t = array[i];
+        array[i] = array[j];
+        array[j] = t;
+    }
+
+    return array;
+}
+
+// Get a random int between min and max (both included)
+function getRandomInteger(min, max)
+{
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+````
+## Solution for pro developers!
+```javascript
+console.log(getRandomNumbersPro(10));
+
+function getRandomNumbersPro(n) {
+    let arr = Array.from({length: n}, (_, i) => i + 1);
+    return shuffleArray(arr);
+}
+
+function shuffleArrayPro(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        let j = getRandomInteger(0, i - 1);
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+```
+
+### Explanation
+
+To solve the task of generating a random sequence of numbers from 1 to a specified value (n), follow these instructions:
+
+1. Create a function called `getRandomNumbers(n)` that takes an integer `n` as its argument.
+2. Inside the function, initialize an empty array called `array`. 
+3. Create a `for`-loop that iterates from `1` to `n` (inclusive). In each iteration, push the current number (`i`) into the `array`. 
+4. Call the `shuffleArray` function (which you'll create in step 5) with the `array` as its argument to shuffle its elements. 
+5. Return the shuffled `array` from the `getRandomNumbers` function. 
+6. Create a helper function called `shuffleArray(array)` that takes an array as its argument. This function will shuffle the array using the `Fisher–Yates` shuffle algorithm from last challenge. 
+7. Inside the `shuffleArray` function, create a `for`-loop that iterates from the end of the array to the second element (array index 1). 
+8. In each iteration, generate a random integer 'j' between 0 and the previous array index (i - 1) using the getRandomInteger function (which you'll create in step 10). 
+9. Swap the elements in the `array` at the current index (`i`) and the randomly chosen index (`j`).
+10. Create another helper function called `getRandomInteger(min, max)` that takes two integers, `min` and `max`, as its arguments. This function will return a random integer between `min` and `max` (both inclusive). 
+11. Inside the getRandomInteger function, generate a random decimal number between `0` (inclusive) and `1` (exclusive) using `Math.random()`
+12. Calculate the range of possible integer values by subtracting `min` from `max` and adding `1`. 
+13. Multiply the random decimal number by the calculated range and round it down to the nearest integer using `Math.floor()`. 
+14. Add the `min` value to the result to ensure the random integer is within the desired range and return the final value.
+15. Finally, call the `getRandomNumbers` function with your desired `n` value as its argument and log the returned shuffled array to the console using `console.log()`.
+
+Printing out the result to the console with `n` === 10. Obviously, every result will be different ;) 
+
+![The Result in the Console](res/png/solution46.jpg)
+
+## Explanation Pro Solution
+
+Improve the default solution by using more advanced coding techniques.
+- [Array.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from) - The Array.from() static method creates a new, shallow-copied Array instance from an array-like or iterable object.
+- [Math.random()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) - The Math.random() function returns a floating-point, pseudo-random number in the range 0 to less than 1 (inclusive of 0, but not 1) with approximately uniform distribution over that range — which you can then scale to your desired range.
+- [Math.floor()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) - The Math.floor() function returns the largest integer less than or equal to a given number.
 
 If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
 

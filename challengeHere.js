@@ -1,8 +1,20 @@
 // Solution with for - loops
 
-let array = ["Shuffle", "this", "array", "of", "ArnoldCode", "magic!"];
+console.log(getRandomNumbers(10));
 
-console.log(shuffleArray(array));
+function getRandomNumbers(n)
+{
+    let array = [];
+
+    for(let i = 1; i <= n; i++)
+    {
+        array.push(i);
+    }
+
+    shuffleArray(array);
+
+    return array;
+}
 
 // Shuffle array implemented using Fisher–Yates shuffle algorithm
 function shuffleArray(array)
@@ -27,11 +39,16 @@ function getRandomInteger(min, max)
 
 
 // Solution for pro developer!
-console.log(shuffleArrayPro(array));
+console.log(getRandomNumbersPro(10));
+
+function getRandomNumbersPro(n) {
+    let arr = Array.from({length: n}, (_, i) => i + 1);
+    return shuffleArray(arr);
+}
 
 function shuffleArrayPro(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        let j = getRandomInteger(0, i - 1);
         [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     return arr;
