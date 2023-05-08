@@ -1,57 +1,36 @@
 // Solution with for - loops
 
-console.log(getRandomNumbers(10));
+let charFrequency = getCharFrequency("Arnold Code Academy!");
+console.table(charFrequency);
 
-function getRandomNumbers(n)
-{
+function getCharFrequency(text) {
     let array = [];
 
-    for(let i = 1; i <= n; i++)
-    {
-        array.push(i);
-    }
+    text = text.toLowerCase().match(/[a-z]/g);
 
-    shuffleArray(array);
-
-    return array;
-}
-
-// Shuffle array implemented using Fisher–Yates shuffle algorithm
-function shuffleArray(array)
-{
-    for(let i = array.length - 1; i > 0; i--)
-    {
-        let j = getRandomInteger(0, i - 1);
-
-        let t = array[i];
-        array[i] = array[j];
-        array[j] = t;
+    for (let character of text) {
+        updateFrequency(array, character);
     }
 
     return array;
 }
 
-// Get a random int between min and max (both included)
-function getRandomInteger(min, max)
-{
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
+function updateFrequency(array, character) {
+    for (let el of array) {
+        if (el.chr === character) {
+            el.count++;
+            return;
+        }
+    }
 
+    array.push({ chr: character, count: 1 });
+}
 
 // Solution for pro developer!
-console.log(getRandomNumbersPro(10));
 
-function getRandomNumbersPro(n) {
-    let arr = Array.from({length: n}, (_, i) => i + 1);
-    return shuffleArray(arr);
-}
+const getCharFrequencyPro = text => Array.from(text.toLowerCase().matchAll(/[a-z]/g), ([chr]) => ({ chr, count: 1 }))
+    .reduce((acc, el) => (acc.has(el.chr) ? acc.get(el.chr).count++ : acc.set(el.chr, el), acc), new Map()).values();
 
-function shuffleArrayPro(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-        let j = getRandomInteger(0, i - 1);
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-}
+console.table([...getCharFrequencyPro("Arnold Code Academy!")]);
 
 // EXPLANATION in README.MD

@@ -100,7 +100,7 @@ Explained in Detail, But Simple
 44. [Create a function to return the longest word(s) in a string](#challenge44--pro-solution-)
 45. [Shuffle an array of strings](#challenge45--pro-solution-)
 46. [Create a function that will receive n as argument and return an array of n unique random numbers from 1 to n.](#challenge46--pro-solution-)
-47. [09.05.23 - Find the frequency of characters inside a string. Return the result as an array of objects](#challenge47--pro-solution-)
+47. [Find the frequency of characters inside a string. Return the result as an array of objects](#challenge47--pro-solution-)
 48. [16.05.23 - Calculate Fibonacci(500) with high precision (all decimals).](#challenge48--pro-solution-)
 49. [24.05.23 - Calculate 70! with high precision (all digits)](#challenge49--pro-solution-)
 50. [31.05.23 - Secret](#challenge50--pro-solution-)
@@ -3417,7 +3417,7 @@ Explanations and story telling break the 4th dimensions to save you a lot of tim
 ## Create a function that will receive n as argument and return an array of n unique random numbers from 1 to n. Take 10 for n.
 
 <details>
-    <summary>Spoiler "Solution-Explanation For Challenge 45"</summary>
+    <summary>Spoiler "Solution-Explanation For Challenge 46"</summary>
 
 ```javascript
 console.log(getRandomNumbers(10));
@@ -3505,6 +3505,103 @@ Improve the default solution by using more advanced coding techniques.
 - [Array.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from) - The Array.from() static method creates a new, shallow-copied Array instance from an array-like or iterable object.
 - [Math.random()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) - The Math.random() function returns a floating-point, pseudo-random number in the range 0 to less than 1 (inclusive of 0, but not 1) with approximately uniform distribution over that range — which you can then scale to your desired range.
 - [Math.floor()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) - The Math.floor() function returns the largest integer less than or equal to a given number.
+
+If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[Get the Cheatsheet to detect Code Smells that appear if you don't know about Clean Code. Get it here.](https://arnoldcodeacademy.ck.page/code-smells-cheat-sheet)
+
+[Get 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+
+# Challenge47 + Pro Solution 😉
+##  Find the frequency of characters inside a string. Return the result as an array of objects. Each object has 2 fields: character and number of occurrences. Use the Phrase: „Arnold Code Academy!"
+
+
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 47"</summary>
+
+```javascript
+let charFrequency = getCharFrequency("Arnold Code Academy!");
+console.table(charFrequency);
+
+function getCharFrequency(text) {
+    let array = [];
+
+    text = text.toLowerCase().match(/[a-z]/g);
+
+    for (let character of text) {
+        updateFrequency(array, character);
+    }
+
+    return array;
+}
+
+function updateFrequency(array, character) {
+    for (let el of array) {
+        if (el.chr === character) {
+            el.count++;
+            return;
+        }
+    }
+
+    array.push({ chr: character, count: 1 });
+}
+````
+## Solution for pro developers!
+```javascript
+const getCharFrequencyPro = text => Array.from(text.toLowerCase().matchAll(/[a-z]/g), ([chr]) => ({ chr, count: 1 }))
+    .reduce((acc, el) => (acc.has(el.chr) ? acc.get(el.chr).count++ : acc.set(el.chr, el), acc), new Map()).values();
+
+console.table([...getCharFrequencyPro("Arnold Code Academy!")]);
+```
+
+### Console.table
+
+`console.table` is a method that displays data in a table format in the console.
+It takes an array or object as an argument and creates a table with columns for each property and rows for each element. 
+It’s useful for displaying data in a structured and easy-to-read way.
+
+### Explanation
+
+You need code that counts the frequency of each character in a given text and displays it in a table.
+
+Create a `getCharFrequency` function that takes a string as an argument and returns an array of objects. 
+
+Each object shall have two properties: `chr` and `count`. 
+
+The `chr` property represents a character from the text and the `count` property represents the number of times that character appears in the text.
+
+Now you need an `updateFrequency` function that takes an array and a character as arguments.
+
+You need it to check if the character is already present in the array. 
+
+If it is, it increments its count by `1`. 
+
+If it’s not present, it adds a new object to the array with the `chr` property set to the character and the `count` property set to `1`.
+
+The code counts the frequency of each character in the string `Arnold Code Academy!` and displays it in a table using `console.table`.
+
+![The Result in the Console](res/png/solution47.jpg)
+
+## Explanation Pro Solution
+
+Improve the default solution by using more advanced coding techniques.
+
+- [Array.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from) - The `Array.from()` method creates a new, shallow-copied array instance from an array-like or iterable object.
+- [String.prototype.toLowerCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase) - The `toLowerCase()` method returns the calling string value converted to lowercase.
+- [RegExp.prototype.matchAll()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/matchAll) - The `matchAll()` method returns an iterator of all results matching a string against a regular expression, including capturing groups.
+- [Array.prototype.reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) - The `reduce()` method executes a reducer function on each element of an array, resulting in a single output value.
+- [Map.prototype.has()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has) - The `has()` method returns a boolean indicating whether an element with the specified key exists in a `Map` object or not.
+- [Map.prototype.get()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get) - The `get()` method returns the value associated with the specified key in a `Map` object.
+- [Map.prototype.set()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set) - The `set()` method adds or updates an element with a specified key and value to a `Map` object.
+- [Map.prototype.values()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/values) - The `values()` method returns a new iterator object that contains the values for each element in a `Map` object.
 
 If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
 
