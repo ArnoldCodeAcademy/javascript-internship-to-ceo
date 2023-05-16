@@ -101,7 +101,7 @@ Explained in Detail, But Simple
 45. [Shuffle an array of strings](#challenge45--pro-solution-)
 46. [Create a function that will receive n as argument and return an array of n unique random numbers from 1 to n.](#challenge46--pro-solution-)
 47. [Find the frequency of characters inside a string. Return the result as an array of objects](#challenge47--pro-solution-)
-48. [16.05.23 - Calculate Fibonacci(500) with high precision (all decimals).](#challenge48--pro-solution-)
+48. [Calculate Fibonacci(500) with high precision (all decimals).](#challenge48--pro-solution-)
 49. [24.05.23 - Calculate 70! with high precision (all digits)](#challenge49--pro-solution-)
 50. [31.05.23 - Secret](#challenge50--pro-solution-)
 51. [07.06.23 - Secret](#challenge51--pro-solution-)
@@ -3603,6 +3603,164 @@ Improve the default solution by using more advanced coding techniques.
 - [Map.prototype.set()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set) - The `set()` method adds or updates an element with a specified key and value to a `Map` object.
 - [Map.prototype.values()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/values) - The `values()` method returns a new iterator object that contains the values for each element in a `Map` object.
 
+If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[Get the Cheatsheet to detect Code Smells that appear if you don't know about Clean Code. Get it here.](https://arnoldcodeacademy.ck.page/code-smells-cheat-sheet)
+
+[Get 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+# Challenge48 + Pro Solution 😉
+##  Calculate Fibonacci(500) with high precision (all decimals). Take 500 for n.
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 48"</summary>
+
+```javascript
+console.log(fibonacci(500));
+
+function fibonacci(n)
+{
+    if (n === 0)
+        return "0";
+
+    if (n === 1)
+        return "1";
+
+    let n1 = "0";
+    let n2 = "1";
+
+    for(let i = 2; i <= n; i++)
+    {
+        let sum = add(n1, n2);
+
+        n1 = n2;
+        n2 = sum;
+    }
+
+    return n2;
+}
+
+function add(number1, number2)
+{
+    let maxSize = Math.max(number1.length, number2.length);
+
+    let s1 = number1.padStart(maxSize, "0");
+    let s2 = number2.padStart(maxSize, "0");
+
+    let s = "";
+    let carry = 0;
+
+    for(let i = maxSize - 1; i >= 0; i--)
+    {
+        let digit1 = parseInt(s1[i]);
+        let digit2 = parseInt(s2[i]);
+
+        let sum = digit1 + digit2 + carry;
+        let digitSum = sum % 10;
+        carry = sum >= 10 ? 1 : 0;
+
+        s = digitSum.toString() + s;
+    }
+
+    if (carry > 0)
+        s = carry + s;
+
+    return s;
+}
+````
+## Solution for pro developers!
+```javascript
+console.log(fibonacciPro(500));
+
+function fibonacciPro(n) {
+    let [a, b] = ["0", "1"];
+    for (let i = 2; i <= n; i++) [a, b] = [b, addPro(a, b)];
+    return b;
+};
+
+function addPro(num1, num2) {
+    const maxSize = Math.max(num1.length, num2.length);
+    const padNumber = (num, size) => num.padStart(size, "0");
+
+    num1 = padNumber(num1, maxSize);
+    num2 = padNumber(num2, maxSize);
+
+    let [carry, result] = [0, ""];
+
+    for (let i = maxSize - 1; i >= 0; i--) {
+        const sum = parseInt(num1[i]) + parseInt(num2[i]) + carry;
+        result = (sum % 10) + result;
+        carry = Math.floor(sum / 10);
+    }
+
+    if (carry) result = carry + result;
+
+    return result;
+};
+```
+
+### Explanation - Fibonacci Function
+Define a `fibonacci(n)`-function that takes an integer `n` as a parameter and returns the nth Fibonacci number.
+
+Establish two base cases by checking if `n` is `0` or `1`. 
+- If `n` is `0`, the function returns the string `"0"`.
+- If `n` is `1`, the function returns the string `"1"`.
+
+For `n` greater than `1`, you need to initialize two variables, `n1` and `n2`, to hold the previous two Fibonacci numbers.
+Initially, `n1` is set to `"0"` and `n2` is set to `"1"`.
+
+Finally you can use a simple `for`-loop to calculate Fibonacci numbers starting from index `2`.
+The loop should iterate from `i = 2` to `i <= n`.
+In each iteration, you need to calculate the `sum` of `n1` and `n2` using the `add()`-function. 
+Assign the intermediate result to the `sum` variable, and update the values of `n1` and `n2` for the next iteration.
+
+After the loop completes, return the value of `n2`, which represents the `nth` Fibonacci number.
+
+### Explanation - Add Function
+
+To aid you further down the road, create helper function of `add(number1, number2)` that performs the addition of two numbers as strings.
+
+By defining it as `add(number1, number2)` it takes two string parameters, `number1` and `number2`, representing two numbers to be added.
+
+Use it to determine the maximum size of the two input numbers by finding the maximum length between `number1` and `number2`. 
+You do it by using the `Math.max()` function.
+
+The `padStart()` method is then used to add leading zeros to the shorter number (`number1` or `number2`) to make both numbers equal in length.
+Ensure that the addition is performed correctly digit by digit.
+
+Initialize two variables `s` and `carry`. 
+- `s` will store the final `sum`, 
+- and `carry` will hold the carry-over value during addition.
+
+Also here use a simple `for`-loop to iterate over the digits of the numbers from right to left.
+Start from `i = maxSize - 1`, where `maxSize` is the length of the longer number (after padding with leading zeros).
+
+Within each iteration, perform the following steps:
+
+1. `digit1` and `digit2` are assigned the integer value of the current digit in `s1` and `s2`, respectively. This is achieved using the `parseInt()` function. 
+2. The `sum` of `digit1`, `digit2`, and `carry` is calculated and stored in the variable `sum`.
+3. The `digitSum` is obtained by taking the modulus (`%`) of `sum` with `10`. This ensures that only the digit in the ones place is retained.
+4. The carry-over value is determined by checking if `sum` is greater than or equal to `10`. If true, carry is set to `1`; otherwise, it is set to `0`.
+5. The digit sum is converted back to a string using the `toString()` method and concatenated with the existing `s` value. This effectively builds the final sum digit by digit in reverse order.
+
+After the loop completes, return the resulting sum (`s`).
+
+![The Result in the Console](res/png/solution48.jpg)
+
+## Explanation Pro Solution
+
+Improve the default solution by using more advanced coding techniques.
+
+- [padStart()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) - The padStart() method pads the current string with another string (repeated, if needed) until the resulting string reaches the given length.
+- [Math.max()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max) - The Math.max() function returns the largest of zero or more numbers.
+- [parseInt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) - The parseInt() function parses a string argument and returns an integer.
+- [floor()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) - The Math.floor() function returns the largest integer less than or equal to a given number.
 If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
 
 Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
