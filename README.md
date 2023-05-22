@@ -102,7 +102,7 @@ Explained in Detail, But Simple
 46. [Create a function that will receive n as argument and return an array of n unique random numbers from 1 to n.](#challenge46--pro-solution-)
 47. [Find the frequency of characters inside a string. Return the result as an array of objects](#challenge47--pro-solution-)
 48. [Calculate Fibonacci(500) with high precision (all decimals).](#challenge48--pro-solution-)
-49. [24.05.23 - Calculate 70! with high precision (all digits)](#challenge49--pro-solution-)
+49. [Calculate 70! with high precision (all digits)](#challenge49--pro-solution-)
 50. [31.05.23 - Secret](#challenge50--pro-solution-)
 51. [07.06.23 - Secret](#challenge51--pro-solution-)
 52. [14.06.23 - Secret](#challenge52--pro-solution-)
@@ -3761,6 +3761,381 @@ Improve the default solution by using more advanced coding techniques.
 - [Math.max()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max) - The Math.max() function returns the largest of zero or more numbers.
 - [parseInt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) - The parseInt() function parses a string argument and returns an integer.
 - [floor()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) - The Math.floor() function returns the largest integer less than or equal to a given number.
+If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
+
+Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
+
+[Get the Cheatsheet to detect Code Smells that appear if you don't know about Clean Code. Get it here.](https://arnoldcodeacademy.ck.page/code-smells-cheat-sheet)
+
+[Get 26 Cheatsheets and vital Web Development Tips, Tricks and Insights await you! Subscribe here.](https://arnoldcodeacademy.ck.page/26webdevcheatsheets)
+
+[![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
+
+</details>
+
+
+
+# Challenge49 + Pro Solution 😉
+##  Calculate 70! with high precision (all digits)
+
+<details>
+    <summary>Spoiler "Solution-Explanation For Challenge 49"</summary>
+
+````javascript
+console.log(factorial(70))
+
+// Calculate factorial(n) ... using big number calculations
+function factorial(n)
+{
+    let prod = "1";
+
+    for(let i = 2; i <= n; i++)
+    {
+        prod = mult(prod, i.toString());
+    }
+
+    return prod;
+}
+
+// Multiplies sNumber1 * sNumber2
+// Each number is provided as string
+function mult(number1, number2)
+{
+    // Calculate partial results according to multiplication algorithm
+    let intermediateResults = [];
+
+    for(let i = number2.length - 1; i >= 0; i--)
+    {
+        let digit = parseInt(number2[i]);
+
+        let partialResult = multDigit(number1, digit);
+        partialResult += "0".repeat(intermediateResults.length);
+
+        intermediateResults.push(partialResult);
+    }
+
+    // Sum partial results to obtain the product
+    let sum = "";
+
+    for(let r of intermediateResults)
+    {
+        sum = add(sum, r);
+    }
+
+    return sum;
+}
+
+// Multiplies number (as string) with a single digit number
+function multDigit(number, digit)
+{
+    let p = "";
+    let carry = 0;
+
+    for(let i = number.length - 1; i >= 0; i--)
+    {
+        let numberDigit = parseInt(number[i]);
+
+        let prod = digit * numberDigit + carry;
+        let prodDigit = prod % 10;
+        carry = Math.floor(prod / 10);
+
+        p = prodDigit.toString() + p;
+    }
+
+    if (carry > 0)
+        p = carry + p;
+
+    return p;
+}
+
+function add(sNumber1, sNumber2)
+{
+    let maxSize = Math.max(sNumber1.length, sNumber2.length);
+
+    let s1 = sNumber1.padStart(maxSize, "0");
+    let s2 = sNumber2.padStart(maxSize, "0");
+
+    let string = "";
+    let carry = 0;
+
+    for(let i = maxSize - 1; i >= 0; i--)
+    {
+        let digit1 = parseInt(s1[i]);
+        let digit2 = parseInt(s2[i]);
+
+        let sum = digit1 + digit2 + carry;
+        let digitSum = sum % 10;
+        carry = sum >= 10 ? 1 : 0;
+
+        string = digitSum.toString() + string;
+    }
+
+    if (carry > 0)
+        string = carry + string;
+
+    return string;
+}
+````
+## Solution for pro developers!
+```javascript
+console.log(factorialPro(70))
+
+function factorialPro(n) {
+    let p = "1";
+    for (let i = 2; i <= n; i++) {
+        p = multPro(p, i.toString());
+    }
+    return p;
+}
+
+function multPro(num1, num2) {
+    let results = [];
+    for (let i = num2.length - 1; i >= 0; i--) {
+        let digit = parseInt(num2[i]);
+        let partial = multDigitPro(num1, digit);
+        partial += "0".repeat(results.length);
+        results.push(partial);
+    }
+    let sum = "";
+    for (let r of results) {
+        sum = addPro(sum, r);
+    }
+    return sum;
+}
+
+function multDigitPro(num, digit) {
+    let p = "";
+    let carry = 0;
+    for (let i = num.length - 1; i >= 0; i--) {
+        let numDigit = parseInt(num[i]);
+        let prod = digit * numDigit + carry;
+        let prodDigit = prod % 10;
+        carry = Math.floor(prod / 10);
+        p = prodDigit.toString() + p;
+    }
+    if (carry > 0) p = carry + p;
+    return p;
+}
+
+function addPro(num1, num2) {
+    let maxSize = Math.max(num1.length, num2.length);
+    let s1 = num1.padStart(maxSize, "0");
+    let s2 = num2.padStart(maxSize, "0");
+    let str = "";
+    let carry = 0;
+    for (let i = maxSize - 1; i >= 0; i--) {
+        let digit1 = parseInt(s1[i]);
+        let digit2 = parseInt(s2[i]);
+        let sum = digit1 + digit2 + carry;
+        let digitSum = sum % 10;
+        carry = sum >= 10 ? 1 : 0;
+        str = digitSum.toString() + str;
+    }
+    if (carry > 0) str = carry + str;
+    return str;
+}
+```
+
+### Explanation - Factorial Function
+
+```javascript
+function factorial(n) {
+  let prod = "1";
+
+  for (let i = 2; i <= n; i++) {
+    prod = mult(prod, i.toString());
+  }
+
+  return prod;
+}
+```
+
+The `factorial` function takes an input parameter `n`, which represents the number for which we want to calculate the factorial.
+
+It initializes a variable prod with the value `1`. This variable will store the running product during the calculation.
+
+The function makes us of a `for`-loop that starts from `2` and iterates until `n`.
+
+In each iteration, it multiplies the current value of prod with the current number (`i`) by calling the `mult` function.
+
+The result of each multiplication is assigned back to the prod variable.
+
+After the loop completes, the `factorial` function returns the calculated factorial as a string.
+
+### Explanation - Mult Function
+
+```javascript   
+function mult(number1, number2) {
+  let intermediateResults = [];
+
+  for (let i = number2.length - 1; i >= 0; i--) {
+    let digit = parseInt(number2[i]);
+    let partialResult = multDigit(number1, digit);
+    partialResult += "0".repeat(intermediateResults.length);
+    intermediateResults.push(partialResult);
+  }
+
+  let sum = "";
+
+  for (let r of intermediateResults) {
+    sum = add(sum, r);
+  }
+
+  return sum;
+}
+```
+
+The `mult` function takes two parameters: `number1` and `number2`, which represent two numbers provided as strings.
+
+It initializes an `array` called `intermediateResults` to store the partial results obtained from multiplying each digit of `number2` with `number1`.
+
+The function enters a for loop that starts from the rightmost digit of `number2` and iterates until the leftmost digit.
+
+In each iteration, it converts the current digit of `number2` to an integer and calls the `multDigit` function to multiply number1 with the digit.
+
+It appends the appropriate number of zeros to the partial result based on the position of the digit, using the repeat method.
+
+The partial result is added to the `intermediateResults` array.
+
+After multiplying all the digits of number2, the function performs the addition of the partial results by iterating through the intermediateResults array and using the add function.
+
+The final sum is stored in the `sum` variable.
+
+The `mult` function returns the sum as a string
+
+### Explanation - MultDigit Function
+
+```javascript
+function multDigit(number, digit) {
+  let p = "";
+  let carry = 0;
+
+  for (let i = number.length - 1; i >= 0; i--) {
+    let numberDigit = parseInt(number[i]);
+    let prod = digit * numberDigit + carry;
+    let prodDigit = prod % 10;
+    carry = Math.floor(prod / 10);
+    p = prodDigit.toString() + p;
+  }
+
+  if (carry > 0) {
+    p = carry + p;
+  }
+
+  return p;
+}
+```
+
+The `multDigit` function takes two parameters: `number` (a number provided as a string) and `digit` (a single-digit number).
+
+It initializes two variables: `p` to an empty string and `carry` to 0.
+
+These variables will be used to keep track of the product and any carry value during the multiplication process.
+
+The function enters a `for`-loop that iterates through the digits of number from right to left using the variable `i`.
+
+Inside the loop, it retrieves the current digit of number by converting the character at index i to an integer using `parseInt`.
+
+It calculates the product of the digit and digit, adds the carry value, and stores it in the variable prod.
+
+To extract the resulting digit and the new carry, it uses the modulo operator (`%`) to get the remainder when prod is divided by `10`.
+
+This gives us the digit in the one's place. It also uses the `Math.floor` function to get the whole number part of the division (`prod / 10`).
+
+This gives us the `carry` value.
+
+The resulting digit is converted to a string using `.toString()` and then prepended to the `p` variable. 
+
+This ensures that the digits are added in the correct order.
+
+The loop continues until all digits of number have been processed.
+
+After the loop, it checks if there is a carry value remaining. If the carry is greater than `0`, it means there was an overflow during multiplication. In this case, the carry is prepended to the p variable.
+
+Finally, the function returns the `p` variable, which represents the product of number and digit as a string.
+
+### Explanation - add Function
+```javascript
+function add(sNumber1, sNumber2) {
+let maxSize = Math.max(sNumber1.length, sNumber2.length);
+
+let s1 = sNumber1.padStart(maxSize, "0");
+let s2 = sNumber2.padStart(maxSize, "0");
+
+let string = "";
+let carry = 0;
+
+for (let i = maxSize - 1; i >= 0; i--) {
+let digit1 = parseInt(s1[i]);
+let digit2 = parseInt(s2[i]);
+
+    let sum = digit1 + digit2 + carry;
+    let digitSum = sum % 10;
+    carry = sum >= 10 ? 1 : 0;
+
+    string = digitSum.toString() + string;
+}
+
+if (carry > 0)
+string = carry + string;
+
+return string;
+}
+```
+The `add` function takes two parameters: `sNumber1` and `sNumber2`, which represent numbers provided as strings.
+
+It determines the maximum length between `sNumber1` and `sNumber2` using the `Math.max` function and assigns it to the variable `maxSize`.
+
+This ensures that both numbers are padded with leading zeros to have the same length.
+
+It uses the `padStart` method to add leading zeros to `sNumber1` and `sNumber2` so that they have the same length as `maxSize`.
+
+The padded numbers are assigned to variables `s1` and `s2`, respectively.
+
+It initializes two variables: `string` to an empty string and `carry` to 0.
+
+These variables will be used to store the sum and any carry value during the addition process.
+
+The function enters a for loop that starts from the rightmost digit of the padded numbers and iterates until the leftmost digit.
+
+In each iteration, it retrieves the corresponding digits from `s1` and `s2` by converting the characters at index `i` to integers using `parseInt`.
+
+It adds the digits together along with the carry value and stores the sum in the variable `sum`.
+
+To extract the resulting digit and determine if there is a carry, it uses the modulo operator (`%`) to get the remainder when `sum` is divided by `10`.
+
+This gives us the digit in the one's place. It also uses a conditional (`sum >= 10 ? 1 : 0`) to check if the sum is greater than or equal to `10`.
+- If it is, it means there is a carry, and the `carry` value is set to `1`;
+- otherwise, it is set to `0`.
+
+The resulting digit is converted to a string using `.toString()` and then prepended to the `string` variable.
+
+This ensures that the digits are added in the correct order.
+
+The loop continues until all digits of the padded numbers have been processed.
+
+After the loop, it checks if there is a `carry` value remaining. If the carry is greater than `0`, it means there was an overflow during addition. 
+
+In this case, the carry is prepended to the string variable.
+
+Finally, the function returns the `string` variable, which represents the sum of sNumber1 and sNumber2 as a string.
+
+
+![The Result in the Console](res/png/solution49.jpg)
+
+
+## Explanation Pro Solution
+
+Improve the default solution by using more advanced coding techniques.
+
+- [parseInt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) - The parseInt() function parses a string argument and returns an integer of the specified radix (the base in mathematical numeral systems).
+- [for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) - The for...of statement creates a loop iterating over iterable objects (including Array, Map, Set, String, etc.).
+- [Array.push()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) - The push() method adds one or more elements to the end of an array and returns the new length of the array.
+- [Math.floor()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) - The Math.floor() function returns the largest integer less than or equal to a given number.
+- [String.padStart()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) - The padStart() method pads the current string with another string (repeated, if needed) until the resulting string reaches the given length.
+- [Math.max()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max) - The Math.max() function returns the largest of zero or more numbers.
+- [String.repeat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat) - The repeat() method constructs and returns a new string that contains the specified number of copies of the string on which it was called.
+  
 If you want to learn how to write code that has the mentioned advantages then take my [Web Developer Course with a huge saving bonus](https://arnoldcodeacademy.teachable.com/p/javascript-beginner-course).
 
 Explanations and story telling break the 4th dimensions to save you a lot of time & effort 😉
