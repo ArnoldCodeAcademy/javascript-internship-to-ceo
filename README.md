@@ -103,11 +103,11 @@ Explained in Detail, But Simple
 47. [Find the frequency of characters inside a string. Return the result as an array of objects](#challenge47--pro-solution-)
 48. [Calculate Fibonacci(500) with high precision (all decimals).](#challenge48--pro-solution-)
 49. [Calculate 70! with high precision (all digits)](#challenge49--pro-solution-)
-50. [31.05.23 - Secret](#challenge50--pro-solution-)
-51. [07.06.23 - Secret](#challenge51--pro-solution-)
-52. [14.06.23 - Secret](#challenge52--pro-solution-)
-53. [21.06.23 - Secret](#challenge53--pro-solution-)
-54. [28.06.23 - Surprise](#challenge54--pro-solution-)
+50. [Create a function that encrypts a string using the Vigenère cipher.](#challenge50)
+51. [07.06.23 - Secret](#challenge51)
+52. [14.06.23 - Secret](#challenge52)
+53. [21.06.23 - Secret](#challenge53)
+54. [28.06.23 - Surprise](#challenge54)
 
 # Challenge01 
 ## Print numbers from 1 to 10 with a for-loop.
@@ -3522,8 +3522,6 @@ Explanations and story telling break the 4th dimensions to save you a lot of tim
 # Challenge47 + Pro Solution 😉
 ##  Find the frequency of characters inside a string. Return the result as an array of objects. Each object has 2 fields: character and number of occurrences. Use the Phrase: „Arnold Code Academy!"
 
-
-
 <details>
     <summary>Spoiler "Solution-Explanation For Challenge 47"</summary>
 
@@ -4147,3 +4145,21 @@ Explanations and story telling break the 4th dimensions to save you a lot of tim
 [![Build A Game UI and an Online Resume with HTML & CSSFundamentals of Web Development (HTML & CSS) Backed By A Game UI and Online ResumeRating: 5.0; 4 total hours; 50 lectures](res/promo/img2.jpg)](https://www.udemy.com/user/arnold-abraham-3/)
 
 </details>
+
+# Challenge50
+## Create a function that encrypts a string using the Vigenère cipher.
+
+### Challenge in Detail
+
+- Create a function that encrypts a string using the Vigenère cipher.
+
+The function should take a plaintext string and a keyword as arguments 
+and return the encrypted ciphertext. The keyword should be repeated as necessary 
+to match the length of the plaintext.
+
+![The Result in the Console](res/png/solution50.jpg)
+
+
+[This article explains](https://arnoldcode.medium.com/how-to-encrypt-strings-with-vigen%C3%A8re-cipher-made-easy-using-a-custom-function-in-javascript-92d50a4e9dc9) the solution in detail.
+
+
