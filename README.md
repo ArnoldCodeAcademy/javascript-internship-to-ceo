@@ -104,7 +104,7 @@ Explained in Detail, But Simple
 48. [Calculate Fibonacci(500) with high precision (all decimals).](#challenge48--pro-solution-)
 49. [Calculate 70! with high precision (all digits)](#challenge49--pro-solution-)
 50. [Create a function that encrypts a string using the Vigenère cipher.](#challenge50)
-51. [07.06.23 - Secret](#challenge51)
+51. [Create a function that decrypts a string encrypted with the Vigenère cipher.](#challenge51)
 52. [14.06.23 - Secret](#challenge52)
 53. [21.06.23 - Secret](#challenge53)
 54. [28.06.23 - Surprise](#challenge54)
@@ -4162,4 +4162,19 @@ to match the length of the plaintext.
 
 [This article explains](https://arnoldcode.medium.com/how-to-encrypt-strings-with-vigen%C3%A8re-cipher-made-easy-using-a-custom-function-in-javascript-92d50a4e9dc9) the solution in detail.
 
+# Challenge51
+## Create a function that decrypts a string encrypted with the Vigenère cipher.
+
+### Challenge in Detail
+
+- Create a function that decrypts a string encrypted with the Vigenère cipher
+
+The function should take a ciphertext string and a keyword as arguments and return the decrypted plaintext.
+The keyword should be repeated as necessary to match the length of the ciphertext.
+
+
+![The Result in the Console](res/png/solution51.jpg)
+
+
+[This article explains](https://arnoldcode.medium.com/how-to-decrypt-strings-with-vigen%C3%A8re-cipher-made-easy-using-a-custom-function-in-javascript-6896e9d54a8c) the solution in detail.
 
