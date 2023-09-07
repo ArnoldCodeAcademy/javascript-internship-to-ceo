@@ -1,109 +1,98 @@
-// Solution to Challenge 53
-
-class City {
-    constructor(x, y) {
+// Solution to Challenge 54
+class Node {
+    constructor(x, y, isWall = false) {
         this.x = x;
         this.y = y;
-    }
-
-    distanceTo(city) {
-        const dx = this.x - city.x;
-        const dy = this.y - city.y;
-        return Math.sqrt(dx * dx + dy * dy);
+        this.isWall = isWall;
+        this.g = Infinity;
+        this.h = Infinity;
+        this.parent = null;
     }
 }
 
-class Route {
-    constructor(cities) {
-        this.cities = cities;
-        this.distance = this.calculateTotalDistance();
-    }
-
-    calculateTotalDistance() {
-        let totalDistance = 0;
-        for (let i = 1; i < this.cities.length; i++) {
-            totalDistance += this.cities[i - 1].distanceTo(this.cities[i]);
-        }
-        totalDistance += this.cities[this.cities.length - 1].distanceTo(this.cities[0]);
-        return totalDistance;
-    }
-}
-
-function randomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function selection(population) {
-    const tournamentSize = 5;
-    let bestRoute;
-    for (let i = 0; i < tournamentSize; i++) {
-        const randomIndex = randomInt(0, population.length - 1);
-        const candidate = population[randomIndex];
-        if (!bestRoute || candidate.distance < bestRoute.distance) {
-            bestRoute = candidate;
+function generateMaze(width, height) {
+    const maze = new Array(height);
+    for (let y = 0; y < height; y++) {
+        maze[y] = new Array(width);
+        for (let x = 0; x < width; x++) {
+            const isWall = Math.random() < 0.3;
+            maze[y][x] = new Node(x, y, isWall);
         }
     }
-    return bestRoute;
+    maze[0][0].isWall = false;
+    maze[height - 1][width - 1].isWall = false;
+    return maze;
 }
 
-function crossover(parent1, parent2) {
-    const start = randomInt(0, parent1.cities.length - 2);
-    const end = randomInt(start + 1, parent1.cities.length - 1);
-    const childCities = parent1.cities.slice(start, end);
-    const remainingCities = parent2.cities.filter(city => !childCities.includes(city));
-    return new Route([...childCities, ...remainingCities]);
+function manhattanDistance(a, b) {
+    return Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 }
 
-function mutate(route, mutationRate) {
-    for (let i = 0; i < route.cities.length; i++) {
-        if (Math.random() < mutationRate) {
-            const j = randomInt(0, route.cities.length - 1);
-            [route.cities[i], route.cities[j]] = [route.cities[j], route.cities[i]];
+function aStar(maze, start, end) {
+    const openSet = [start];
+    start.g = 0;
+    start.h = manhattanDistance(start, end);
+
+    while (openSet.length > 0) {
+        openSet.sort((a, b) => a.g + a.h - (b.g + b.h));
+        const current = openSet.shift();
+
+        if (current === end) {
+            const path = [];
+            let node = current;
+            while (node) {
+                path.unshift(node);
+                node = node.parent;
+            }
+            return path;
+        }
+
+        const neighbors = [
+            [0, -1], // Up
+            [1, 0], // Right
+            [0, 1], // Down
+            [-1, 0], // Left
+        ].map(([dx, dy]) => {
+            const x = current.x + dx;
+            const y = current.y + dy;
+            return maze[y] && maze[y][x];
+        }).filter(Boolean);
+
+        for (const neighbor of neighbors) {
+            if (neighbor.isWall) continue;
+            const tentative_g = current.g + 1;
+            if (tentative_g < neighbor.g) {
+                neighbor.parent = current;
+                neighbor.g = tentative_g;
+                neighbor.h = manhattanDistance(neighbor, end);
+                if (!openSet.includes(neighbor)) {
+                    openSet.push(neighbor);
+                }
+            }
         }
     }
-    route.distance = route.calculateTotalDistance();
+
+    return null;
 }
 
-function geneticAlgorithm(cities, populationSize, generations, mutationRate) {
-    let population = [];
-    for (let i = 0; i < populationSize; i++) {
-        const shuffledCities = cities.slice().sort(() => Math.random() - 0.5);
-        population.push(new Route(shuffledCities));
-    }
+function findShortestPathInMaze(width, height) {
+    const maze = generateMaze(width, height);
+    const start = maze[0][0];
+    const end = maze[height - 1][width - 1];
+    const path = aStar(maze, start, end);
 
-    for (let generation = 0; generation < generations; generation++) {
-        const newPopulation = [];
-        for (let i = 0; i < populationSize; i++) {
-            const parent1 = selection(population);
-            const parent2 = selection(population);
-            const child = crossover(parent1, parent2);
-            mutate(child, mutationRate);
-            newPopulation.push(child);
+    if (path) {
+        for (const node of path) {
+            node.isPath = true;
         }
-        population = newPopulation;
     }
 
-    return population.reduce((best, route) => (route.distance < best.distance ? route : best));
+    return maze.map(row => row.map(node => (node.isWall ? "#" : node.isPath ? "P" : " ")));
 }
 
-// Example usage
-const cities = [
-    new City(60, 200),
-    new City(180, 200),
-    new City(80, 180),
-    new City(140, 180),
-    new City(20, 160),
-    new City(100, 160),
-    new City(200, 160),
-    new City(140, 140),
-];
+// Example usage:
+const width = 10;
+const height = 10;
+const mazeWithShortestPath = findShortestPathInMaze(width, height);
 
-const populationSize = 100;
-const generations = 500;
-const mutationRate = 0.1;
-
-const bestRoute = geneticAlgorithm(cities, populationSize, generations, mutationRate);
-
-console.log('Shortest route:', bestRoute.cities);
-console.log('Total distance:', bestRoute.distance);
-
+mazeWithShortestPath.forEach(row => console.log(row.join("")));

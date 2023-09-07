@@ -4250,3 +4250,22 @@ The TSP is a foundational problem for many reasons:
 
 ### [Get a Step By Step Explanation](https://arnoldcode.medium.com/how-to-solve-the-traveling-salesman-problem-tsp-in-javascript-ccc36fcd817a) by reading my free tutorial article
 
+# Challenge54
+## Create a function that generates a random maze and finds the shortest path from the start to the end using a search algorithm.
+
+### Challenge in Detail
+
+- Create a function that generates a random maze and finds the shortest path from the start to the end using a search algorithm.
+
+Create a function that generates a random maze and finds the shortest path from the start to the end using a search algorithm. 
+The function should take the dimensions of the maze as input and return a 2D array representing the maze with the shortest path marked.
+Implement a search algorithm like A* or Dijkstra's to find the shortest path.
+
+
+### Result
+
+![The Result in the Console](res/png/solution54.jpg)
+
+
+### [Get a Step By Step Explanation](https://arnoldcode.medium.com/finding-the-longest-common-subsequence-lcs-of-two-strings-a1a6ecc04ceb) by reading my free tutorial article
+
